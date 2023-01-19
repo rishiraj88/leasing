@@ -1,21 +1,25 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.1'
+	id 'org.springframework.boot' version '2.7.6'
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'allane.leasing'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	implementation 'org.flywaydb:flyway-core'
-	implementation 'org.flywaydb:flyway-mysql'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.7.6'
+	implementation 'org.projectlombok:lombok:1.18.22'
+
+//	implementation 'org.flywaydb:flyway-core'
+//	implementation 'org.flywaydb:flyway-mysql'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

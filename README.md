@@ -18,7 +18,12 @@ to manage leasing contracts for customers and vehicles
 - Pull mysql from docker hub (mysql - Official Image | Docker Hub):
 `docker pull mysql:8.0.31`
 
-- 
+- (Optional) To connect to mysql server and check database, tables and data:
+`winpty docker run -it --network host --rm mysql mysql -hdocker-desktop -uroot -ppassword`
+mysql> `show databases;`
+mysql> `use leasedb;`
+mysql> `show tables;`
+mysql> `select * from customer;`
 
 ## Reason of Chosen Solution
 
