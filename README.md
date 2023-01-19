@@ -25,5 +25,13 @@ mysql> `use leasedb;`
 mysql> `show tables;`
 mysql> `select * from customer;`
 
+- To test the project setup with MySQL database, with Postman (independent software application) or ThunderClient (an extension of VS Code) make the following POST request (to add new customers):
+`http://localhost:8080/customer/?fname=Sddeto&lname=Sddhukla&bdate=05-05-2019`
+`http://localhost:8080/customer/?fname=Rajesh&lname=Ji&bdate=01.05.2020`
+
+- To test the API of updating the customers, make this PUT request with Postman or ThunderClient:
+`http://localhost:8080/customer/?fname=Ri&lname=Jajesh&bdate=01.03.2020`
+
+
 ## Reason of Chosen Solution
 

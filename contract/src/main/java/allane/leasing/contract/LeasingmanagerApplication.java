@@ -13,19 +13,20 @@ import java.util.Date;
 @EnableJpaRepositories
 public class LeasingmanagerApplication {
 
-	public static void main(String[] args) {
-		ApplicationContext context =  SpringApplication.run(LeasingmanagerApplication.class, args);
-test(context);
-	}
-	static void test(ApplicationContext con) {
-		CustomerRepository customerRepository = con.getBean(CustomerRepository.class);
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(LeasingmanagerApplication.class, args);
+//        test(context);
+    }
 
-		Customer customer = new Customer();
-		customer.setFirstName("Ram");
-		customer.setLastName("Shyam");
+    static void test(ApplicationContext con) {
+        CustomerRepository customerRepository = con.getBean(CustomerRepository.class);
+
+        Customer customer = new Customer();
+        customer.setFirstName("Ram");
+        customer.setLastName("Shyam");
         customer.setBirthDate(new Date(122, 11, 24));
         customer.setId("2");
-		Object save = customerRepository.save(customer);
-		System.out.println(save);
-	}
+        Object save = customerRepository.save(customer);
+        System.out.println(save);
+    }
 }
