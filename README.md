@@ -32,6 +32,12 @@ mysql> `select * from customer;`
 - To test the API of updating the customers, make this PUT request with Postman or ThunderClient:
 `http://localhost:8080/customer/?fname=Ri&lname=Jajesh&bdate=01.03.2020`
 
+- To test the API of adding new vehicles, make this POST request with Postman or ThunderClient:
+`http://localhost:8080/vehicle/?brand=Bar&model=Mao&year=2021&vin=BMX23&price=300.35`
+
+- To test the API of editing the vehicles, make this PUT request with Postman or ThunderClient:
+`http://localhost:8080/vehicle/?brand=aBar&model=aMao&year=2021&vin=BMX23&price=300.75`
+
 
 ## Reason of Chosen Solution
 

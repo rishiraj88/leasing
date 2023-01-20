@@ -30,6 +30,11 @@ public class Vehicle {
     String vin; //prop: vehicle identification number
     Double price; //prop
 
+
+//    @OneToOne(mappedBy = "vehicle", fetch = FetchType.LAZY, optional = true) @JsonBackReference //@JsonIgnore
+//    LeasingContract leasingContract;
+
+
     public String getVehicleId() {
         return vehicleId;
     }
