@@ -24,5 +24,4 @@ public interface LeasingContractRepository extends JpaRepository<LeasingContract
     @Query("SELECT lc from LeasingContract lc WHERE lc.contractNumber=:contractNumber AND "
 + " lc.monthlyRate=:monthlyRate AND lc.vehicle=:vehicle AND lc.customer=:customer")
     public LeasingContract findByAllCriteria(Integer contractNumber, Double monthlyRate, Vehicle vehicle, Customer customer);
-
 }

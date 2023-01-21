@@ -13,7 +13,7 @@ import java.util.List;
 public class LeasingContractServiceImpl implements LeasingContractService {
 
     @Autowired
-    LeasingContractRepository leasingContractRepository;
+    private LeasingContractRepository leasingContractRepository;
 
     @Override
     public void saveLeasingContract(LeasingContract contract) {

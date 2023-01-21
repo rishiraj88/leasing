@@ -17,7 +17,7 @@ import java.text.ParseException;
 @RequestMapping("/vehicle")
 public class VehicleController {
     @Autowired
-    VehicleService vehicleService;
+    private VehicleService vehicleService;
 
     private Vehicle vehicle = null;
 
@@ -51,5 +51,4 @@ public class VehicleController {
         vehicleService.saveVehicle(vehicle);
         return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
-
 }

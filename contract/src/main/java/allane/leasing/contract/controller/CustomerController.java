@@ -20,9 +20,8 @@ import java.util.Date;
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
     private Customer customer=null;
-
 
     // to create a customer
     @PostMapping ("/")

@@ -1,16 +1,13 @@
 package allane.leasing.contract.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,19 +18,14 @@ public class Vehicle {
     @Column(name = "vehicle_id")
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    String vehicleId;
-    String brand; //prop: company brand
-    String model; //prop: model name
+    private String vehicleId;
+    private String brand; //prop: company brand
+    private String model; //prop: model name
     @Column(name = "myear")
-    String modelYear; //prop
+    private String modelYear; //prop
     @JsonIgnore
-    String vin; //prop: vehicle identification number
-    Double price; //prop
-
-
-//    @OneToOne(mappedBy = "vehicle", fetch = FetchType.LAZY, optional = true) @JsonBackReference //@JsonIgnore
-//    LeasingContract leasingContract;
-
+    private String vin; //prop: vehicle identification number
+    private Double price; //prop
 
     public String getVehicleId() {
         return vehicleId;

@@ -14,25 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/contract")
 public class LeasingContractController {
     @Autowired
-    LeasingContractService leasingContractService;
+    private LeasingContractService leasingContractService;
 
     private LeasingContract leasingContract = null;
 
     // to create a leasing contract
     @PostMapping("/")
     public ResponseEntity<LeasingContract>
-    addContract( @RequestBody LeasingContract contract
-            //@RequestParam Integer contractNumber, @RequestParam Double monthlyRate,
-    //            @RequestParam Customer customer, @RequestParam Vehicle vehicle
-    ) {
-//        leasingContract = new LeasingContract();
-//        leasingContract.setContractNumber(contractNumber);
-//        leasingContract.setMonthlyRate(monthlyRate);
-//        leasingContract.setCustomer(customer);
-//        leasingContract.setVehicle(vehicle);
+    addContract(@RequestBody LeasingContract contract) {
         leasingContract = contract;
         leasingContractService.saveLeasingContract(leasingContract);
         return new ResponseEntity<>(leasingContract, HttpStatus.CREATED);
     }
-
 }

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Override
     @Transactional
@@ -29,5 +29,4 @@ public class CustomerServiceImpl implements CustomerService {
 
         return retCustomer;
     }
-
 }
