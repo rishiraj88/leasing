@@ -38,6 +38,9 @@ mysql> `select * from customer;`
 - To test the API of editing the vehicles, make this PUT request with Postman or ThunderClient:
 `http://localhost:8080/vehicle/?brand=aBar&model=aMao&year=2021&vin=BMX23&price=300.75`
 
+- To create contract, make this POST request:
+`http://127.0.0.1:8080/contract/?contractNumber=1002&monthlyRate=500.35`
+
 
 ## Reason of Chosen Solution
 

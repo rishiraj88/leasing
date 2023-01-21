@@ -36,7 +36,7 @@ public class LeasingContract {
     @ManyToOne
             (optional = false)
     @JoinColumn(name = "customer_id")
-    @JsonBackReference
+//    @JsonBackReference
 //            @JsonManagedReference
     Customer customer;
 
