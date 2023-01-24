@@ -46,6 +46,8 @@ mysql> `select * from customer;`
 - Create an Angular app without routing and Bootstrap. Use the following command for setting Bootstrap up:
 `npm install --save bootstrap`
 
+- Installed `axios` for exchanging data across REST APIs:
+`npm install axios`
 
 
 ## Reason of Chosen Solution

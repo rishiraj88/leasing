@@ -6,6 +6,7 @@ import allane.leasing.contract.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,6 +27,7 @@ public class CustomerController {
 
     // to create a customer
     @PostMapping("/")
+    @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<Customer> addCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
         customer = new Customer();
         customer.setFirstName(customerDTO.getFirstName());

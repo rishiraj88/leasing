@@ -13,6 +13,7 @@ import { ErrorComponent } from './error/error.component';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
 import { VehicleFormComponent } from './vehicle/vehicle-form/vehicle-form.component';
 import { LeasingContractFormComponent } from './leasing-contract/leasing-contract-form/leasing-contract-form.component';
+import { CustomerDTO } from './customer/dto/CustomerDTO';
 
 const appRoute: Routes  =[
   {path: 'home',component:HomeComponent, pathMatch: 'full'},
