@@ -10,12 +10,10 @@ import { CustomerDTO } from './dto/CustomerDTO';
 export class CustomerComponent {
 
   save(customerDto: CustomerDTO) {
-    console.log(customerDto)
-
     const url = 'http://localhost:8080/customer/'
     const data = {
-      "firstName":"Pukar",
-      "lastName":"Thakur",
+      "firstName":customerDto.firstName,
+      "lastName":customerDto.lastName,
       "birthDate":"06.06.2021"
     };
     axios
@@ -31,6 +29,7 @@ export class CustomerComponent {
         console.log("Request to save customer details has been completed.")
       }).catch(({err}) => {
         console.log("Error occured while saving customer details.")
+        console.log(`Error is: ${err}`)
       });
   }
 
