@@ -1,0 +1,63 @@
+<div class="container shadow min-vh-100 py-2">
+  <p>Vehicle Details</p>
+  <form class="row g-2">
+    <div class="mb-3 row">
+      <label for="brand" class="col-sm-2 col-form-label">Brand</label>
+      <div class="col-sm-10">
+        <select id="brand" class="form-control form-control-sm form-select" aria-label="brand">
+          <option selected>Select vehicle brand</option>
+          <option value="1">BMW</option>
+          <option value="2">Audi</option>
+          <option value="3">Tesla</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="model" class="col-sm-2 col-form-label">Model</label>
+      <div class="col-sm-10">
+        <select id="model" class="form-control form-control-sm form-select" aria-label="model">
+          <option selected>Select vehicle model</option>
+          <option value="1">X3</option>
+          <option value="2">2022</option>
+          <option value="3">X1</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="year" class="col-sm-2 form-label">Year</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control form-control-sm" id="year" aria-describedby="year">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="vin" class="col-sm-2 form-label">VIN</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-sm" id="vin" aria-describedby="vin">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="price" class="col-sm-2 form-label">Price</label>
+      <div class="col-sm-9">
+        <input type="number" class="form-control form-control-sm" id="price" aria-describedby="price">
+        </div>
+        <div class="col-sm-1">
+          <div class="d-flex">€
+</div>
+        </div>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <!-- <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly> -->
+    <div class="col-auto">
+      <button type="button" class="btn btn-outline-success">Cancel</button>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<div class="container shadow py-2"> <!-- min-vh-100 -->
+  <p>Customer</p>
+<form class="row g-2">
+  <div class="mb-3 row">
+    <label for="customerFname" class="col-sm-2 form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control form-control-sm" name="customerFname" [(ngModel)]="firstName" aria-describedby="fnameHelp">
+    </div>
+    <!-- <div id="fnameHelp" class="form-text">Customer's first name to show in leasing contract</div> -->
+  </div>
+  <div class="mb-3 row">
+    <label for="customerLname" class="col-sm-2 form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control form-control-sm" name="customerLname" [(ngModel)]="lastName" aria-describedby="lnameHelp">
+    </div>
+    <!-- <div id="lnameHelp" class="form-text">Customer's last name to show in leasing contract</div> -->
+  </div>
+  <div class="mb-3 row">
+    <label for="birthDate" class="col-sm-2 col-form-label">Birthdate</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" name="birthDate" [(ngModel)]="birthDate">
+    </div>
+  </div>
+  
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <!-- <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly> -->
+  <div class="col-auto">
+    <button type="button" class="btn btn-outline-success" (click)="clear()">Cancel</button>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+  </div>
+</form>
+</div>

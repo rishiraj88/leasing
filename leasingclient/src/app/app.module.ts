@@ -10,14 +10,17 @@ import { CustomerComponent } from './customer/customer.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { LeasingContractComponent } from './leasing-contract/leasing-contract.component';
 import { ErrorComponent } from './error/error.component';
+import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
+import { VehicleFormComponent } from './vehicle/vehicle-form/vehicle-form.component';
+import { LeasingContractFormComponent } from './leasing-contract/leasing-contract-form/leasing-contract-form.component';
 
 const appRoute: Routes  =[
-  {path: '',redirectTo: 'home', pathMatch: 'full'},
   {path: 'home',component:HomeComponent, pathMatch: 'full'},
   {path: 'customers',component:CustomerComponent},
   {path: 'vehicles',component:VehicleComponent},
   {path: 'lcontracts',component:LeasingContractComponent },
-  {path: '*',component:ErrorComponent }
+  // {path: '',redirectTo: 'home', pathMatch: 'full'},
+  {path: '**',component:ErrorComponent }
 ]
 
 @NgModule({
@@ -28,7 +31,10 @@ const appRoute: Routes  =[
     CustomerComponent,
     VehicleComponent,
     LeasingContractComponent,
-    ErrorComponent
+    ErrorComponent,
+    CustomerFormComponent,
+    VehicleFormComponent,
+    LeasingContractFormComponent
   ],
   imports: [
     BrowserModule,FormsModule, RouterModule.forRoot(appRoute)

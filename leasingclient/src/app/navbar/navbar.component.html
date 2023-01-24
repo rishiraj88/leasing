@@ -7,20 +7,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a [routerLinkActive]="'active'" class="nav-link active"  [routerLink]="['home']" aria-current="page">Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a  routerLinkActive="active" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Manage
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li routerLinkActive="'active'"><a class="dropdown-item" [routerLink]="['customers']">Customers</a></li>
-            <li routerLink="'active'"><a class="dropdown-item" [routerLink]="['vehicles']">Vehicles</a></li>
+            <li><a [routerLinkActive]="'active'" class="dropdown-item" [routerLink]="['customers']">Customers</a></li>
+            <li><a [routerLinkActive]="'active'" class="dropdown-item" [routerLink]="['vehicles']">Vehicles</a></li>
             <!-- <li><hr class="dropdown-divider"></li> -->
-            <li routerLink="'active'"><a class="dropdown-item" [routerLink]="['lcontracts']">Leasing Contracts</a></li>
+            <li><a [routerLinkActive]="'active'" class="dropdown-item" [routerLink]="['lcontracts']">Leasing Contracts</a></li>
           </ul>
         </li>
        
