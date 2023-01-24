@@ -26,13 +26,12 @@ public class LeasingContract {
     @Column(name = "mrate")
     private Double monthlyRate; //prop
     @OneToOne
-    @JoinColumn(name = "vehicle_id") //@JsonManagedReference
+    @JoinColumn(name = "vehicle_id") //TODO //@JsonManagedReference
     private Vehicle vehicle;
     @ManyToOne
             (optional = false)
     @JoinColumn(name = "customer_id")
-//    @JsonBackReference
-//            @JsonManagedReference
+//TODO: to remove these? //@JsonBackReference //@JsonManagedReference
     private Customer customer;
 
     public int hashCode(){

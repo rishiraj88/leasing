@@ -35,7 +35,7 @@ public class Customer {
     private Date birthDate; //prop
 
     @OneToMany(mappedBy = "customer"
-            //,fetch = FetchType.LAZY             ,  cascade = CascadeType.REMOVE
+        //TODO to check whether it's needed with more data    //,fetch = FetchType.LAZY             ,  cascade = CascadeType.REMOVE
     ) //@JsonBackReference
 //    @JsonManagedReference //@JsonIgnore
     private Set<LeasingContract> leasingContracts = new HashSet<>();
@@ -93,6 +93,7 @@ public class Customer {
         return "Customer{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
                 '}';
     }
 }

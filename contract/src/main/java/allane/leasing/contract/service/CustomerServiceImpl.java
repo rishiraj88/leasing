@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
@@ -29,4 +33,18 @@ public class CustomerServiceImpl implements CustomerService {
 
         return retCustomer;
     }
+    public Customer viewCustomerByNameAndBirthdate(String name, Date bdate) {
+        System.out.println("Retrieving customer details by name...");
+
+        String[] names = name.split(" ");
+        List<Customer> retCustomers = customerRepository.findByFirstNameAndLastNameAndBirthDate(names[0],names[1], bdate);
+
+        Customer retCustomer = null;
+        if(null != retCustomers && 0 < retCustomers.size())
+            retCustomer = retCustomers.get(0);
+        System.out.println("Retrieved customer details by name successfully.");
+
+        return retCustomer;
+    }
+
 }
