@@ -31,7 +31,7 @@ const appRoute: Routes  =[
     ErrorComponent
   ],
   imports: [
-    BrowserModule,FormsModule, RouterModule
+    BrowserModule,FormsModule, RouterModule.forRoot(appRoute)
   ],
   providers: [],
   bootstrap: [AppComponent]

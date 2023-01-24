@@ -41,6 +41,12 @@ mysql> `select * from customer;`
 - To create contract, make this POST request:
 `http://127.0.0.1:8080/contract/?contractNumber=1002&monthlyRate=500.35`
 
+### Frontend App Setup
+
+- Create an Angular app without routing and Bootstrap. Use the following command for setting Bootstrap up:
+`npm install --save bootstrap`
+
+
 
 ## Reason of Chosen Solution
 
