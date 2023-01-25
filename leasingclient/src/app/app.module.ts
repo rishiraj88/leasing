@@ -13,14 +13,14 @@ import { ErrorComponent } from './error/error.component';
 import { CustomerFormComponent } from './customer/customer-form/customer-form.component';
 import { VehicleFormComponent } from './vehicle/vehicle-form/vehicle-form.component';
 import { LeasingContractFormComponent } from './leasing-contract/leasing-contract-form/leasing-contract-form.component';
-import { CustomerDTO } from './customer/dto/CustomerDTO';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoute: Routes  =[
   {path: 'home',component:HomeComponent, pathMatch: 'full'},
   {path: 'customers',component:CustomerComponent},
   {path: 'vehicles',component:VehicleComponent},
   {path: 'lcontracts',component:LeasingContractComponent },
-  // {path: '',redirectTo: 'home', pathMatch: 'full'},
+  {path: '',redirectTo: 'home', pathMatch: 'full'},
   {path: '**',component:ErrorComponent }
 ]
 
@@ -38,7 +38,7 @@ const appRoute: Routes  =[
     LeasingContractFormComponent
   ],
   imports: [
-    BrowserModule,FormsModule, RouterModule.forRoot(appRoute)
+    BrowserModule,FormsModule, RouterModule.forRoot(appRoute), HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

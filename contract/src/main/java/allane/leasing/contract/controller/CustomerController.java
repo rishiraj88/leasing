@@ -8,10 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
@@ -25,34 +24,23 @@ public class CustomerController {
     private CustomerService customerService;
     private Customer customer = null;
 
-    // to create a customer
-    @PostMapping("/")
+    // to create a customer with POST
+    // also, to save a customer upon editing details with PUT
+    @RequestMapping(value = "/",method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<Customer> addCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
-        customer = new Customer();
+        HttpStatus status = HttpStatus.CREATED;
+        if(null == customer) {
+            customer = new Customer();
+            status = HttpStatus.OK;
+        }
         customer.setFirstName(customerDTO.getFirstName());
         customer.setLastName(customerDTO.getLastName());
         Date birthDate = new SimpleDateFormat("dd.MM.yyyy").parse(customerDTO.getBirthDate());
         customer.setBirthDate(birthDate);
 
         customerService.saveCustomer(customer);
-        return new ResponseEntity<>(customer, HttpStatus.CREATED);
-    }
-
-    // to save a customer upon editing details
-    @PutMapping("/")
-    public ResponseEntity<Customer> editCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
-        //editing the pre-retieved customer
-        //should be a branching strategy in frontend to choose:
-        //a. to editing the lastly retrieved customer
-        //b. to clear the customer reference (which may be to the lastly retrieved customer) and add a new customer with PostMapping
-        customer.setFirstName(customerDTO.getFirstName());
-        customer.setLastName(customerDTO.getLastName());
-        Date birthDate = new SimpleDateFormat("dd.MM.yyyy").parse(customerDTO.getBirthDate());
-        customer.setBirthDate(birthDate);
-
-        customerService.saveCustomer(customer);
-        return new ResponseEntity<>(customer, HttpStatus.OK);
+        return new ResponseEntity<>(customer,status);
     }
 
     // to retrieve a customer
