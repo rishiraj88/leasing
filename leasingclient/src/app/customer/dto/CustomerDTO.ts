@@ -1,5 +1,3 @@
-import { Injectable } from "@angular/core";
-
 export class CustomerDTO {
   
   constructor(private _firstName: string, private _lastName: string, private _birthDate: Date) {}

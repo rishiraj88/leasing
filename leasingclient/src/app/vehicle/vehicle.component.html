@@ -2,5 +2,5 @@
   <p>Add or Edit Vehicle</p>
 </div>
 <div>
-  <app-vehicle-form></app-vehicle-form>
+  <app-vehicle-form (vehicleDtoEvent)="save($event)"></app-vehicle-form>
 </div>

@@ -41,6 +41,32 @@ mysql> `select * from customer;`
 - To create contract, make this POST request:
 `http://127.0.0.1:8080/contract/?contractNumber=1002&monthlyRate=500.35`
 
+#### to use the app
+To save a vehicle, enter the following vehicle details (for example):
+URL to visit: http://localhost:4200/vehicles
+Vehicle details:
+  brand: BMW
+  model: X200
+  modelYear: 2022
+  vin:VIN2022
+  price: 300.75
+
+Internally the following API will get hit:
+POST http://localhost:8080/vehicle/
+{
+  "brand": "BMW",
+  "model": "X200",
+  "modelYear": "2022",
+  "vin":"VIN2022",
+  "price": 300.75
+}
+{
+  "vehicleId": "8ae4b0ef85eb05cc0185eb0cfa090000",
+  "brand": "BMW",
+  "model": "X200",
+  "modelYear": "2022",
+  "price": 300.75
+}
 ### Frontend App Setup
 
 - Create an Angular app without routing and Bootstrap. Use the following command for setting Bootstrap up:

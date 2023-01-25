@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CustomerDTO } from '../dto/CustomerDTO';
 
 @Component({
@@ -27,6 +27,5 @@ export class CustomerFormComponent {
     this.firstName = ''
     this.lastName = ''
     this.birthDate = new Date();
-
   }
 }

@@ -29,14 +29,14 @@ public class CustomerController {
     @RequestMapping(value = "/",method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<Customer> addCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
-        HttpStatus status = HttpStatus.CREATED;
+        HttpStatus status = HttpStatus.OK;
         if(null == customer) {
             customer = new Customer();
-            status = HttpStatus.OK;
+            status = HttpStatus.CREATED;
         }
         customer.setFirstName(customerDTO.getFirstName());
         customer.setLastName(customerDTO.getLastName());
-        Date birthDate = new SimpleDateFormat("dd.MM.yyyy").parse(customerDTO.getBirthDate());
+        Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(customerDTO.getBirthDate());
         customer.setBirthDate(birthDate);
 
         customerService.saveCustomer(customer);

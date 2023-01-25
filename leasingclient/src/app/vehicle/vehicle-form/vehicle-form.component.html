@@ -4,11 +4,12 @@
     <div class="mb-3 row">
       <label for="brand" class="col-sm-2 col-form-label">Brand</label>
       <div class="col-sm-10">
-        <select id="brand" class="form-control form-control-sm form-select" aria-label="brand">
-          <option selected>Select vehicle brand</option>
-          <option value="1">BMW</option>
-          <option value="2">Audi</option>
-          <option value="3">Tesla</option>
+        <select class="form-control form-control-sm form-select" name="brand" aria-label="brand" [(ngModel)]="brand">
+          <optgroup label="Select vehicle brand">
+            <option value="BMW">BMW</option>
+          <option value="Audi">Audi</option>
+          <option value="Tesla">Tesla</option>
+          </optgroup>
         </select>
       </div>
     </div>
@@ -16,11 +17,12 @@
     <div class="mb-3 row">
       <label for="model" class="col-sm-2 col-form-label">Model</label>
       <div class="col-sm-10">
-        <select id="model" class="form-control form-control-sm form-select" aria-label="model">
-          <option selected>Select vehicle model</option>
-          <option value="1">X3</option>
-          <option value="2">2022</option>
-          <option value="3">X1</option>
+        <select class="form-control form-control-sm form-select" name="model" aria-label="model" [(ngModel)]="model">
+          <optgroup label="Select vehicle model">
+          <option value="X3">X3</option>
+          <option value="2022">2022</option>
+          <option value="X1">X1</option>
+          </optgroup>
         </select>
       </div>
     </div>
@@ -28,36 +30,36 @@
     <div class="mb-3 row">
       <label for="year" class="col-sm-2 form-label">Year</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control form-control-sm" id="year" aria-describedby="year">
+        <input type="number" class="form-control form-control-sm" name="year" aria-describedby="year"
+          [(ngModel)]="year">
       </div>
     </div>
     <div class="mb-3 row">
       <label for="vin" class="col-sm-2 form-label">VIN</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control form-control-sm" id="vin" aria-describedby="vin">
+        <input type="text" class="form-control form-control-sm" name="vin" aria-describedby="vin" [(ngModel)]="vin">
       </div>
     </div>
     <div class="mb-3 row">
       <label for="price" class="col-sm-2 form-label">Price</label>
       <div class="col-sm-9">
-        <input type="number" class="form-control form-control-sm" id="price" aria-describedby="price">
+        <input type="number" class="form-control form-control-sm" name="price" aria-describedby="price"
+          [(ngModel)]="price">
+      </div>
+      <div class="col-sm-1">
+        <div class="d-flex">€
         </div>
-        <div class="col-sm-1">
-          <div class="d-flex">€
-</div>
-        </div>
+      </div>
     </div>
 
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <!-- <input class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly> -->
     <div class="col-auto">
-      <button type="button" class="btn btn-outline-success">Cancel</button>
+      <button type="button" class="btn btn-outline-success" (click)="clear()">Cancel</button>
     </div>
     <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-warning" (click)="save()">Quick Edit after Saving</button>
     </div>
   </form>
 </div>

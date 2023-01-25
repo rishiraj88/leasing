@@ -23,7 +23,7 @@ public class Vehicle {
     private String model; //prop: model name
     @Column(name = "myear")
     private String modelYear; //prop
-    @JsonIgnore
+//    @JsonIgnore
     private String vin; //prop: vehicle identification number
     private Double price; //prop
 
