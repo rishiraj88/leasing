@@ -10,7 +10,6 @@ import { VehicleService } from './vehicle.service';
 })
 export class VehicleComponent {
   private vehicleDto?: VehicleDTO
-  private url = 'http://localhost:8080/vehicle/'
 
   constructor(private vehicleService: VehicleService) { }
 

@@ -1,1 +1,47 @@
-<p>leasing-contract-form works!</p>
+<div class="container shadow min-vh-100 py-2">
+  <p>Leasing Contract</p>
+  <form class="row g-2">
+    <div class="mb-3 row">
+      <label for="contractno" class="col-sm-2 form-label">Contract No</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control form-control-sm" name="contractno" aria-describedby="contract-no" [(ngModel)]="contractNo">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="mRate" class="col-sm-2 form-label">Monthly Rate</label>
+      <div class="col-sm-9">
+        <input type="number" class="form-control form-control-sm" name="mRate" aria-describedby="monthly-rate" [(ngModel)]="mRate">
+      </div>
+      <div class="col-sm-1">
+        <div class="d-flex">€
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="customer" class="col-sm-2 form-label">customer</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-sm" name="customer" placeholder="Alex Bergmann" [(ngModel)]="customer" aria-describedby="customer">
+      </div>
+      <!-- <div id="fnameHelp" class="form-text">Customer's first name to show in leasing contract</div> -->
+    </div>
+
+    <div class="mb-3 row">
+      <label for="vehicle" class="col-sm-2 form-label">Vehicle</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control form-control-sm" name="vehicle" placeholder="BMW X3 (2022) VIN: X123456" [(ngModel)]="vehicle" aria-describedby="vehicle">
+      </div>
+      <!-- <div id="fnameHelp" class="form-text">Customer's first name to show in leasing contract</div> -->
+    </div>
+    
+    <div class="col-auto">
+      <button type="button" class="btn btn-outline-success" (click)="clear()">Cancel</button>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-warning" (click)="save()">Quick Edit after Saving</button>
+    </div>
+  </form>
+</div>

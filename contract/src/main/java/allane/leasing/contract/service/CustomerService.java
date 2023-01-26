@@ -6,7 +6,7 @@ import java.util.Date;
 
 public interface CustomerService {
     public void saveCustomer(Customer customer);
-    public Customer viewCustomerByName(String name, String birthDate);
+    public Customer viewCustomerByName(String name);
     public Customer viewCustomerByNameAndBirthdate(String name, Date birthDate);
 
 }

@@ -3,7 +3,7 @@ package allane.leasing.contract.entity.dto;
 public class VehicleDTO {
     private String brand; //prop: company brand
     private String model; //prop: model name
-    private String myear; //prop: model year
+    private String year; //prop: model year
     private String vin; //prop: vehicle identification number
     private Double price; //prop
 
@@ -23,12 +23,12 @@ public class VehicleDTO {
         this.model = model;
     }
 
-    public String getMyear() {
-        return myear;
+    public String getYear() {
+        return year;
     }
 
-    public void setMyear(String modelYear) {
-        this.myear = modelYear;
+    public void setYear(String year) {
+        this.year = year;
     }
 
     public String getVin() {
@@ -52,7 +52,7 @@ public class VehicleDTO {
         return "VehicleDTO{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", myear='" + myear + '\'' +
+                ", year='" + year + '\'' +
                 ", vin='" + vin + '\'' +
                 ", price=" + price +
                 '}';

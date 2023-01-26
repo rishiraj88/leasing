@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class VehicleServiceImpl implements VehicleService {
     @Autowired
@@ -17,5 +19,17 @@ public class VehicleServiceImpl implements VehicleService {
         System.out.println("Saving vehicle...");
         vehicleRepository.save(vehicle);
         System.out.println("Saved vehicle successfully.");
+    }
+
+    public List<Vehicle> getVehiclesByDetails(String[] details){
+        List<Vehicle> vehicles = null;
+        vehicles = vehicleRepository.findByBrand(details[0]);
+        if(null == vehicles)
+        vehicles = vehicleRepository.findByModel(details[1]);
+        if(null == vehicles)
+        vehicles = vehicleRepository.findByModelYear(details[2]);
+        if(null == vehicles)
+        vehicles = vehicleRepository.findByVin(details[3]);
+        return vehicles;
     }
 }

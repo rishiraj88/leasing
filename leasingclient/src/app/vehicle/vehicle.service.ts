@@ -34,7 +34,7 @@ export class VehicleService {
        "vin": vehicle.vin,
        "price": vehicle.price
      };
-     console.log("price: "+data.price)
+     console.log("year: "+data.year)
      axios
        .post(this.url, data, {
          headers: {

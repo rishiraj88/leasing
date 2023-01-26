@@ -38,7 +38,7 @@ public class VehicleController {
         }
         vehicle.setBrand(vehicleDTO.getBrand());
         vehicle.setModel(vehicleDTO.getModel());
-        vehicle.setModelYear(vehicleDTO.getMyear());
+        vehicle.setModelYear(vehicleDTO.getYear());
         vehicle.setVin(vehicleDTO.getVin());
         vehicle.setPrice(vehicleDTO.getPrice());
 
