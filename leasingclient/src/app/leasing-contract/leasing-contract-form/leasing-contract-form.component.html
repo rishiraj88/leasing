@@ -1,39 +1,39 @@
-<div class="container shadow min-vh-100 py-2">
-  <p>Leasing Contract</p>
+<div class="container shadow min-vh-80 py-2">
+  <p><span class="badge bg-secondary">Leasing Contract</span></p>
   <form class="row g-2">
     <div class="mb-3 row">
-      <label for="contractno" class="col-sm-2 form-label">Contract No</label>
+      <label for="contractNumber" class="col-sm-2 form-label">Contract No</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control form-control-sm" name="contractno" aria-describedby="contract-no" [(ngModel)]="contractNo">
+        <input type="number" class="form-control form-control-sm" name="contractNumber" aria-describedby="contract-no"
+          [(ngModel)]="contractNumber">
       </div>
     </div>
     <div class="mb-3 row">
-      <label for="mRate" class="col-sm-2 form-label">Monthly Rate</label>
-      <div class="col-sm-9">
-        <input type="number" class="form-control form-control-sm" name="mRate" aria-describedby="monthly-rate" [(ngModel)]="mRate">
-      </div>
-      <div class="col-sm-1">
-        <div class="d-flex">€
-        </div>
-      </div>
+      <label for="monthlyRate" class="col-sm-2 form-label">Monthly Rate</label>
+      <span class="col-sm-9" style="max-width:85%;">
+        <input type="number" class=" form-control form-control-sm" name="monthlyRate" aria-describedby="monthly-rate"
+          [(ngModel)]="monthlyRate">
+      </span><span class="text-end" style="width:1%;">€</span>
     </div>
 
     <div class="mb-3 row">
-      <label for="customer" class="col-sm-2 form-label">customer</label>
+      <label for="customerName" class="col-sm-2 form-label">Customer</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control form-control-sm" name="customer" placeholder="Alex Bergmann" [(ngModel)]="customer" aria-describedby="customer">
+        <input type="text" class="form-control form-control-sm" name="customerName" placeholder="Alex Bergmann"
+          [(ngModel)]="customerName" aria-describedby="customerName">
       </div>
       <!-- <div id="fnameHelp" class="form-text">Customer's first name to show in leasing contract</div> -->
     </div>
 
     <div class="mb-3 row">
-      <label for="vehicle" class="col-sm-2 form-label">Vehicle</label>
+      <label for="vehicleDetails" class="col-sm-2 form-label">Vehicle</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control form-control-sm" name="vehicle" placeholder="BMW X3 (2022) VIN: X123456" [(ngModel)]="vehicle" aria-describedby="vehicle">
+        <input type="text" class="form-control form-control-sm" name="vehicleDetails"
+          placeholder="BMW X3 (2022) VIN: X123456" [(ngModel)]="vehicleDetails" aria-describedby="vehicleDetails">
       </div>
       <!-- <div id="fnameHelp" class="form-text">Customer's first name to show in leasing contract</div> -->
     </div>
-    
+
     <div class="col-auto">
       <button type="button" class="btn btn-outline-success" (click)="clear()">Cancel</button>
     </div>
@@ -41,7 +41,7 @@
       <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
     </div>
     <div class="col-auto">
-      <button type="submit" class="btn btn-warning" (click)="save()">Quick Edit after Saving</button>
+      <button type="submit" class="btn btn-warning" (click)="save()">Quick Edit</button>
     </div>
   </form>
 </div>

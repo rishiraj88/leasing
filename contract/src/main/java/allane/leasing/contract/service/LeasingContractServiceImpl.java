@@ -7,7 +7,9 @@ import allane.leasing.contract.repo.LeasingContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class LeasingContractServiceImpl implements LeasingContractService {
@@ -60,12 +62,19 @@ public class LeasingContractServiceImpl implements LeasingContractService {
         String[] details = vehicleDetails.replace("VIN:"," ").replace("("," ")
                 .replace(")"," ").replaceAll("\\s+"," ")
                 .split(" ");
-        return vehicleService.getVehiclesByDetails(details).get(0);
+        System.out.println("details array: ");
+        String[] preparedDetails = Arrays.stream(details).filter(a -> a.length()>0).toArray(String[]::new);
+        return vehicleService.getVehiclesByDetails(preparedDetails).get(0);
     }
     public LeasingContract viewContractByVehicle(Vehicle vehicle) {
         System.out.println("Retrieving contract by vehicle...");
         LeasingContract retLeasingContract = leasingContractRepository.findByVehicle(vehicle);
         System.out.println("Retrieved contract by vehicle successfully.");
         return retLeasingContract;
+    }
+
+    @Override
+    public List<LeasingContract> view() {
+        return leasingContractRepository.findAll();
     }
 }

@@ -1,6 +1,6 @@
 package allane.leasing.contract.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import allane.leasing.contract.entity.dto.VehicleDTO;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,10 +22,9 @@ public class Vehicle {
     private String brand; //prop: company brand
     private String model; //prop: model name
     @Column(name = "myear")
-    private String modelYear; //prop
-//    @JsonIgnore
+    private String modelYear;
     private String vin; //prop: vehicle identification number
-    private Double price; //prop
+    private Double price;
 
     public String getVehicleId() {
         return vehicleId;
@@ -73,5 +72,13 @@ public class Vehicle {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getDetails() {
+        return "" + brand + ' ' + model + " (" + modelYear +") VIN: " + vin;
+    }
+
+    public VehicleDTO getDto() {
+        return new VehicleDTO(this.brand,this.model,this.modelYear,this.vin, this.price);
     }
 }

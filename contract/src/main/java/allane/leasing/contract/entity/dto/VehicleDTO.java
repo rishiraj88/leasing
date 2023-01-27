@@ -5,7 +5,7 @@ public class VehicleDTO {
     private String model; //prop: model name
     private String year; //prop: model year
     private String vin; //prop: vehicle identification number
-    private Double price; //prop
+    private Double price;
 
     public String getBrand() {
         return brand;
@@ -56,5 +56,13 @@ public class VehicleDTO {
                 ", vin='" + vin + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public VehicleDTO(String brand, String model, String year, String vin, Double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.vin = vin;
+        this.price = price;
     }
 }

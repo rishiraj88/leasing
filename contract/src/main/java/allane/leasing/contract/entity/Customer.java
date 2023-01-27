@@ -1,6 +1,8 @@
 package allane.leasing.contract.entity;
 
+import allane.leasing.contract.entity.dto.CustomerDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -26,18 +28,17 @@ public class Customer {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String customerId;
     @Column(name = "fname")
-    private String firstName; //prop
+    private String firstName;
     @Column(name = "lname")
-    private String lastName; //prop
+    private String lastName;
     @Temporal(TemporalType.DATE)
     @Column(name = "bdate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private Date birthDate; //prop
+    private Date birthDate;
 
     @OneToMany(mappedBy = "customer"
-        //TODO to check whether it's needed with more data    //,fetch = FetchType.LAZY             ,  cascade = CascadeType.REMOVE
-    ) //@JsonBackReference
-//    @JsonManagedReference //@JsonIgnore
+    )
+@JsonIgnore
     private Set<LeasingContract> leasingContracts = new HashSet<>();
 
     public String getId() {
@@ -50,6 +51,10 @@ public class Customer {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public String getName() {
+        return firstName + " " + lastName;
     }
 
     public void setFirstName(String firstName) {
@@ -95,5 +100,9 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 '}';
+    }
+
+    public CustomerDTO getDto() {
+        return new CustomerDTO(this.firstName,this.lastName,birthDate.toString());
     }
 }

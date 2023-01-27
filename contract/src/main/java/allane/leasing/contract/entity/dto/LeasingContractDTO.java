@@ -1,50 +1,91 @@
 package allane.leasing.contract.entity.dto;
 
 public class LeasingContractDTO {
-    private Integer contractNo; //prop
-    private Double mRate; //prop
-    private String vehicle; // need to extract vehicle id from vehicle details
-    private String customer;
+    private Integer contractNumber;
+    private Double monthlyRate;
+    private String vehicleDetails;
+    private String customerName;
 
-    public Integer getContractNo() {
-        return contractNo;
+    private CustomerDTO customerDto;
+
+    private VehicleDTO vehicleDto;
+
+    public LeasingContractDTO() {
     }
 
-    public void setContractNo(Integer contractNo) {
-        this.contractNo = contractNo;
+    public LeasingContractDTO(Integer contractNumber, Double monthlyRate, String vehicleDetails, String customerName) {
+        this.contractNumber = contractNumber;
+        this.monthlyRate = monthlyRate;
+        this.vehicleDetails = vehicleDetails;
+        this.customerName = customerName;
     }
 
-    public Double getmRate() {
-        return mRate;
+    public LeasingContractDTO(Integer contractNumber, Double monthlyRate, String vehicleDetails, String customerName, CustomerDTO customerDto, VehicleDTO vehicleDto) {
+        this.contractNumber = contractNumber;
+        this.monthlyRate = monthlyRate;
+        this.vehicleDetails = vehicleDetails;
+        this.customerName = customerName;
+        this.customerDto = customerDto;
+        this.vehicleDto = vehicleDto;
     }
 
-    public void setmRate(Double mRate) {
-        this.mRate = mRate;
+    public Integer getContractNumber() {
+        return contractNumber;
     }
 
-    public String getVehicle() {
-        return vehicle;
+    public void setContractNumber(Integer contractNumber) {
+        this.contractNumber = contractNumber;
     }
 
-    public void setVehicle(String vehicle) {
-        this.vehicle = vehicle;
+    public Double getMonthlyRate() {
+        return monthlyRate;
     }
 
-    public String getCustomer() {
-        return customer;
+    public void setMonthlyRate(Double monthlyRate) {
+        this.monthlyRate = monthlyRate;
     }
 
-    public void setCustomer(String customer) {
-        this.customer = customer;
+    public String getVehicleDetails() {
+        return vehicleDetails;
+    }
+
+    public void setVehicleDetails(String vehicleDetails) {
+        this.vehicleDetails = vehicleDetails;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public CustomerDTO getCustomerDto() {
+        return customerDto;
+    }
+
+    public void setCustomerDto(CustomerDTO customerDto) {
+        this.customerDto = customerDto;
+    }
+
+    public VehicleDTO getVehicleDto() {
+        return vehicleDto;
+    }
+
+    public void setVehicleDto(VehicleDTO vehicleDto) {
+        this.vehicleDto = vehicleDto;
     }
 
     @Override
     public String toString() {
         return "LeasingContractDTO{" +
-                "contractNo=" + contractNo +
-                ", mRate=" + mRate +
-                ", vehicle='" + vehicle + '\'' +
-                ", customer='" + customer + '\'' +
+                "contractNumber=" + contractNumber +
+                ", monthlyRate=" + monthlyRate +
+                ", vehicleDetails='" + vehicleDetails + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", customerDto=" + customerDto +
+                ", vehicleDto=" + vehicleDto +
                 '}';
     }
 }

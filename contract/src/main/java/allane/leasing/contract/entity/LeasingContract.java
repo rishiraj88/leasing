@@ -22,16 +22,15 @@ public class LeasingContract {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
     @Column(name = "lcnum")
-    private Integer contractNumber; //prop
+    private Integer contractNumber;
     @Column(name = "mrate")
-    private Double monthlyRate; //prop
+    private Double monthlyRate;
     @OneToOne
-    @JoinColumn(name = "vehicle_id") //TODO //@JsonManagedReference
+    @JoinColumn(name = "vehicle_id")
     private Vehicle vehicle;
     @ManyToOne
             (optional = false)
     @JoinColumn(name = "customer_id")
-//TODO: to remove these? //@JsonBackReference //@JsonManagedReference
     private Customer customer;
 
     public int hashCode(){
@@ -75,6 +74,8 @@ public class LeasingContract {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+        if(null == this.vehicle.getVin() || "".equals(this.vehicle.getVin()))
+            this.vehicle.setVin("-");
     }
 
     public Customer getCustomer() {

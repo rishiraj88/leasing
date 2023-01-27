@@ -1,8 +1,8 @@
 package allane.leasing.contract.entity.dto;
 public class CustomerDTO {
-    private String firstName; //prop
-    private String lastName; //prop
-    private String birthDate; //prop
+    private String firstName;
+    private String lastName;
+    private String birthDate;
 
     public String getFirstName() {
         return firstName;
@@ -35,5 +35,11 @@ public class CustomerDTO {
                 ", lastName='" + lastName + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 '}';
+    }
+
+    public CustomerDTO(String firstName, String lastName, String birthDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
     }
 }

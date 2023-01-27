@@ -1,0 +1,23 @@
+<div class="container shadow min-vh-80 py-2">
+  <p>Contract Overview</p>
+  <table id="contracts">
+    <tr>
+      <th>Contract No</th>
+      <th>Customer</th>
+      <th>Vehicle</th>
+      <th>VIN</th>
+      <th>Monthly Rate</th>
+      <th>Vehicle Price</th>
+      <th>Details</th>
+    </tr>
+    <tr *ngFor="let contract of allContracts">
+      <td>{{contract.contractNumber}}</td>
+      <td>{{contract.customerDto?.firstName+" "+contract.customerDto?.lastName}}</td>
+      <td>{{contract.vehicleDto?.brand+" "+contract.vehicleDto?.model +" ("+contract.vehicleDto?.year+")"}}</td>
+      <td>{{contract.vehicleDto?.vin}}</td>
+      <td>{{contract.monthlyRate}}</td>
+      <td>{{contract.vehicleDto?.price}}</td>
+<td>Details</td>
+    </tr>
+  </table>
+</div>

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LeasingContractDTO } from '../dto/LeasingContractDTO';
+import { LeasingContractService } from '../leasing-contract.service';
 
 @Component({
   selector: 'app-leasing-contract-form',
@@ -7,31 +8,31 @@ import { LeasingContractDTO } from '../dto/LeasingContractDTO';
   styleUrls: ['./leasing-contract-form.component.css']
 })
 export class LeasingContractFormComponent {
-//default values only for quick review post app installation
-  contractNo: number = 1234567//0
-  mRate: number = 350.00//-1
-  customer: string = 'Alex Doe'
-  vehicle: string = 'BMW X3 2022'//VIN unavailable //'BMW X3 (2022) VIN: X123456'//''
+  @Input()
+  contractNumber: number = -1
+  monthlyRate: number = -1
+  customerName: string = ''
+  vehicleDetails: string = ''
+
 
   @Output()
   leasingContractDtoEvent: EventEmitter<LeasingContractDTO> = new EventEmitter<LeasingContractDTO>();
 
   save() {
-    console.log(this.contractNo)
-    console.log(this.mRate)
-    console.log(this.customer)
-    console.log(this.vehicle)
-    let leasingContractDTO = new LeasingContractDTO(this.contractNo, this.mRate, this.customer, this.vehicle)
+    console.log(this.contractNumber)
+    console.log(this.monthlyRate)
+    console.log(this.customerName)
+    console.log(this.vehicleDetails)
+    let leasingContractDTO = new LeasingContractDTO(this.contractNumber, this.monthlyRate, this.customerName, this.vehicleDetails)
     this.leasingContractDtoEvent.emit(leasingContractDTO)
     console.log(leasingContractDTO)
   }
 
   clear() {
-    this. contractNo = 0
-    this.mRate= -1
-    this.customer = ''
-    this.vehicle = ''
-    let leasingContractDTO = new LeasingContractDTO(this.contractNo, this.mRate, this.customer, this.vehicle)
+    this.monthlyRate = -1
+    this.customerName = ''
+    this.vehicleDetails = ''
+    let leasingContractDTO = new LeasingContractDTO(this.contractNumber, this.monthlyRate, this.customerName, this.vehicleDetails)
     this.leasingContractDtoEvent.emit(leasingContractDTO)
     console.log(leasingContractDTO)
   }

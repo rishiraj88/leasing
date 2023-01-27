@@ -1,5 +1,5 @@
-<div class="container shadow min-vh-100 py-2">
-  <p>Vehicle Details</p>
+<div class="container shadow min-vh-80 py-2">
+  <p><span class="badge bg-primary">Vehicle Details</span></p>
   <form class="row g-2">
     <div class="mb-3 row">
       <label for="brand" class="col-sm-2 col-form-label">Brand</label>
@@ -7,8 +7,8 @@
         <select class="form-control form-control-sm form-select" name="brand" aria-label="brand" [(ngModel)]="brand">
           <optgroup label="Select vehicle brand">
             <option value="BMW">BMW</option>
-          <option value="Audi">Audi</option>
-          <option value="Tesla">Tesla</option>
+            <option value="Audi">Audi</option>
+            <option value="Tesla">Tesla</option>
           </optgroup>
         </select>
       </div>
@@ -19,9 +19,9 @@
       <div class="col-sm-10">
         <select class="form-control form-control-sm form-select" name="model" aria-label="model" [(ngModel)]="model">
           <optgroup label="Select vehicle model">
-          <option value="X3">X3</option>
-          <option value="2022">2022</option>
-          <option value="X1">X1</option>
+            <option value="X3">X3</option>
+            <option value="2022">2022</option>
+            <option value="X1">X1</option>
           </optgroup>
         </select>
       </div>
@@ -42,24 +42,21 @@
     </div>
     <div class="mb-3 row">
       <label for="price" class="col-sm-2 form-label">Price</label>
-      <div class="col-sm-9">
+      <div class="col-sm-9" style="max-width:85%;">
         <input type="number" class="form-control form-control-sm" name="price" aria-describedby="price"
           [(ngModel)]="price">
-      </div>
-      <div class="col-sm-1">
-        <div class="d-flex">€
-        </div>
-      </div>
-    </div>
+      </div><span class="text-end" style="width:1%;">€</span>
 
-    <div class="col-auto">
-      <button type="button" class="btn btn-outline-success" (click)="clear()">Cancel</button>
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
-    </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-warning" (click)="save()">Quick Edit after Saving</button>
-    </div>
+      </div>
+
+      <div class="col-auto">
+        <button type="button" class="btn btn-outline-success" (click)="clear()">Cancel</button>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-warning" (click)="save()">Quick Edit</button>
+      </div>
   </form>
 </div>

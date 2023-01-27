@@ -7,13 +7,11 @@ import { VehicleDTO } from 'src/app/vehicle/dto/VehicleDTO';
   styleUrls: ['./vehicle-form.component.css']
 })
 export class VehicleFormComponent {
-  //default values only for evaluation of the app
-  //these will be removed
-  brand: string = 'BMW'
-  model: string = 'X3'
-  year: string = '2022'
+  brand: string = ''
+  model: string = ''
+  year: string = ''
   vin: string = ''
-  price: number = 45.350//-1.00
+  price: number = -1.00
 
   @Output()
   vehicleDtoEvent: EventEmitter<VehicleDTO> = new EventEmitter<VehicleDTO>();

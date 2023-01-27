@@ -1,6 +1,9 @@
 <div>
-  <p>Add or Edit Leasing Contract</p>
+  <p class="lead">Add or Edit Leasing Contract</p>
 </div>
 <div>
-  <app-leasing-contract-form (leasingContractDtoEvent)="save($event)"></app-leasing-contract-form>
+  <app-leasing-contract-form [contractNumber]="nextContractNumberSuggestion()" (leasingContractDtoEvent)="save($event)"></app-leasing-contract-form>
+</div>
+<div>
+  <app-leasing-contract-list (load)="0" (leasingContractDtoEvent)="0"></app-leasing-contract-list>
 </div>
