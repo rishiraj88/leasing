@@ -1,65 +1,48 @@
-# Leasing Application
+# Leasing Application for Allane Mobility Group
 
 to manage leasing contracts for customers and vehicles
 
 ## Preconditions to Run the Application
 
-- Java 11
-- Spring Boot ^2.5
-- MySQL or MariaDB (out of Docker)
-- Docker
-- Gradle
-- Flyway database migration for initial schema
-- OpenAPI Spec. to generate server/client (optional)
-- Angular ^13
+This application requires the following software packages to run properly:
+- a command line interpreter. Bash is preferred. CMD for Windows also works. The command in this readme run very well with [Bash](https://www.gnu.org/software/bash/). For having Bash on a Windows box, you may install [Git Bash](https://git-scm.com/download/win).
+- [Docker](https://www.docker.com/)
+- a web browser. [Chrome](https://google.com/chrome/) is preferred. Other web browsers may work for most functionalities.
+
+## Installation
+- Clone the files (source and configuration files) from GitHub repository:
+`git clone https://github.com/rishiraj88/leasing.git`
+
+- Go to `leasing/contract` directory.
+
+- Build the project:
+`./gradlew build`
+
+- Run this command in Bash (or another compatible shell) to build Docker image for the backend project:
+`docker build -t i50729/contract .`
+
+- Build the Docker container network by running:
+`docker-compose build`
+`docker-compose up -d`
+
+- Go to `leasing\leasingclient` directory.
+
+- Build and run the project with these commands:
+`npm install`
+`ng serve`
 
 ## How to Start the Application
 
-- Pull mysql from docker hub (mysql - Official Image | Docker Hub):
-`docker pull mysql:8.0.31`
+- Now you may use the application by visiting this URL:
+`http://localhost:4200/home`
 
-- (Optional) To connect to mysql server and check database, tables and data:
-`winpty docker run -it --network host --rm mysql mysql -hdocker-desktop -uroot -ppassword`
-mysql> `show databases;`
-mysql> `use leasedb;`
-mysql> `show tables;`
-mysql> `select * from customer;`
-
-- To test the project setup with MySQL database, with Postman (independent software application) or ThunderClient (an extension of VS Code) make the following POST request (to add new customers):
-`http://localhost:8080/customer/?fname=Sddeto&lname=Sddhukla&bdate=05-05-2019`
-`http://localhost:8080/customer/?fname=Rajesh&lname=Ji&bdate=01.05.2020`
-
-- To test the API of updating the customers, make this PUT request with Postman or ThunderClient:
-`http://localhost:8080/customer/?fname=Ri&lname=Jajesh&bdate=01.03.2020`
-
-- To test the API of adding new vehicles, make this POST request with Postman or ThunderClient:
-`http://localhost:8080/vehicle/?brand=Bar&model=Mao&year=2021&vin=BMX23&price=300.35`
-
-- To test the API of editing the vehicles, make this PUT request with Postman or ThunderClient:
-`http://localhost:8080/vehicle/?brand=aBar&model=aMao&year=2021&vin=BMX23&price=300.75`
-
-- To create contract, make this POST request:
-`http://127.0.0.1:8080/contract/?contractNumber=1002&monthlyRate=500.35`
-
-#### to use the app
-To save or update a vehicle, enter the following vehicle details (for example):
-URL to visit: http://localhost:4200/vehicles
-Vehicle details:
-  brand: BMW
-  model: X200
-  modelYear: 2022
-  vin:VIN2022
-  price: 300.75
-
-
-### Frontend App Setup
-
-- Create an Angular app without routing and Bootstrap. Use the following command for setting Bootstrap up:
-`npm install --save bootstrap`
-
-- Installed `axios` for exchanging data across REST APIs:
-`npm install axios`
-
+- Freely navigate to and use the sections `Customers`, `Vehicles` and `Leasing Contracts` under `Manage` menu.
 
 ## Reason of Chosen Solution
+The chosen solution corresponds to the use of some of the latest technologies available so as to model complex dynamic systems to work on heavy-cash businesses.
 
+## Notes
+Due to some constraints, I have built the MVP. For enhancing and fostering the solution, I am open to explain the relevant parameters and methods in the following tech discussion.
+
+-- Rishi Raj
+rishi.raj.88[at]gmail[dot]com

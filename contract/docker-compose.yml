@@ -1,0 +1,39 @@
+version: "3.5"
+# comments are to be preserved for easy spinning of configs
+#  docker-compose down
+#  docker-compose build
+#  docker-compose up -d
+services:
+  contract:
+    image: i50729/contract:latest
+    build: .
+#    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - db:db
+    depends_on:
+      - db
+#    environment:
+#      - shopping-service.configserverurl=http://A.B.C.D:8888
+#      - shopping-service.eureka.url=http://A.B.C.D:4444/eureka
+    networks:
+      - appnet
+  db:
+    image: mysql:8.0.31
+    restart: on-failure
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: leasedb
+#      MYSQL_USER: user1
+#      MYSQL_PASSWORD: password1
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    networks:
+      - appnet
+networks:
+  appnet:
+    name: appnet

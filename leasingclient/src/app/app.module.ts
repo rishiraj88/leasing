@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID, DEFAULT_CURRENCY_CODE } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,6 +16,10 @@ import { LeasingContractFormComponent } from './leasing-contract/leasing-contrac
 import { HttpClientModule } from '@angular/common/http';
 import { LeasingContractListComponent } from './leasing-contract/leasing-contract-list/leasing-contract-list.component';
 import { FooterComponent } from './footer/footer.component';
+import { registerLocaleData } from '@angular/common';
+
+import localeDe from '@angular/common/locales/de'; 
+registerLocaleData(localeDe);
 
 const appRoute: Routes  =[
   {path: 'home',component:HomeComponent, pathMatch: 'full'},
@@ -44,7 +48,15 @@ const appRoute: Routes  =[
   imports: [
     BrowserModule,FormsModule, RouterModule.forRoot(appRoute), HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR'
+     },
+     {
+       provide: DEFAULT_CURRENCY_CODE,
+       useValue: 'BRL'
+     },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

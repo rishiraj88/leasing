@@ -11,7 +11,8 @@ export class LeasingContractListComponent implements OnInit{
   @Output()
   allContracts: LeasingContractDTO[] =[]
   
-  constructor(private leasingContractService: LeasingContractService){}
+  constructor(private leasingContractService: LeasingContractService){
+  }
   
   ngOnInit() {
     this.allContracts = this.leasingContractService.allContracts
