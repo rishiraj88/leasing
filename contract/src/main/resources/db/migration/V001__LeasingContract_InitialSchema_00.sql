@@ -1,0 +1,32 @@
+CREATE DATABASE IF NOT EXISTS leasedb;
+use leasedb;
+
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS vehicle;
+DROP TABLE IF EXISTS lcontract;
+
+CREATE TABLE customer (
+id VARCHAR(8) PRIMARY KEY,
+fname VARCHAR(12),
+lname VARCHAR(17) NOT NULL,
+bdate DATE NOT NULL
+);
+
+CREATE TABLE vehicle (
+id VARCHAR(8) PRIMARY KEY,
+brand VARCHAR(12) NOT NULL,
+model VARCHAR(12) NOT NULL,
+year VARCHAR(12) NOT NULL,
+vin VARCHAR(12) NOT NULL,
+price DECIMAL(8,2) NOT NULL,
+INDEX(vin)
+);
+
+CREATE TABLE lcontract (
+id VARCHAR(10) PRIMARY KEY,
+lcnum INT(8) NOT NULL,
+mrate DECIMAL(6,2) NOT NULL,
+vehicleidnum VARCHAR(12),
+INDEX(vehicleidnum),
+FOREIGN KEY(vehicleidnum) REFERENCES vehicle(vin)
+);
