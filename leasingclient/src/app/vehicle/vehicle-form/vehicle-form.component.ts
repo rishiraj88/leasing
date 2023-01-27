@@ -13,6 +13,8 @@ export class VehicleFormComponent {
   vin: string = ''
   price: number = -1.00
 
+  saveEditLabel: string = 'Save'
+
   @Output()
   vehicleDtoEvent: EventEmitter<VehicleDTO> = new EventEmitter<VehicleDTO>();
 
@@ -25,6 +27,7 @@ export class VehicleFormComponent {
     let vehicleDTO = new VehicleDTO(this.brand, this.model, this.year, this.vin, this.price)
     this.vehicleDtoEvent.emit(vehicleDTO)
     console.log(vehicleDTO)
+    this.saveEditLabel='Edit'
   }
 
   clear() {
@@ -36,6 +39,7 @@ export class VehicleFormComponent {
     let vehicleDTO = new VehicleDTO(this.brand, this.model, this.year, this.vin, this.price)
     this.vehicleDtoEvent.emit(vehicleDTO)
     console.log(vehicleDTO)
+    this.saveEditLabel='Save'
   }
 }
 

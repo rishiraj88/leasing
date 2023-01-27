@@ -1,7 +1,7 @@
-<div class="container shadow min-vh-80 py-2">
-  <p>Contract Overview</p>
-  <table id="contracts">
-    <tr>
+<div class="container shadow  py-2">
+  <p class="lead mx-2">Contract Overview</p>
+  <table id="contracts" class="table table-striped table-hover border border-light ">
+    <thead><tr>
       <th>Contract No</th>
       <th>Customer</th>
       <th>Vehicle</th>
@@ -9,8 +9,8 @@
       <th>Monthly Rate</th>
       <th>Vehicle Price</th>
       <th>Details</th>
-    </tr>
-    <tr *ngFor="let contract of allContracts">
+    </tr></thead>
+<tbody>    <tr *ngFor="let contract of allContracts">
       <td>{{contract.contractNumber}}</td>
       <td>{{contract.customerDto?.firstName+" "+contract.customerDto?.lastName}}</td>
       <td>{{contract.vehicleDto?.brand+" "+contract.vehicleDto?.model +" ("+contract.vehicleDto?.year+")"}}</td>
@@ -18,6 +18,6 @@
       <td>{{contract.monthlyRate}}</td>
       <td>{{contract.vehicleDto?.price}}</td>
 <td>Details</td>
-    </tr>
+    </tr></tbody>
   </table>
 </div>

@@ -15,6 +15,7 @@ import { VehicleFormComponent } from './vehicle/vehicle-form/vehicle-form.compon
 import { LeasingContractFormComponent } from './leasing-contract/leasing-contract-form/leasing-contract-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LeasingContractListComponent } from './leasing-contract/leasing-contract-list/leasing-contract-list.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoute: Routes  =[
   {path: 'home',component:HomeComponent, pathMatch: 'full'},
@@ -37,7 +38,8 @@ const appRoute: Routes  =[
     CustomerFormComponent,
     VehicleFormComponent,
     LeasingContractFormComponent,
-    LeasingContractListComponent
+    LeasingContractListComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,FormsModule, RouterModule.forRoot(appRoute), HttpClientModule

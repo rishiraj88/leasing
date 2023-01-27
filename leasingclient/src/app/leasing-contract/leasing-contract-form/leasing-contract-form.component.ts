@@ -14,6 +14,7 @@ export class LeasingContractFormComponent {
   customerName: string = ''
   vehicleDetails: string = ''
 
+  saveEditLabel: string = 'Save'
 
   @Output()
   leasingContractDtoEvent: EventEmitter<LeasingContractDTO> = new EventEmitter<LeasingContractDTO>();
@@ -26,6 +27,8 @@ export class LeasingContractFormComponent {
     let leasingContractDTO = new LeasingContractDTO(this.contractNumber, this.monthlyRate, this.customerName, this.vehicleDetails)
     this.leasingContractDtoEvent.emit(leasingContractDTO)
     console.log(leasingContractDTO)
+    this.saveEditLabel='Edit'
+
   }
 
   clear() {
@@ -35,6 +38,8 @@ export class LeasingContractFormComponent {
     let leasingContractDTO = new LeasingContractDTO(this.contractNumber, this.monthlyRate, this.customerName, this.vehicleDetails)
     this.leasingContractDtoEvent.emit(leasingContractDTO)
     console.log(leasingContractDTO)
+    this.saveEditLabel='Save'
+
   }
 
 

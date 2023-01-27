@@ -12,6 +12,8 @@ export class CustomerFormComponent {
   lastName: string = 'Doe'
   birthDate: Date = new Date("11.11.2022"); //11 Nov 2022
 
+  saveEditLabel: string = 'Save'
+
   @Output()
   customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
 
@@ -22,11 +24,14 @@ export class CustomerFormComponent {
     let customerDTO = new CustomerDTO(this.firstName, this.lastName, this.birthDate)
     this.customerDtoEvent.emit(customerDTO)
     console.log(customerDTO)
+    this.saveEditLabel= 'Edit'
   }
 
   clear() {
     this.firstName = ''
     this.lastName = ''
     this.birthDate = new Date();
+    this.saveEditLabel = 'Save'
+
   }
 }
