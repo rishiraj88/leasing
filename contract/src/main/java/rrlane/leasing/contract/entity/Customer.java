@@ -1,6 +1,7 @@
-package allane.leasing.contract.entity;
+package rrlane.leasing.contract.entity;
 
-import allane.leasing.contract.entity.dto.CustomerDTO;
+import rrlane.leasing.contract.entity.LeasingContract;
+import rrlane.leasing.contract.entity.dto.CustomerDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.NoArgsConstructor;

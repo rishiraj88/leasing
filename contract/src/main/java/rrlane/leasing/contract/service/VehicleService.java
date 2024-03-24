@@ -1,6 +1,6 @@
-package allane.leasing.contract.service;
+package rrlane.leasing.contract.service;
 
-import allane.leasing.contract.entity.Vehicle;
+import rrlane.leasing.contract.entity.Vehicle;
 
 import java.util.List;
 

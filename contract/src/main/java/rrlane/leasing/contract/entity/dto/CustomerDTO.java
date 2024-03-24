@@ -1,4 +1,4 @@
-package allane.leasing.contract.entity.dto;
+package rrlane.leasing.contract.entity.dto;
 public class CustomerDTO {
     private String firstName;
     private String lastName;

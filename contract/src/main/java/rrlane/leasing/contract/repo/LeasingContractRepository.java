@@ -1,8 +1,8 @@
-package allane.leasing.contract.repo;
+package rrlane.leasing.contract.repo;
 
-import allane.leasing.contract.entity.Customer;
-import allane.leasing.contract.entity.LeasingContract;
-import allane.leasing.contract.entity.Vehicle;
+import rrlane.leasing.contract.entity.Customer;
+import rrlane.leasing.contract.entity.LeasingContract;
+import rrlane.leasing.contract.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

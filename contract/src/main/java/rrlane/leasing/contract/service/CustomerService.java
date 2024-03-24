@@ -1,6 +1,6 @@
-package allane.leasing.contract.service;
+package rrlane.leasing.contract.service;
 
-import allane.leasing.contract.entity.Customer;
+import rrlane.leasing.contract.entity.Customer;
 
 import java.util.Date;
 

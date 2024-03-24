@@ -1,4 +1,6 @@
-package allane.leasing.contract.entity.dto;
+package rrlane.leasing.contract.entity.dto;
+
+import rrlane.leasing.contract.entity.dto.VehicleDTO;
 
 public class LeasingContractDTO {
     private Integer contractNumber;

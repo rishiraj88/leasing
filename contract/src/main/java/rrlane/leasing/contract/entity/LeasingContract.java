@@ -1,5 +1,6 @@
-package allane.leasing.contract.entity;
+package rrlane.leasing.contract.entity;
 
+import rrlane.leasing.contract.entity.Vehicle;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -31,7 +32,7 @@ public class LeasingContract {
     @ManyToOne
             (optional = false)
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private rrlane.leasing.contract.entity.Customer customer;
 
     public int hashCode(){
         return (customer.getFirstName() + customer.getLastName()).length();
