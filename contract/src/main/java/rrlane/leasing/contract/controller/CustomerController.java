@@ -1,8 +1,8 @@
-package allane.leasing.contract.controller;
+package rrlane.leasing.contract.controller;
 
-import allane.leasing.contract.entity.Customer;
-import allane.leasing.contract.entity.dto.CustomerDTO;
-import allane.leasing.contract.service.CustomerService;
+import rrlane.leasing.contract.entity.Customer;
+import rrlane.leasing.contract.entity.dto.CustomerDTO;
+import rrlane.leasing.contract.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

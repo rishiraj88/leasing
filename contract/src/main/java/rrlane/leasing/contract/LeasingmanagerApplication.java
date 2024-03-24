@@ -1,7 +1,7 @@
-package allane.leasing.contract;
+package rrlane.leasing.contract;
 
-import allane.leasing.contract.entity.Customer;
-import allane.leasing.contract.repo.CustomerRepository;
+import rrlane.leasing.contract.entity.Customer;
+import rrlane.leasing.contract.repo.CustomerRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -9,6 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Date;
 
+/**
+ * LeasingmanagerApplication. Capitalization scheme is by intention.
+ */
 @SpringBootApplication
 @EnableJpaRepositories
 public class LeasingmanagerApplication {

@@ -1,6 +1,6 @@
-package allane.leasing.contract.entity;
+package rrlane.leasing.contract.entity;
 
-import allane.leasing.contract.entity.dto.VehicleDTO;
+import rrlane.leasing.contract.entity.dto.VehicleDTO;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 

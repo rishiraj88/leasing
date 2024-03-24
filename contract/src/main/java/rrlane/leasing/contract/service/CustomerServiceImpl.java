@@ -1,7 +1,7 @@
-package allane.leasing.contract.service;
+package rrlane.leasing.contract.service;
 
-import allane.leasing.contract.entity.Customer;
-import allane.leasing.contract.repo.CustomerRepository;
+import rrlane.leasing.contract.entity.Customer;
+import rrlane.leasing.contract.repo.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

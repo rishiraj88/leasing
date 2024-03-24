@@ -1,4 +1,4 @@
-package allane.leasing.contract.entity.dto;
+package rrlane.leasing.contract.entity.dto;
 
 public class VehicleDTO {
     private String brand; //prop: company brand
