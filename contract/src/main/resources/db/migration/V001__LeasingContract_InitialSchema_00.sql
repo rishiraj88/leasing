@@ -7,8 +7,7 @@ DROP TABLE IF EXISTS lcontract;
 
 CREATE TABLE customer (
 id VARCHAR(8) PRIMARY KEY,
-fname VARCHAR(12),
-lname VARCHAR(17) NOT NULL,
+name VARCHAR(17) NOT NULL,
 bdate DATE NOT NULL
 );
 

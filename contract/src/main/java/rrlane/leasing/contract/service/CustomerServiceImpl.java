@@ -26,29 +26,27 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer viewCustomerByName(String name) {
         System.out.println("Retrieving customer details by name...");
 
-        String[] names = name.split(" ");
-        Customer retCustomer = customerRepository.findByFirstNameAndLastName(names[0], names[1]).get(0);
+        Customer foundCustomer = customerRepository.findByName(name).get(0);
         System.out.println("Retrieved customer details by name successfully.");
 
-        return retCustomer;
+        return foundCustomer;
     }
 
     public Customer viewCustomerByNameAndBirthdate(String name, Date bdate) {
         System.out.println("Retrieving customer details by name and optionally by birth date...");
 
-        String[] names = name.split(" ");
-        List<Customer> retCustomers = null;
+        List<Customer> foundCustomers = null;
         if (null == bdate) {
-            retCustomers = customerRepository.findByFirstNameAndLastName(names[0], names[1]);
+            foundCustomers = customerRepository.findByName(name);
         } else {
-            retCustomers = customerRepository.findByFirstNameAndLastNameAndBirthDate(names[0], names[1], bdate);
+            foundCustomers = customerRepository.findByNameAndBirthDate(name, bdate);
         }
-        Customer retCustomer = null;
-        if (null != retCustomers && 0 < retCustomers.size())
-            retCustomer = retCustomers.get(0);
+        Customer foundCustomer = null;
+        if (null != foundCustomers && 0 < foundCustomers.size())
+            foundCustomer = foundCustomers.get(0);
         System.out.println("Retrieved customer details by name successfully.");
 
-        return retCustomer;
+        return foundCustomer;
     }
 
 }

@@ -28,14 +28,13 @@ public class CustomerController {
     // also, to save a customer upon editing details with PUT
     @RequestMapping(value = "/",method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<Customer> addCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
+    public ResponseEntity<Customer> updateCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
         HttpStatus status = HttpStatus.OK;
         if(null == customer) {
             customer = new Customer();
             status = HttpStatus.CREATED;
         }
-        customer.setFirstName(customerDTO.getFirstName());
-        customer.setLastName(customerDTO.getLastName());
+        customer.setName(customerDTO.getName());
         Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(customerDTO.getBirthDate());
         customer.setBirthDate(birthDate);
 
@@ -48,11 +47,10 @@ public class CustomerController {
     public ResponseEntity<Customer> viewCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
         Date birthDate = null;
         if (null != customerDTO.getBirthDate())
-            birthDate = new SimpleDateFormat("dd.MM.yyyy").parse(customerDTO.getBirthDate());
+            birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(customerDTO.getBirthDate());
 
         customer =
-                customerService.viewCustomerByNameAndBirthdate(customerDTO.getFirstName() + " " +
-                        customerDTO.getLastName(), birthDate);
+                customerService.viewCustomerByNameAndBirthdate(customerDTO.getName(), birthDate);
         if (null == customer) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

@@ -15,7 +15,6 @@ import java.util.Date;
 @SpringBootApplication
 @EnableJpaRepositories
 public class LeasingmanagerApplication {
-
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(LeasingmanagerApplication.class, args);
     }

@@ -6,9 +6,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.List;
 
-
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer,String> {
-    List<Customer> findByFirstNameAndLastName(String fname, String lname);
-    List<Customer> findByFirstNameAndLastNameAndBirthDate(String fname, String lname, Date bdate);
+    List<Customer> findByName(String name);
+    List<Customer> findByNameAndBirthDate(String name, Date bdate);
 }

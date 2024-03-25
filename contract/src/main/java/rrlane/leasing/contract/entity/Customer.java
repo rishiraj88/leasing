@@ -1,6 +1,5 @@
 package rrlane.leasing.contract.entity;
 
-import rrlane.leasing.contract.entity.LeasingContract;
 import rrlane.leasing.contract.entity.dto.CustomerDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -28,10 +27,8 @@ public class Customer {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String customerId;
-    @Column(name = "fname")
-    private String firstName;
-    @Column(name = "lname")
-    private String lastName;
+    @Column(name = "name")
+    private String name;
     @Temporal(TemporalType.DATE)
     @Column(name = "bdate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
@@ -50,25 +47,16 @@ public class Customer {
         this.customerId = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
     public String getName() {
-        return firstName + " " + lastName;
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public Date getBirthDate() {
         return birthDate;
@@ -97,13 +85,12 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", name='" + name + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 '}';
     }
 
     public CustomerDTO getDto() {
-        return new CustomerDTO(this.firstName,this.lastName,birthDate.toString());
+        return new CustomerDTO(this.name,birthDate.toString());
     }
 }

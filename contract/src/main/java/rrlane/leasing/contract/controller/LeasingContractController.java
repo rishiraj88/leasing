@@ -27,7 +27,7 @@ public class LeasingContractController {
     // also, to save a vehicle upon editing details with PUT
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<LeasingContract> addContract(@RequestBody LeasingContractDTO contractDTO) {
+    public ResponseEntity<LeasingContract> updateContract(@RequestBody LeasingContractDTO contractDTO) {
         HttpStatus status = HttpStatus.OK;
         if (null != contractDTO && -1 == contractDTO.getMonthlyRate()) {
             leasingContract = null;

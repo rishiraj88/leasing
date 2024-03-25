@@ -22,14 +22,14 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     public List<Vehicle> getVehiclesByDetails(String[] details){
-        List<Vehicle> vehicles = null;
-        vehicles = vehicleRepository.findByBrand(details[0]);
-        if(null == vehicles)
-        vehicles = vehicleRepository.findByModel(details[1]);
-        if(null == vehicles)
-        vehicles = vehicleRepository.findByModelYear(details[2]);
-        if(null == vehicles)
-        vehicles = vehicleRepository.findByVin(details[3]);
-        return vehicles;
+        List<Vehicle> foundVehicles = null;
+        foundVehicles = vehicleRepository.findByBrand(details[0]);
+        if(null == foundVehicles)
+        foundVehicles = vehicleRepository.findByModel(details[1]);
+        if(null == foundVehicles)
+        foundVehicles = vehicleRepository.findByModelYear(details[2]);
+        if(null == foundVehicles)
+        foundVehicles = vehicleRepository.findByVin(details[3]);
+        return foundVehicles;
     }
 }

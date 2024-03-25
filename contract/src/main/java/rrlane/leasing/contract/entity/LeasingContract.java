@@ -1,9 +1,7 @@
 package rrlane.leasing.contract.entity;
 
-import rrlane.leasing.contract.entity.Vehicle;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +33,7 @@ public class LeasingContract {
     private rrlane.leasing.contract.entity.Customer customer;
 
     public int hashCode(){
-        return (customer.getFirstName() + customer.getLastName()).length();
+        return customer.getName().length();
     }
 
     public boolean equals(Object obj) {

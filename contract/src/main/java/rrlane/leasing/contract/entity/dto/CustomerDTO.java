@@ -1,24 +1,17 @@
 package rrlane.leasing.contract.entity.dto;
 public class CustomerDTO {
-    private String firstName;
-    private String lastName;
+    private String name;
     private String birthDate;
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getBirthDate() {
         return birthDate;
@@ -31,15 +24,13 @@ public class CustomerDTO {
     @Override
     public String toString() {
         return "CustomerDTO{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "Name='" + name + '\'' +
                 ", birthDate='" + birthDate + '\'' +
                 '}';
     }
 
-    public CustomerDTO(String firstName, String lastName, String birthDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public CustomerDTO(String name, String birthDate) {
+        this.name = name;
         this.birthDate = birthDate;
     }
 }
