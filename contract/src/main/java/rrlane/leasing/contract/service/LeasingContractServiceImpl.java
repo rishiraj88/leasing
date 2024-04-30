@@ -1,15 +1,16 @@
 package rrlane.leasing.contract.service;
 
-import rrlane.leasing.contract.entity.Customer;
+import rrlane.leasing.entity.Customer;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.contract.entity.Vehicle;
 import rrlane.leasing.contract.repo.LeasingContractRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.service.CustomerService;
+import rrlane.leasing.service.VehicleService;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Service
 public class LeasingContractServiceImpl implements LeasingContractService {
