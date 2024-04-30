@@ -1,6 +1,6 @@
-# Leasing Application for Allane Mobility Group
+# Leasing Application for All Mobility Groups
 
-to manage leasing contracts for customers and vehicles
+End-User Utility to take vehicles on lease, respect such leasing contracts and returning the lease vehicles to the providers. For use by customers (vehicle users)
 
 ## Preconditions to Run the Application
 
