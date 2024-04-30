@@ -1,8 +1,8 @@
-package rrlane.leasing.contract.repo;
+package rrlane.leasing.repo;
 
-import rrlane.leasing.contract.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import rrlane.leasing.entity.Vehicle;
 
 import java.util.List;
 

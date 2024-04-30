@@ -1,25 +1,15 @@
 package rrlane.leasing.contract.entity.dto;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+import java.time.LocalDateTime;
+@RequiredArgsConstructor
+@Data
 public class CustomerDTO {
     private String name;
-    private String birthDate;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setFirstName(String name) {
-        this.name = name;
-    }
-
-
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
+    private LocalDateTime birthDate;
 
     @Override
     public String toString() {
@@ -29,8 +19,5 @@ public class CustomerDTO {
                 '}';
     }
 
-    public CustomerDTO(String name, String birthDate) {
-        this.name = name;
-        this.birthDate = birthDate;
-    }
+
 }

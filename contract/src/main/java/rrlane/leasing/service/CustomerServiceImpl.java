@@ -1,12 +1,12 @@
-package rrlane.leasing.contract.service;
+package rrlane.leasing.service;
 
-import rrlane.leasing.contract.entity.Customer;
-import rrlane.leasing.contract.repo.CustomerRepository;
+import rrlane.leasing.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import rrlane.leasing.repo.CustomerRepository;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
         return foundCustomer;
     }
 
-    public Customer viewCustomerByNameAndBirthdate(String name, Date bdate) {
+    public Customer viewCustomerByNameAndBirthdate(String name, LocalDateTime bdate) {
         System.out.println("Retrieving customer details by name and optionally by birth date...");
 
         List<Customer> foundCustomers = null;

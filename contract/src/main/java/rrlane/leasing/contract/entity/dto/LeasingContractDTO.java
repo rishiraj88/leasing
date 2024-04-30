@@ -1,13 +1,14 @@
 package rrlane.leasing.contract.entity.dto;
 
+import lombok.Data;
+
+@Data
 public class LeasingContractDTO {
     private Integer contractNumber;
     private Double monthlyRate;
     private String vehicleDetails;
     private String customerName;
-
     private CustomerDTO customerDto;
-
     private VehicleDTO vehicleDto;
 
     public LeasingContractDTO() {
@@ -26,54 +27,6 @@ public class LeasingContractDTO {
         this.vehicleDetails = vehicleDetails;
         this.customerName = customerName;
         this.customerDto = customerDto;
-        this.vehicleDto = vehicleDto;
-    }
-
-    public Integer getContractNumber() {
-        return contractNumber;
-    }
-
-    public void setContractNumber(Integer contractNumber) {
-        this.contractNumber = contractNumber;
-    }
-
-    public Double getMonthlyRate() {
-        return monthlyRate;
-    }
-
-    public void setMonthlyRate(Double monthlyRate) {
-        this.monthlyRate = monthlyRate;
-    }
-
-    public String getVehicleDetails() {
-        return vehicleDetails;
-    }
-
-    public void setVehicleDetails(String vehicleDetails) {
-        this.vehicleDetails = vehicleDetails;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public CustomerDTO getCustomerDto() {
-        return customerDto;
-    }
-
-    public void setCustomerDto(CustomerDTO customerDto) {
-        this.customerDto = customerDto;
-    }
-
-    public VehicleDTO getVehicleDto() {
-        return vehicleDto;
-    }
-
-    public void setVehicleDto(VehicleDTO vehicleDto) {
         this.vehicleDto = vehicleDto;
     }
 

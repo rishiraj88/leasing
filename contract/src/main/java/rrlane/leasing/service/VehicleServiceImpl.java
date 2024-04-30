@@ -1,17 +1,19 @@
-package rrlane.leasing.contract.service;
+package rrlane.leasing.service;
 
-import rrlane.leasing.contract.entity.Vehicle;
-import rrlane.leasing.contract.repo.VehicleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.repo.VehicleRepository;
 
 import java.util.List;
 
 @Service
 public class VehicleServiceImpl implements VehicleService {
-    @Autowired
     private VehicleRepository vehicleRepository;
+
+    public VehicleServiceImpl(VehicleRepository vehicleRepository) {
+        this.vehicleRepository = vehicleRepository;
+    }
 
     @Override
     @Transactional
