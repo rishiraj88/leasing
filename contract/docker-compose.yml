@@ -5,13 +5,15 @@ version: "3.5"
 #  docker-compose up -d
 services:
   contract:
-    image: i50729/contract:latest
+    #image: i50729/contract:latest
     build: .
 #    restart: always
     ports:
       - 8080:8080
-    links:
-      - db:db
+    cpus: .5
+    memory: 160m
+    #links:
+     # - db:db
     depends_on:
       - db
 #    environment:
@@ -19,6 +21,7 @@ services:
 #      - shopping-service.eureka.url=http://A.B.C.D:4444/eureka
     networks:
       - appnet
+      - dbnet
   db:
     image: mysql:8.0.31
     restart: on-failure
@@ -31,9 +34,22 @@ services:
 #      MYSQL_PASSWORD: password1
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      - ./mysql/data:/var/lib/mysql
+      #- ./mysql/data:/var/lib/mysql
+      - db_contract:/var/lib/mysql
     networks:
-      - appnet
+      - dbnet
+
 networks:
   appnet:
     name: appnet
+  dbnet:
+    name: dbnet
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - appnet
+      - dbnet
