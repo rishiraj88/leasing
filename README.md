@@ -1,6 +1,6 @@
 # Leasing Application for All Mobility Groups
 
-End-User Utility to take vehicles on lease, respect such leasing contracts and returning the lease vehicles to the providers. For use by customers (vehicle users)
+End-User Utility to take vehicles on lease, respect such leasing contracts and returning the leased vehicles to the providers. For use by customers (vehicle users)
 
 ## Preconditions to Run the Application
 
@@ -10,39 +10,70 @@ This application requires the following software packages to run properly:
 - a web browser. [Chrome](https://google.com/chrome/) is preferred. Other web browsers may work for most functionalities.
 
 ## Installation
-- Clone the files (source and configuration files) from GitHub repository:
-`git clone https://github.com/rishiraj88/leasing.git`
+The application can be set up and started in two distinct methods.
 
-- Go to `leasing/contract` directory.
+### 1. Local build and execution
+- Using your favorite Terminal app for shell, clone the files (source code and configuration) from GitHub repository:
+<pre>git clone https://github.com/rishiraj88/leasing.git</pre>
 
-- Build the project:
-`./gradlew build`
+- In your file explorer, go to `leasing/contract` directory:
+<pre>cd leasing/contract</pre>
 
-- Run this command in Bash (or another compatible shell) to build Docker image for the backend project:
-`docker build -t i50729/contract .`
+- Build the project locally with  gradle wrapper:
+<pre>./gradlew build</pre>
 
-- Build the Docker container network by running:
-`docker-compose build`
-`docker-compose up -d`
+### 2. Pulling the pre-built Docker image
+- Run this command in Terminal app to pull and start the latest contract image published on Docker Hub for project backend:
+<pre>docker run i50729/contract</pre>
 
-- Go to `leasing\leasingclient` directory.
+In its current stage of development, the backend app runs well with locally available mysql container and the accompanying frontent `leasingclient`.
 
-- Build and run the project with these commands:
-`npm install`
-`ng serve`
+One important point to note here: All three (mysql, backend and frontend) must be in a common(=single,shared) network in order to work together. For non-tech-savvy users, it is not an easy feat. Currently work on this is going on.
 
 ## How to Start the Application
 
 - Now you may use the application by visiting this URL:
-`http://localhost:4200/home`
+<pre>http://localhost:4200/home</pre>
 
 - Freely navigate to and use the sections `Customers`, `Vehicles` and `Leasing Contracts` under `Manage` menu.
 
 ## Reason of Chosen Solution
-The chosen solution corresponds to the use of some of the latest technologies available so as to model complex dynamic systems to work on heavy-cash businesses.
+The chosen solution corresponds to the use the modern technologies available so as to model complex dynamic systems easily. Hence it enables the businesses to work on heavy-cash businesses more conveniently.
 
-## Notes
-Due to some constraints, I have built the MVP. For enhancing and fostering the solution, I am open to explain the relevant parameters and methods in the following tech discussion.
+## General Notes
+Due to some constraints, I have built the MVP. For enhancing and fostering the solution, tech discussions on relevant parameters and methods are always cited and welcome.
 
--- Rishi Raj
-rishi.raj.88[at]gmail[dot]com
+## Notes for Developers
+
+### The backend of the app was packaged and published with the following commands:
+
+- In your file explorer, go to `leasing/contract` directory:
+<pre>cd leasing/contract</pre>
+
+- Build the project locally with  gradle wrapper:
+<pre>./gradlew build</pre>
+
+- Build Docker image with:
+<pre>docker build -t i50729/contract:latest .</pre>
+
+- Push the Docker image for publishing with:
+<pre>docker push i50729/contract:latest</pre>
+
+### Development on unified Docker image is underway:
+
+- Build the Docker container network by running:
+<pre>`docker-compose build</pre>
+<pre>docker-compose up -d</pre>
+
+- Go to `leasingclient` directory under `leasing`.
+<pre>cd leasingclient</pre>
+
+- Build and run the Angular-based frontend with these commands:
+<pre>npm install</pre>
+<pre>ng serve</pre>
+
+## For Feedback, Queries, Collaboration
+- LinkedIn Profile: https://www.linkedin.com/in/rishirajopenminds
+- Contact Card: https://bio.link/rishiraj49de
+- X: https://twitter.com/RishiRajDevOps
+- Other Repositories: https://github.com/rishiraj88?tab=repositories
