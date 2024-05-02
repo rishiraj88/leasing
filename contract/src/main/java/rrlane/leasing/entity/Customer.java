@@ -10,11 +10,13 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.contract.entity.dto.CustomerDTO;
 import rrlane.leasing.util.Mapper;
 
 import java.time.LocalDateTime;
@@ -24,7 +26,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "customer")
-@NoArgsConstructor
+@NoArgsConstructor @Builder @AllArgsConstructor
 public class Customer {
     @Id
     @Column(name = "customer_id")

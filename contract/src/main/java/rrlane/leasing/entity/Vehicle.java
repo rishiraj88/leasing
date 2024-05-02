@@ -6,9 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import rrlane.leasing.contract.entity.dto.VehicleDTO;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.util.Mapper;
 
 @Entity

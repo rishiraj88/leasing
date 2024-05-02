@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import rrlane.leasing.contract.dto.LeasingContractDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.contract.entity.dto.LeasingContractDTO;
 import rrlane.leasing.contract.service.LeasingContractService;
 import rrlane.leasing.util.Mapper;
 

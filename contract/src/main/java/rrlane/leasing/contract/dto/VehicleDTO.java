@@ -1,4 +1,4 @@
-package rrlane.leasing.contract.entity.dto;
+package rrlane.leasing.contract.dto;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

@@ -1,12 +1,12 @@
-package rrlane.leasing.contract.entity.dto;
+package rrlane.leasing.contract.dto;
 
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 @RequiredArgsConstructor
-@Data
+@Data @Builder
 public class CustomerDTO {
     private String name;
     private LocalDateTime birthDate;

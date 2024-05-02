@@ -1,9 +1,9 @@
 package rrlane.leasing.util;
 
+import rrlane.leasing.contract.dto.CustomerDTO;
+import rrlane.leasing.contract.dto.LeasingContractDTO;
+import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.contract.entity.dto.CustomerDTO;
-import rrlane.leasing.contract.entity.dto.LeasingContractDTO;
-import rrlane.leasing.contract.entity.dto.VehicleDTO;
 import rrlane.leasing.entity.Customer;
 import rrlane.leasing.entity.Vehicle;
 
