@@ -14,12 +14,14 @@ public class Mapper {
         dto.setBirthDate(entity.getBirthDate());
         return dto;
     }
+
     public static Customer dtoToEntity(CustomerDTO dto) {
         Customer entity = new Customer();
         entity.setName(dto.getName());
         entity.setBirthDate(dto.getBirthDate());
         return entity;
     }
+
     public static LeasingContractDTO entityToDto(LeasingContract entity) {
         LeasingContractDTO dto = new LeasingContractDTO();
         dto.setContractNumber(entity.getContractNumber());
@@ -31,7 +33,6 @@ public class Mapper {
 
     public static Vehicle dtoToEntity(VehicleDTO dto) {
         Vehicle entity = new Vehicle();
-
         entity.setBrand(dto.getBrand());
         entity.setModel(dto.getModel());
         entity.setModelYear(dto.getYear());
@@ -42,7 +43,6 @@ public class Mapper {
 
     public static VehicleDTO entityToDto(Vehicle entity) {
         VehicleDTO dto = new VehicleDTO();
-
         dto.setBrand(entity.getBrand());
         dto.setModel(entity.getModel());
         dto.setYear(entity.getModelYear());
@@ -50,6 +50,4 @@ public class Mapper {
         dto.setPrice(entity.getPrice());
         return dto;
     }
-
-
 }

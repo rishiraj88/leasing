@@ -1,6 +1,5 @@
 package rrlane.leasing.common.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,16 +16,19 @@ import rrlane.leasing.service.CustomerService;
  * The API methods have not been designed in old (more verbose) fashion.
  * Kindly read through the code closely to appreciate the compact yet extensible approach well.
  */
-@RequiredArgsConstructor
 @RestController
-@RequestMapping("/customer")
+@RequestMapping(value = "/customer", consumes = {})
 public class CustomerController {
     private CustomerService customerService;
+
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
 
     // to create a customer with POST and also to edit a customer with PUT
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO)  {
+    public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO) {
         HttpStatus responseStatus = HttpStatus.OK;
         String responseFromService = customerService.saveCustomer(customerDTO);
         if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
@@ -35,8 +37,8 @@ public class CustomerController {
 
     // to retrieve the details of a customer with matching inputs (search criteria)
     @GetMapping("/")
-    public ResponseEntity<CustomerDTO> viewCustomer(@RequestBody CustomerDTO customerDTO)  {
-        CustomerDTO retrievedCustomerDTO  = customerService.searchForCustomer(customerDTO);
+    public ResponseEntity<CustomerDTO> viewCustomer(@RequestBody CustomerDTO customerDTO) {
+        CustomerDTO retrievedCustomerDTO = customerService.searchForCustomer(customerDTO);
         if (null == retrievedCustomerDTO) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

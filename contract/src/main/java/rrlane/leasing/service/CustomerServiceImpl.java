@@ -22,29 +22,32 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("Saving/Updating customer details...");
         String response = "";
         Customer customer = null;
-
-        customer = customerRepository.findByName(customerDTO.getName()).get(0);
-        if (null != customer) {
+        List<Customer> foundCustomers = customerRepository.findByName(customerDTO.getName());
+        if (!foundCustomers.isEmpty()) {
+            customer = foundCustomers.get(0);
             customer.setBirthDate(customerDTO.getBirthDate());
             customerRepository.save(customer);
             System.out.println(Constants.CUSTOMER_UPDATED);
-            return  Constants.CUSTOMER_UPDATED;
+            return Constants.CUSTOMER_UPDATED;
         }
-        customer = customerRepository.findByBirthDate(customerDTO.getBirthDate()).get(0);
-        if (null != customer) {
+        foundCustomers = customerRepository.findByBirthDate(customerDTO.getBirthDate());
+        if (!foundCustomers.isEmpty()) {
+            customer = foundCustomers.get(0);
             customer.setName(customerDTO.getName());
             customerRepository.save(customer);
             System.out.println(Constants.CUSTOMER_UPDATED);
-            return  Constants.CUSTOMER_UPDATED;
+            return Constants.CUSTOMER_UPDATED;
         }
         customer = Customer.builder().name(customerDTO.getName()).birthDate(customerDTO.getBirthDate()).build();
         customerRepository.save(customer);
         System.out.println(Constants.CUSTOMER_ADDED);
         return Constants.CUSTOMER_ADDED;
     }
-    public CustomerDTO searchForCustomer(CustomerDTO customerDTO){
-        return getCustomerByNameAndBirthdate(customerDTO.getName(),customerDTO.getBirthDate());
+
+    public CustomerDTO searchForCustomer(CustomerDTO customerDTO) {
+        return getCustomerByNameAndBirthdate(customerDTO.getName(), customerDTO.getBirthDate());
     }
+
     private CustomerDTO getCustomerByNameAndBirthdate(String name, LocalDate bdate) {
         System.out.println("Retrieving customer details by name and optionally by birth date...");
         List<Customer> foundCustomers = null;
@@ -53,26 +56,22 @@ public class CustomerServiceImpl implements CustomerService {
         } else {
             foundCustomers = customerRepository.findByNameAndBirthDate(name, bdate);
         }
-        Customer foundCustomer = null;
-        if (null != foundCustomers && 0 < foundCustomers.size()) foundCustomer = foundCustomers.get(0);
-        System.out.println(Constants.CUSTOMER_FOUND);
-        CustomerDTO foundCustomerDTO = CustomerDTO.builder()
-                .name(foundCustomer.getName())
-                .birthDate(foundCustomer.getBirthDate())
-                .build();
-        return foundCustomerDTO;
+        if (null != foundCustomers && 0 < foundCustomers.size()) {
+            Customer foundCustomer = null;
+            foundCustomer = foundCustomers.get(0);
+            System.out.println(Constants.CUSTOMER_FOUND);
+            CustomerDTO foundCustomerDTO = CustomerDTO.builder().name(foundCustomer.getName()).birthDate(foundCustomer.getBirthDate()).build();
+            return foundCustomerDTO;
+        }
+        return null;
     }
+
     @Override
     public CustomerDTO viewCustomerByName(String name) {
         System.out.println("Retrieving customer details by name...");
         Customer foundCustomer = customerRepository.findByName(name).get(0);
         System.out.println(Constants.CUSTOMER_FOUND);
-        CustomerDTO foundCustomerDTO = CustomerDTO.builder()
-                .name(foundCustomer.getName())
-                .birthDate(foundCustomer.getBirthDate())
-                .build();
+        CustomerDTO foundCustomerDTO = CustomerDTO.builder().name(foundCustomer.getName()).birthDate(foundCustomer.getBirthDate()).build();
         return foundCustomerDTO;
     }
-
-
 }

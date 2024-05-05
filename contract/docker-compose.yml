@@ -1,8 +1,5 @@
 version: "3.5"
 # comments are to be preserved for easy spinning of configs
-#  docker-compose down
-#  docker-compose build
-#  docker-compose up -d
 services:
   contract:
     #image: i50729/contract:latest

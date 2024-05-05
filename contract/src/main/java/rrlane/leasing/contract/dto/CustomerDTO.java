@@ -6,19 +6,17 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
+
 @RequiredArgsConstructor
-@Data @Builder @AllArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
 public class CustomerDTO {
     private String name;
     private LocalDate birthDate;
 
     @Override
     public String toString() {
-        return "CustomerDTO{" +
-                "Name='" + name + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                '}';
+        return "CustomerDTO{" + "Name='" + name + '\'' + ", birthDate='" + birthDate + '\'' + '}';
     }
-
-
 }

@@ -16,7 +16,8 @@ import rrlane.leasing.entity.Vehicle;
 
 @Entity
 @Table(name = "lcontract")
-@Data @Builder
+@Data
+@Builder
 public class LeasingContract {
     @Id
     @Column(name = "contract_id")
@@ -49,5 +50,4 @@ public class LeasingContract {
         this.vehicle = vehicle;
         if (null == this.vehicle.getVin() || "".equals(this.vehicle.getVin())) this.vehicle.setVin("-");
     }
-
 }

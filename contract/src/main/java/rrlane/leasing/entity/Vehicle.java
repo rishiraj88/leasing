@@ -14,11 +14,14 @@ import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.util.Mapper;
 
 @Entity
-@NoArgsConstructor @Data @Builder @AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
 @Table(name = "vehicle")
 public class Vehicle {
-@Id
-@Column(name = "vehicle_id")
+    @Id
+    @Column(name = "vehicle_id")
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String vehicleId;
@@ -30,8 +33,8 @@ public class Vehicle {
     private Double price;
 
     public String getDetails() {
-        return "" + brand + ' ' + model + " (" + modelYear +") VIN: " + vin;
-    }
+        return "" + brand + ' ' + model + " (" + modelYear + ") VIN: " + vin;
+    }//TODO check for removal
 
     public VehicleDTO getDto() {
         return Mapper.entityToDto(this);

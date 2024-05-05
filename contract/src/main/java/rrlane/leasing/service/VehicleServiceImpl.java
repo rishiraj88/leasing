@@ -42,7 +42,8 @@ public class VehicleServiceImpl implements VehicleService {
         if (null != vehicleList && 0 < vehicleList.size()) {
             System.out.println(Constants.VEHICLE_FOUND);
             return vehicleList.stream().map(Mapper::entityToDto).toList().get(0);
-        }return null;
+        }
+        return null;
     }
 
     public List<Vehicle> getVehicleEntities(VehicleDTO vehicleDTO) {
@@ -60,15 +61,12 @@ public class VehicleServiceImpl implements VehicleService {
         return foundVehicles;
     }
 
-    public List<Vehicle> getVehiclesByDetails(String[] details){
+    public List<Vehicle> getVehiclesByDetails(String[] details) {
         List<Vehicle> foundVehicles = null;
         foundVehicles = vehicleRepository.findByBrand(details[0]);
-        if(null == foundVehicles)
-            foundVehicles = vehicleRepository.findByModel(details[1]);
-        if(null == foundVehicles)
-            foundVehicles = vehicleRepository.findByModelYear(details[2]);
-        if(null == foundVehicles)
-            foundVehicles = vehicleRepository.findByVin(details[3]);
+        if (null == foundVehicles) foundVehicles = vehicleRepository.findByModel(details[1]);
+        if (null == foundVehicles) foundVehicles = vehicleRepository.findByModelYear(details[2]);
+        if (null == foundVehicles) foundVehicles = vehicleRepository.findByVin(details[3]);
         return foundVehicles;
     }
 }

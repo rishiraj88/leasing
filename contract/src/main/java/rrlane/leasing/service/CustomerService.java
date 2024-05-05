@@ -6,5 +6,6 @@ public interface CustomerService {
     public String saveCustomer(CustomerDTO customerDTO);
 
     public CustomerDTO viewCustomerByName(String name);
-public CustomerDTO searchForCustomer(CustomerDTO customerDTO);
+
+    public CustomerDTO searchForCustomer(CustomerDTO customerDTO);
 }

@@ -21,19 +21,19 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     // to create a vehicle with POST and also to edit vehicle details with PUT
-    @RequestMapping(value = "/",method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
         HttpStatus responseStatus = HttpStatus.OK;
         String responseFromService = vehicleService.saveVehicle(vehicleDTO);
         if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
         return new ResponseEntity<>(vehicleDTO, responseStatus);
-
     }
+
     // to retrieve the details of a vehicle with matching search criteria in specific order
     @GetMapping("/")
     public ResponseEntity<VehicleDTO> viewCustomer(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
-        VehicleDTO retrievedVehicleDTO  = vehicleService.searchForVehicle(vehicleDTO);
+        VehicleDTO retrievedVehicleDTO = vehicleService.searchForVehicle(vehicleDTO);
         if (null == retrievedVehicleDTO) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
