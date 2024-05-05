@@ -21,14 +21,6 @@ services:
     networks:
       - appnet
       - dbnet
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 50M
-        reservations:
-          cpus: '0.0001'
-          memory: 20M
 
   db:
     image: mysql:8.0.31
@@ -49,7 +41,6 @@ services:
     networks:
       - dbnet
 
-
   adminer:
     image: adminer
     restart: always
@@ -58,6 +49,9 @@ services:
     networks:
       - appnet
       - dbnet
+
+volumes:
+  db_contract:
 
 networks:
   appnet:

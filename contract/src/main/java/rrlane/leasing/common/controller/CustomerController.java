@@ -1,7 +1,6 @@
 package rrlane.leasing.common.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.service.CustomerService;
-
-import java.text.ParseException;
 
 /**
  * Note for readers:

@@ -19,7 +19,7 @@ import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
 import rrlane.leasing.util.Mapper;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,7 +37,7 @@ public class Customer {
     @Temporal(TemporalType.DATE)
     @Column(name = "bdate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
     private Set<LeasingContract> leasingContracts = new HashSet<>();

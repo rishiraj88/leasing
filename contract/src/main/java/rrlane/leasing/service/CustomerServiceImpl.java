@@ -8,7 +8,7 @@ import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.entity.Customer;
 import rrlane.leasing.repo.CustomerRepository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDTO searchForCustomer(CustomerDTO customerDTO){
         return getCustomerByNameAndBirthdate(customerDTO.getName(),customerDTO.getBirthDate());
     }
-    private CustomerDTO getCustomerByNameAndBirthdate(String name, LocalDateTime bdate) {
+    private CustomerDTO getCustomerByNameAndBirthdate(String name, LocalDate bdate) {
         System.out.println("Retrieving customer details by name and optionally by birth date...");
         List<Customer> foundCustomers = null;
         if (null == bdate) {
