@@ -5,14 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.util.Mapper;
 
 @Entity
-@NoArgsConstructor @Data
+@NoArgsConstructor @Data @Builder @AllArgsConstructor
 @Table(name = "vehicle")
 public class Vehicle {
 @Id

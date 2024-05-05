@@ -6,7 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
- * LeasingmanagerApplication: Capitalization scheme is by intention to emphasize Leasingmanager + Application.
+ * LeasingmanagerApplication: Capitalization scheme is set so by deliberation to emphasize:
+ * Leasingmanager + Application.
  */
 @SpringBootApplication
 @EnableJpaRepositories

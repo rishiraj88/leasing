@@ -14,7 +14,12 @@ public class Mapper {
         dto.setBirthDate(entity.getBirthDate());
         return dto;
     }
-
+    public static Customer dtoToEntity(CustomerDTO dto) {
+        Customer entity = new Customer();
+        entity.setName(dto.getName());
+        entity.setBirthDate(dto.getBirthDate());
+        return entity;
+    }
     public static LeasingContractDTO entityToDto(LeasingContract entity) {
         LeasingContractDTO dto = new LeasingContractDTO();
         dto.setContractNumber(entity.getContractNumber());

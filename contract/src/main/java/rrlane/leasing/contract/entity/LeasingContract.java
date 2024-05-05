@@ -8,6 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import rrlane.leasing.entity.Customer;
@@ -15,7 +16,7 @@ import rrlane.leasing.entity.Vehicle;
 
 @Entity
 @Table(name = "lcontract")
-@Data
+@Data @Builder
 public class LeasingContract {
     @Id
     @Column(name = "contract_id")

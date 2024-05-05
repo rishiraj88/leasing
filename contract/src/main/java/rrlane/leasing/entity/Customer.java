@@ -23,10 +23,9 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "customer")
-@NoArgsConstructor @Builder @AllArgsConstructor
+@NoArgsConstructor @Builder @AllArgsConstructor @Data
 public class Customer {
     @Id
     @Column(name = "customer_id")

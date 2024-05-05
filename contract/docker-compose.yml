@@ -10,18 +10,26 @@ services:
 #    restart: always
     ports:
       - 8080:8080
-    cpus: .5
-    memory: 160m
     #links:
      # - db:db
     depends_on:
       - db
 #    environment:
+    # to use if planned to implement cloud-config and service discovery
 #      - shopping-service.configserverurl=http://A.B.C.D:8888
 #      - shopping-service.eureka.url=http://A.B.C.D:4444/eureka
     networks:
       - appnet
       - dbnet
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 50M
+        reservations:
+          cpus: '0.0001'
+          memory: 20M
+
   db:
     image: mysql:8.0.31
     restart: on-failure
@@ -34,9 +42,21 @@ services:
 #      MYSQL_PASSWORD: password1
       MYSQL_ROOT_PASSWORD: password
     volumes:
+      # volume at relative directory location
       #- ./mysql/data:/var/lib/mysql
+      # named volume
       - db_contract:/var/lib/mysql
     networks:
+      - dbnet
+
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 80:8080
+    networks:
+      - appnet
       - dbnet
 
 networks:
@@ -44,12 +64,3 @@ networks:
     name: appnet
   dbnet:
     name: dbnet
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - appnet
-      - dbnet

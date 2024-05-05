@@ -1,5 +1,6 @@
 package rrlane.leasing.common.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,16 +20,16 @@ import java.text.ParseException;
  * The API methods have not been designed in old (more verbose) fashion.
  * Kindly read through the code closely to appreciate the compact yet extensible approach well.
  */
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-    @Autowired
     private CustomerService customerService;
 
     // to create a customer with POST and also to edit a customer with PUT
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
+    public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO)  {
         HttpStatus responseStatus = HttpStatus.OK;
         String responseFromService = customerService.saveCustomer(customerDTO);
         if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
@@ -37,12 +38,12 @@ public class CustomerController {
 
     // to retrieve the details of a customer with matching inputs (search criteria)
     @GetMapping("/")
-    public ResponseEntity<CustomerDTO> viewCustomer(@RequestBody CustomerDTO customerDTO) throws ParseException {
-        CustomerDTO retrievedCustomerDTO  = customerService.viewCustomerByNameAndBirthdate(customerDTO.getName(), customerDTO.getBirthDate());
+    public ResponseEntity<CustomerDTO> viewCustomer(@RequestBody CustomerDTO customerDTO)  {
+        CustomerDTO retrievedCustomerDTO  = customerService.searchForCustomer(customerDTO);
         if (null == retrievedCustomerDTO) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        System.out.println("Found the Customer: " + retrievedCustomerDTO);
+        System.out.println("Found the customer: " + retrievedCustomerDTO);
         return new ResponseEntity<>(retrievedCustomerDTO, HttpStatus.OK);
     }
 }

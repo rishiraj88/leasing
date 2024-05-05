@@ -38,25 +38,14 @@ public class CustomerServiceImpl implements CustomerService {
             return  Constants.CUSTOMER_UPDATED;
         }
         customer = Customer.builder().name(customerDTO.getName()).birthDate(customerDTO.getBirthDate()).build();
-            customer = new Customer();
         customerRepository.save(customer);
         System.out.println(Constants.CUSTOMER_ADDED);
         return Constants.CUSTOMER_ADDED;
     }
-
-    @Override
-    public CustomerDTO viewCustomerByName(String name) {
-        System.out.println("Retrieving customer details by name...");
-        Customer foundCustomer = customerRepository.findByName(name).get(0);
-        System.out.println(Constants.CUSTOMER_FOUND);
-        CustomerDTO foundCustomerDTO = CustomerDTO.builder()
-                .name(foundCustomer.getName())
-                .birthDate(foundCustomer.getBirthDate())
-                .build();
-        return foundCustomerDTO;
+    public CustomerDTO searchForCustomer(CustomerDTO customerDTO){
+        return getCustomerByNameAndBirthdate(customerDTO.getName(),customerDTO.getBirthDate());
     }
-
-    public CustomerDTO viewCustomerByNameAndBirthdate(String name, LocalDateTime bdate) {
+    private CustomerDTO getCustomerByNameAndBirthdate(String name, LocalDateTime bdate) {
         System.out.println("Retrieving customer details by name and optionally by birth date...");
         List<Customer> foundCustomers = null;
         if (null == bdate) {
@@ -73,4 +62,17 @@ public class CustomerServiceImpl implements CustomerService {
                 .build();
         return foundCustomerDTO;
     }
+    @Override
+    public CustomerDTO viewCustomerByName(String name) {
+        System.out.println("Retrieving customer details by name...");
+        Customer foundCustomer = customerRepository.findByName(name).get(0);
+        System.out.println(Constants.CUSTOMER_FOUND);
+        CustomerDTO foundCustomerDTO = CustomerDTO.builder()
+                .name(foundCustomer.getName())
+                .birthDate(foundCustomer.getBirthDate())
+                .build();
+        return foundCustomerDTO;
+    }
+
+
 }

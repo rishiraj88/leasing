@@ -1,5 +1,6 @@
 package rrlane.leasing.contract.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,10 @@ import rrlane.leasing.util.Mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/contract")
 public class LeasingContractController {
-    @Autowired
     private LeasingContractService leasingContractService;
     private LeasingContract leasingContract = null;
 
@@ -28,25 +29,10 @@ public class LeasingContractController {
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<LeasingContractDTO> updateContract(@RequestBody LeasingContractDTO contractDTO) {
-        HttpStatus status = HttpStatus.OK;
-        if(null != contractDTO && -1 == contractDTO.getMonthlyRate()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        if (null == contractDTO.getCustomerName() || !contractDTO.getCustomerName().contains(" ")) {
-            throw new IllegalArgumentException("Customer name [firstname and lastname both parts] must be entered.");
-        }
-        if (null == leasingContract) {
-            leasingContract = new LeasingContract();
-            status = HttpStatus.CREATED;
-        }
-        leasingContract.setContractNumber(contractDTO.getContractNumber());
-        leasingContract.setMonthlyRate(contractDTO.getMonthlyRate());
-        leasingContract.setCustomer(leasingContractService.getCustomerByName(contractDTO.getCustomerName()));
-        leasingContract.setVehicle(leasingContractService.getVehicleByDetails(contractDTO.getVehicleDetails()));
-        leasingContractService.saveLeasingContract(leasingContract);
-
-        contractDTO = Mapper.entityToDto(leasingContract);
-        return new ResponseEntity<>(contractDTO, HttpStatus.CREATED);
+        HttpStatus responseStatus = HttpStatus.OK;
+        String responseFromService = leasingContractService.saveLeasingContract(contractDTO);
+        if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
+        return new ResponseEntity<>(contractDTO, responseStatus);
     }
 
     @GetMapping("/")
@@ -56,8 +42,7 @@ public class LeasingContractController {
         if (null == leasingContracts || 0 == leasingContracts.size()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        List<LeasingContractDTO> leasingContractDTOs = leasingContracts.stream().map(Mapper::entityToDto).collect(Collectors.toList());
-
+        List<LeasingContractDTO> leasingContractDTOs = leasingContracts.stream().map(Mapper::entityToDto).toList();
         return new ResponseEntity<>(leasingContractDTOs, HttpStatus.OK);
     }
 }
