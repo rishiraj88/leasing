@@ -4,39 +4,41 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
+import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.contract.entity.dto.CustomerDTO;
 import rrlane.leasing.util.Mapper;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "customer")
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
+@Data
 public class Customer {
     @Id
-    @Column(name = "customer_id")
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @Column(name = "id")
+    @UuidGenerator
     private String customerId;
     @Column(name = "name")
     private String name;
     @Temporal(TemporalType.DATE)
     @Column(name = "bdate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
     private Set<LeasingContract> leasingContracts = new HashSet<>();

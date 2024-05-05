@@ -5,18 +5,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import rrlane.leasing.contract.entity.dto.VehicleDTO;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.util.Mapper;
 
 @Entity
-@NoArgsConstructor @Data
+@NoArgsConstructor
+@Data
+@Builder
+@AllArgsConstructor
 @Table(name = "vehicle")
 public class Vehicle {
-@Id
-@Column(name = "vehicle_id")
+    @Id
+    @Column(name = "vehicle_id")
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String vehicleId;
@@ -28,8 +33,8 @@ public class Vehicle {
     private Double price;
 
     public String getDetails() {
-        return "" + brand + ' ' + model + " (" + modelYear +") VIN: " + vin;
-    }
+        return "" + brand + ' ' + model + " (" + modelYear + ") VIN: " + vin;
+    }//TODO check for removal
 
     public VehicleDTO getDto() {
         return Mapper.entityToDto(this);

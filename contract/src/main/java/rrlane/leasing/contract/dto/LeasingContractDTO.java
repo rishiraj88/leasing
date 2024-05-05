@@ -1,4 +1,4 @@
-package rrlane.leasing.contract.entity.dto;
+package rrlane.leasing.contract.dto;
 
 import lombok.Data;
 
@@ -32,13 +32,6 @@ public class LeasingContractDTO {
 
     @Override
     public String toString() {
-        return "LeasingContractDTO{" +
-                "contractNumber=" + contractNumber +
-                ", monthlyRate=" + monthlyRate +
-                ", vehicleDetails='" + vehicleDetails + '\'' +
-                ", customerName='" + customerName + '\'' +
-                ", customerDto=" + customerDto +
-                ", vehicleDto=" + vehicleDto +
-                '}';
+        return "LeasingContractDTO{" + "contractNumber=" + contractNumber + ", monthlyRate=" + monthlyRate + ", vehicleDetails='" + vehicleDetails + '\'' + ", customerName='" + customerName + '\'' + ", customerDto=" + customerDto + ", vehicleDto=" + vehicleDto + '}';
     }
 }

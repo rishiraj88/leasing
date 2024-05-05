@@ -1,9 +1,9 @@
 package rrlane.leasing.util;
 
+import rrlane.leasing.contract.dto.CustomerDTO;
+import rrlane.leasing.contract.dto.LeasingContractDTO;
+import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.contract.entity.dto.CustomerDTO;
-import rrlane.leasing.contract.entity.dto.LeasingContractDTO;
-import rrlane.leasing.contract.entity.dto.VehicleDTO;
 import rrlane.leasing.entity.Customer;
 import rrlane.leasing.entity.Vehicle;
 
@@ -13,6 +13,13 @@ public class Mapper {
         dto.setName(entity.getName());
         dto.setBirthDate(entity.getBirthDate());
         return dto;
+    }
+
+    public static Customer dtoToEntity(CustomerDTO dto) {
+        Customer entity = new Customer();
+        entity.setName(dto.getName());
+        entity.setBirthDate(dto.getBirthDate());
+        return entity;
     }
 
     public static LeasingContractDTO entityToDto(LeasingContract entity) {
@@ -26,7 +33,6 @@ public class Mapper {
 
     public static Vehicle dtoToEntity(VehicleDTO dto) {
         Vehicle entity = new Vehicle();
-
         entity.setBrand(dto.getBrand());
         entity.setModel(dto.getModel());
         entity.setModelYear(dto.getYear());
@@ -37,7 +43,6 @@ public class Mapper {
 
     public static VehicleDTO entityToDto(Vehicle entity) {
         VehicleDTO dto = new VehicleDTO();
-
         dto.setBrand(entity.getBrand());
         dto.setModel(entity.getModel());
         dto.setYear(entity.getModelYear());
@@ -45,6 +50,4 @@ public class Mapper {
         dto.setPrice(entity.getPrice());
         return dto;
     }
-
-
 }

@@ -1,9 +1,9 @@
 package rrlane.leasing.contract.repo;
 
-import rrlane.leasing.contract.entity.LeasingContract;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import rrlane.leasing.contract.entity.LeasingContract;
 import rrlane.leasing.entity.Customer;
 import rrlane.leasing.entity.Vehicle;
 
@@ -21,7 +21,6 @@ public interface LeasingContractRepository extends JpaRepository<LeasingContract
 
     public List<LeasingContract> findByMonthlyRate(Double monthlyRate);
 
-    @Query("SELECT lc from LeasingContract lc WHERE lc.contractNumber=:contractNumber AND "
-+ " lc.monthlyRate=:monthlyRate AND lc.vehicle=:vehicle AND lc.customer=:customer")
+    @Query("SELECT lc from LeasingContract lc WHERE lc.contractNumber=:contractNumber AND " + " lc.monthlyRate=:monthlyRate AND lc.vehicle=:vehicle AND lc.customer=:customer")
     public LeasingContract findByAllCriteria(Integer contractNumber, Double monthlyRate, Vehicle vehicle, Customer customer);
 }

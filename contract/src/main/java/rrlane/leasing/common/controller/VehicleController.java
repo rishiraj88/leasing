@@ -1,48 +1,43 @@
 package rrlane.leasing.common.controller;
 
-import rrlane.leasing.contract.entity.dto.VehicleDTO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.service.VehicleService;
-import rrlane.leasing.util.Mapper;
 
 import java.text.ParseException;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/vehicle")
 public class VehicleController {
     private VehicleService vehicleService;
 
-    public VehicleController(VehicleService vehicleService) {
-        this.vehicleService = vehicleService;
-    }
-
-    private Vehicle vehicle = null;
-
     // to create a vehicle with POST and also to edit vehicle details with PUT
-    @RequestMapping(value = "/",method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<Vehicle> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
-        HttpStatus status = HttpStatus.OK;
-        if(-1 == vehicleDTO.getPrice()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-        if(null == vehicle) {
-            vehicle = new Vehicle();
-            status = HttpStatus.CREATED;
-        }
-
-        vehicle = Mapper.dtoToEntity(vehicleDTO);
-        vehicleService.saveVehicle(vehicle);
-
-        vehicleDTO = Mapper.entityToDto(vehicle);
-        return new ResponseEntity<>(vehicle, status);
+    public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
+        HttpStatus responseStatus = HttpStatus.OK;
+        String responseFromService = vehicleService.saveVehicle(vehicleDTO);
+        if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
+        return new ResponseEntity<>(vehicleDTO, responseStatus);
     }
 
+    // to retrieve the details of a vehicle with matching search criteria in specific order
+    @GetMapping("/")
+    public ResponseEntity<VehicleDTO> viewCustomer(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
+        VehicleDTO retrievedVehicleDTO = vehicleService.searchForVehicle(vehicleDTO);
+        if (null == retrievedVehicleDTO) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        System.out.println("Found the vehicle: " + retrievedVehicleDTO);
+        return new ResponseEntity<>(retrievedVehicleDTO, HttpStatus.OK);
+    }
 }

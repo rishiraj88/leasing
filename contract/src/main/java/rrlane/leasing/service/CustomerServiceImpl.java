@@ -1,12 +1,14 @@
 package rrlane.leasing.service;
 
-import rrlane.leasing.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import rrlane.leasing.common.Constants;
+import rrlane.leasing.contract.dto.CustomerDTO;
+import rrlane.leasing.entity.Customer;
 import rrlane.leasing.repo.CustomerRepository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -16,37 +18,60 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
-    public void saveCustomer(Customer customer) {
-        System.out.println("Saving customer...");
+    public String saveCustomer(CustomerDTO customerDTO) {
+        System.out.println("Saving/Updating customer details...");
+        String response = "";
+        Customer customer = null;
+        List<Customer> foundCustomers = customerRepository.findByName(customerDTO.getName());
+        if (!foundCustomers.isEmpty()) {
+            customer = foundCustomers.get(0);
+            customer.setBirthDate(customerDTO.getBirthDate());
+            customerRepository.save(customer);
+            System.out.println(Constants.CUSTOMER_UPDATED);
+            return Constants.CUSTOMER_UPDATED;
+        }
+        foundCustomers = customerRepository.findByBirthDate(customerDTO.getBirthDate());
+        if (!foundCustomers.isEmpty()) {
+            customer = foundCustomers.get(0);
+            customer.setName(customerDTO.getName());
+            customerRepository.save(customer);
+            System.out.println(Constants.CUSTOMER_UPDATED);
+            return Constants.CUSTOMER_UPDATED;
+        }
+        customer = Customer.builder().name(customerDTO.getName()).birthDate(customerDTO.getBirthDate()).build();
         customerRepository.save(customer);
-        System.out.println("Saved customer successfully.");
+        System.out.println(Constants.CUSTOMER_ADDED);
+        return Constants.CUSTOMER_ADDED;
     }
 
-    @Override
-    public Customer viewCustomerByName(String name) {
-        System.out.println("Retrieving customer details by name...");
-
-        Customer foundCustomer = customerRepository.findByName(name).get(0);
-        System.out.println("Retrieved customer details by name successfully.");
-
-        return foundCustomer;
+    public CustomerDTO searchForCustomer(CustomerDTO customerDTO) {
+        return getCustomerByNameAndBirthdate(customerDTO.getName(), customerDTO.getBirthDate());
     }
 
-    public Customer viewCustomerByNameAndBirthdate(String name, LocalDateTime bdate) {
+    private CustomerDTO getCustomerByNameAndBirthdate(String name, LocalDate bdate) {
         System.out.println("Retrieving customer details by name and optionally by birth date...");
-
         List<Customer> foundCustomers = null;
         if (null == bdate) {
             foundCustomers = customerRepository.findByName(name);
         } else {
             foundCustomers = customerRepository.findByNameAndBirthDate(name, bdate);
         }
-        Customer foundCustomer = null;
-        if (null != foundCustomers && 0 < foundCustomers.size())
+        if (null != foundCustomers && 0 < foundCustomers.size()) {
+            Customer foundCustomer = null;
             foundCustomer = foundCustomers.get(0);
-        System.out.println("Retrieved customer details by name successfully.");
-
-        return foundCustomer;
+            System.out.println(Constants.CUSTOMER_FOUND);
+            CustomerDTO foundCustomerDTO = CustomerDTO.builder().name(foundCustomer.getName()).birthDate(foundCustomer.getBirthDate()).build();
+            return foundCustomerDTO;
+        }
+        return null;
     }
 
+    @Override
+    public CustomerDTO viewCustomerByName(String name) {
+        System.out.println("Retrieving customer details by name...");
+        Customer foundCustomer = customerRepository.findByName(name).get(0);
+        System.out.println(Constants.CUSTOMER_FOUND);
+        CustomerDTO foundCustomerDTO = CustomerDTO.builder().name(foundCustomer.getName()).birthDate(foundCustomer.getBirthDate()).build();
+        return foundCustomerDTO;
+    }
 }

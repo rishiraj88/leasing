@@ -8,6 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import rrlane.leasing.entity.Customer;
@@ -16,6 +17,7 @@ import rrlane.leasing.entity.Vehicle;
 @Entity
 @Table(name = "lcontract")
 @Data
+@Builder
 public class LeasingContract {
     @Id
     @Column(name = "contract_id")
@@ -48,5 +50,4 @@ public class LeasingContract {
         this.vehicle = vehicle;
         if (null == this.vehicle.getVin() || "".equals(this.vehicle.getVin())) this.vehicle.setVin("-");
     }
-
 }
