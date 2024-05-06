@@ -25,12 +25,12 @@ public class LeasingContract {
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
     @Column(name = "lcnum")
-    private Integer contractNumber;
+    private Integer contractNumber; //prop: source of truth is here
     @Column(name = "mrate")
-    private Double monthlyRate;
+    private Double monthlyRate; //prop: source of truth is here
     @OneToOne
-    @JoinColumn(name = "vehicle_id")
-    private Vehicle vehicle;
+    @JoinColumn(name = "vehicle_id") // one-to-one
+    private Vehicle vehicle; // The vehicle in a contract may have its VIN as an empty String value
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id")
     private Customer customer;

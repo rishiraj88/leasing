@@ -34,22 +34,14 @@ public class Customer {
     @UuidGenerator
     private String customerId;
     @Column(name = "name")
-    private String name;
+    private String name; //prop: source of truth is here
     @Temporal(TemporalType.DATE)
     @Column(name = "bdate")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
-    private LocalDate birthDate;
+    private LocalDate birthDate; //prop: source of truth is here
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
-    private Set<LeasingContract> leasingContracts = new HashSet<>();
-
-    public Set<LeasingContract> getLeasingContracts() {
-        return leasingContracts;
-    }
-
-    public void setLeasingContracts(Set<LeasingContract> leasingContracts) {
-        this.leasingContracts = leasingContracts;
-    }
+    private Set<LeasingContract> leasingContracts = new HashSet<>(); // one-to-many
 
     @Override
     public String toString() {

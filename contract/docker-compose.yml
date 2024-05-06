@@ -21,6 +21,7 @@ services:
 
   db:
     image: mysql:8.0.31
+    #container_name: database-server
     restart: on-failure
     ports:
       - 3306:3306
