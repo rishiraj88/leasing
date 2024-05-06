@@ -2,6 +2,52 @@
 
 End-User Utility to take vehicles on lease, respect such leasing contracts and returning the leased vehicles to the providers. For use by customers (vehicle users)
 
+## Technologies Used to Build the Application
+- Java 17
+- Spring Boot 3.2.5
+- MySQL 8.0.31 (containerized)
+- JPA 3.1.0 (Jakarta Persistence API)
+- Hibernate 6.4.4 for ORM
+- Docker
+- Gradle
+- Flyway for database migration
+- lombok for boilerplate code generation
+
+## Business Scenario and Use Cases
+
+### Main Actors
+- Customer, with properties: name, birthdate
+- Vehicle, with properties: brand, model, year of manufacture, VIN, price
+- Lease Contract, with essential properties: lease contract number, monthly rate (for billing)
+
+### Screens/Pages/Views for End Users
+
+#### Viewing Contract Summary [under development]
+The following details are shown at summary level:
+- lease contract number
+- customer name
+- vehicle details (branc, model, year)
+- VIN separately ("--" shown if VIN is not available)
+- contract rate
+- vehicle price
+- anchor link to view more details
+
+Indicative illustration is below:
+|----------Contract Overview---------------------------------------------------------------------------------------------|
+|Contract Nr.   |Customer Name   |Vehicle            |VIN       |Contract Rate (Monthly)    |Vehicle Price More Details  |
+|134856         |Maximill Muster |Audi A20 (2023)    |A65413    |654,20                     |33465,80                    |
+|146349         |Angel Angle     |Neo X4 (2024)      |--        |453,00                     |40321,00                    |
+|------------------------------------------------------------------------------------------------------------------------|
+
+#### Customer Entry Form [under development]
+It is a form with fields to enter customer name and birthdate, along with "Update" and "Cancel" buttons.
+
+#### Vehicle Entry Form [under development]
+It is a form with fields to enter all five properties (detail points) of vehicle to add or update, with "Update" and "Cancel" buttons.
+
+#### Lease Contract Entry Form [under development]
+A form to enter contract number, monthly rate of contract, related customer name and related vehicle details. Customer name and vehicle details may be picked out of database in order to select existing data about customer and vehicle, respectively.
+
 ## Preconditions to Run the Application
 
 This application requires the following software packages to run properly:

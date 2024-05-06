@@ -25,12 +25,12 @@ public class Vehicle {
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String vehicleId;
-    private String brand; //prop: company brand
-    private String model; //prop: model name
+    private String brand; //prop: source of truth is here: company brand
+    private String model; //prop: source of truth is here: model name
     @Column(name = "myear")
-    private String modelYear;
-    private String vin; //prop: vehicle identification number
-    private Double price;
+    private String modelYear; //prop: source of truth is here
+    private String vin; //prop: source of truth is here: vehicle identification number
+    private Double price; //prop: source of truth is here
 
     public String getDetails() {
         return "" + brand + ' ' + model + " (" + modelYear + ") VIN: " + vin;
