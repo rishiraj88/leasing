@@ -1,6 +1,5 @@
 package rrlane.leasing.common.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,11 +13,14 @@ import rrlane.leasing.service.VehicleService;
 
 import java.text.ParseException;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/vehicle")
 public class VehicleController {
     private VehicleService vehicleService;
+
+    public VehicleController(VehicleService vehicleService) {
+        this.vehicleService = vehicleService;
+    }
 
     // to create a vehicle with POST and also to edit vehicle details with PUT
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})

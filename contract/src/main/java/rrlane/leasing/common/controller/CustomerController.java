@@ -17,7 +17,7 @@ import rrlane.leasing.service.CustomerService;
  * Kindly read through the code closely to appreciate the compact yet extensible approach well.
  */
 @RestController
-@RequestMapping(value = "/customer", consumes = {})
+@RequestMapping(value = "/customer")
 public class CustomerController {
     private CustomerService customerService;
 
