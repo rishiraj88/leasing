@@ -10,7 +10,7 @@ export class CustomerFormComponent {
   //default values added for quick review post app installation
   firstName: string = 'Alex'
   lastName: string = 'Doe'
-  birthDate: Date = new Date("11.11.2022"); //11 Nov 2022
+  birthDate: Date = new Date("11.11.2005"); //11 Nov 2005
 
   saveEditLabel: string = 'Save'
 

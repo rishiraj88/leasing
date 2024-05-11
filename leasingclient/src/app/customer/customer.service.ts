@@ -42,7 +42,7 @@ export class CustomerService {
          },
        })
        .then(({ data }) => {
-         console.log("Request to save customer details has been completed.")
+         console.log("Request to save customer details has been fulfilled.")
        }).catch(({ err }) => {
          console.log("Error occured while saving customer details.")
          console.log(`Error is: ${err}`)
