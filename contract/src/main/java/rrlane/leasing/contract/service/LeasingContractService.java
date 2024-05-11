@@ -12,7 +12,7 @@ public interface LeasingContractService {
 
     public CustomerDTO getCustomerByName(String customerName);
 
-    public Vehicle getVehicleByDetails(String vehicleDetails);
+    public Vehicle getVehicleByDetails(String vehicleDetails);//TODO to use or to remove?
 
     public List<LeasingContract> view();
 }

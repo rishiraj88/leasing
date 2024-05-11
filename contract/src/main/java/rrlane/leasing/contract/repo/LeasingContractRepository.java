@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface LeasingContractRepository extends JpaRepository<LeasingContract, String> {
-    public List<LeasingContract> findByContractNumberAndMonthlyRate(Integer contractNumber, Double monthlyRate);
+    public List<LeasingContract> findByContractNumberAndMonthlyRate(Integer contractNumber, Double monthlyRate); // planned for use
 
     public List<LeasingContract> findByContractNumber(Integer contractNumber);
 

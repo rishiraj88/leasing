@@ -28,8 +28,7 @@ export class CustomerService {
   save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")
      const data = {
-       "firstName": customer.firstName,
-       "lastName": customer.lastName,
+       "firstName": customer.name,
        "birthDate": customer.birthDate
      };
      console.log("date: "+data.birthDate)
@@ -42,7 +41,7 @@ export class CustomerService {
          },
        })
        .then(({ data }) => {
-         console.log("Request to save customer details has been completed.")
+         console.log("Request to save customer details has been fulfilled.")
        }).catch(({ err }) => {
          console.log("Error occured while saving customer details.")
          console.log(`Error is: ${err}`)

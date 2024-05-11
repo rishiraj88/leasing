@@ -8,9 +8,8 @@ import { CustomerDTO } from '../dto/CustomerDTO';
 })
 export class CustomerFormComponent {
   //default values added for quick review post app installation
-  firstName: string = 'Alex'
-  lastName: string = 'Doe'
-  birthDate: Date = new Date("11.11.2022"); //11 Nov 2022
+  name: string = 'Alex'
+  birthDate: Date = new Date("11.11.2005"); //11 Nov 2005
 
   saveEditLabel: string = 'Save'
 
@@ -18,20 +17,17 @@ export class CustomerFormComponent {
   customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
 
   save() {
-    console.log(this.firstName)
-    console.log(this.lastName)
+    console.log(this.name)
     console.log(this.birthDate)
-    let customerDTO = new CustomerDTO(this.firstName, this.lastName, this.birthDate)
+    let customerDTO = new CustomerDTO(this.name, this.birthDate)
     this.customerDtoEvent.emit(customerDTO)
     console.log(customerDTO)
     this.saveEditLabel= 'Edit'
   }
 
   clear() {
-    this.firstName = ''
-    this.lastName = ''
+    this.name = ''
     this.birthDate = new Date();
     this.saveEditLabel = 'Save'
-
   }
 }

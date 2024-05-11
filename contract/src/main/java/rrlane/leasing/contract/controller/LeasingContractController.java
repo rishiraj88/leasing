@@ -1,6 +1,5 @@
 package rrlane.leasing.contract.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,12 +15,14 @@ import rrlane.leasing.util.Mapper;
 
 import java.util.List;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/contract")
 public class LeasingContractController {
     private LeasingContractService leasingContractService;
-    private LeasingContract leasingContract = null;
+
+    public LeasingContractController(LeasingContractService leasingContractService) {
+        this.leasingContractService = leasingContractService;
+    }
 
     // to create a vehicle leasing contract with POST and also to edit contract details with PUT
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})

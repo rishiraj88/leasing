@@ -1,12 +1,12 @@
 # Leasingclient
+This project is the web-based user interface (Web UI) for the project- vehicle leasing contract. It has been generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+## Development Server
 
-## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload its updated state in case you have modified, replaced, added or removed any of its source files.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
+- Generic Instructions and Help from Angular Providers follows here. [TODO to be removed soon]
+## Code Scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 

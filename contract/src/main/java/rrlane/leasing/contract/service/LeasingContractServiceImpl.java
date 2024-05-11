@@ -1,6 +1,5 @@
 package rrlane.leasing.contract.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rrlane.leasing.common.Constants;
@@ -17,7 +16,6 @@ import rrlane.leasing.util.Mapper;
 import java.util.Arrays;
 import java.util.List;
 
-@RequiredArgsConstructor
 @Service
 public class LeasingContractServiceImpl implements LeasingContractService {
     private LeasingContractRepository leasingContractRepository;
@@ -25,6 +23,10 @@ public class LeasingContractServiceImpl implements LeasingContractService {
     private CustomerService customerService;
     @Autowired
     private VehicleService vehicleService;
+
+    public LeasingContractServiceImpl(LeasingContractRepository leasingContractRepository) {
+        this.leasingContractRepository = leasingContractRepository;
+    }
 
     @Override
     public String saveLeasingContract(LeasingContractDTO contractDTO) {
@@ -91,6 +93,7 @@ public class LeasingContractServiceImpl implements LeasingContractService {
         return retLeasingContracts;
     }
 
+    //TODO to use or remove
     public Vehicle getVehicleByDetails(String vehicleDetails) {
         String[] details = vehicleDetails.replace("VIN:", " ").replace("(", " ").replace(")", " ").replaceAll("\\s+", " ").split(" ");
         System.out.println("details array: ");
