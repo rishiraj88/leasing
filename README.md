@@ -3,6 +3,7 @@
 End-User Utility to take vehicles on lease, respect such leasing contracts and returning the leased vehicles to the providers. For use by customers (vehicle users)
 
 ## Technologies Used to Build the Application
+- Angular
 - Java 17
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
@@ -12,6 +13,21 @@ End-User Utility to take vehicles on lease, respect such leasing contracts and r
 - Gradle
 - Flyway for database migration
 - lombok for boilerplate code generation
+
+## Screenshots
+### Contract Manager
+![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
+
+### Customer Manager
+![Customer manager to add, update and view customer details](./assets/customer-manager.png)
+
+### Vehicle Manager
+![Vehicle manager to add, update and view vehicle details](./assets/vehicle-manager.png)
+
+### Home View
+- ![Top of home view (home page)](./assets/home-top.png)
+
+- ![Bottom of home view (home page)](./assets/home-bottom.png)
 
 ## Business Scenario and Use Cases
 
@@ -32,12 +48,12 @@ The following details are shown at summary level:
 - vehicle price
 - anchor link to view more details
 
-Indicative illustration is below:
-|----------Contract Overview---------------------------------------------------------------------------------------------|
-|Contract Nr.   |Customer Name   |Vehicle            |VIN       |Contract Rate (Monthly)    |Vehicle Price More Details  |
-|134856         |Maximill Muster |Audi A20 (2023)    |A65413    |654,20                     |33465,80                    |
-|146349         |Angel Angle     |Neo X4 (2024)      |--        |453,00                     |40321,00                    |
-|------------------------------------------------------------------------------------------------------------------------|
+Indicative illustration is below:  
+|----------Contract Overview---------------------------------------------------------------------------------------------|  
+|Contract Nr.   |Customer Name   |Vehicle            |VIN       |Contract Rate (Monthly)    |Vehicle Price More Details  |  
+|134856         |Maximill Muster |Audi A20 (2023)    |A65413    |654,20                     |33465,80                    |  
+|146349         |Angel Angle     |Neo X4 (2024)      |--        |453,00                     |40321,00                    |  
+|------------------------------------------------------------------------------------------------------------------------|  
 
 #### Customer Entry Form [under development]
 It is a form with fields to enter customer name and birthdate, along with "Update" and "Cancel" buttons.
