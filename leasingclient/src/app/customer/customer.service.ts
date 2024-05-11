@@ -28,8 +28,7 @@ export class CustomerService {
   save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")
      const data = {
-       "firstName": customer.firstName,
-       "lastName": customer.lastName,
+       "firstName": customer.name,
        "birthDate": customer.birthDate
      };
      console.log("date: "+data.birthDate)
