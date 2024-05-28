@@ -26,7 +26,7 @@ public class CustomerController {
     }
 
     // to create a customer with POST and also to edit a customer with PUT
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO) {
         HttpStatus responseStatus = HttpStatus.OK;

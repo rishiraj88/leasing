@@ -23,7 +23,7 @@ public class VehicleController {
     }
 
     // to create a vehicle with POST and also to edit vehicle details with PUT
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
         HttpStatus responseStatus = HttpStatus.OK;

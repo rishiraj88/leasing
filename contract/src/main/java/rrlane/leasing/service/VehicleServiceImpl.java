@@ -24,9 +24,11 @@ public class VehicleServiceImpl implements VehicleService {
         System.out.println("Saving/Updating vehicle details...");
         String response = "";
         Vehicle vehicle = null;
-        vehicle = vehicleRepository.findByBrandAndModelAndModelYear(vehicleDTO.getBrand(), vehicleDTO.getModel(), vehicleDTO.getMyear()).get(0);
-        if (null != vehicle) {
+        List<Vehicle> foundVehicles = vehicleRepository.findByBrandAndModelAndModelYear(vehicleDTO.getBrand(), vehicleDTO.getModel(), vehicleDTO.getMyear());
+        if (!foundVehicles.isEmpty()) {
+            vehicle = foundVehicles.get(0);
             vehicle.setVin(vehicleDTO.getVin());
+            vehicle.setPrice(vehicleDTO.getPrice());
             vehicleRepository.save(vehicle);
             System.out.println(Constants.VEHICLE_UPDATED);
             return Constants.VEHICLE_UPDATED;

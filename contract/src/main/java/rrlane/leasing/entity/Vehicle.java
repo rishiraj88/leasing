@@ -2,14 +2,13 @@ package rrlane.leasing.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UuidGenerator;
 import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.util.Mapper;
 
@@ -22,8 +21,7 @@ import rrlane.leasing.util.Mapper;
 public class Vehicle {
     @Id
     @Column(name = "vehicle_id")
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    @UuidGenerator
     private String vehicleId;
     private String brand; //prop: source of truth is here: company brand
     private String model; //prop: source of truth is here: model name
