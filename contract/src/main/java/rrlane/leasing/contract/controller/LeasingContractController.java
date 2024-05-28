@@ -24,8 +24,8 @@ public class LeasingContractController {
         this.leasingContractService = leasingContractService;
     }
 
-    // to create a vehicle leasing contract with POST and also to edit contract details with PUT
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+    // to create a vehicle leasing contract with POST and also to edit contract details with PATCH
+    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<LeasingContractDTO> updateContract(@RequestBody LeasingContractDTO contractDTO) {
         HttpStatus responseStatus = HttpStatus.OK;

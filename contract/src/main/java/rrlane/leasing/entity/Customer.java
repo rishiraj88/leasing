@@ -30,7 +30,7 @@ import java.util.Set;
 @Data
 public class Customer {
     @Id
-    @Column(name = "id")
+    @Column(name = "customer_id")
     @UuidGenerator
     private String customerId;
     @Column(name = "name")

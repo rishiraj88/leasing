@@ -20,7 +20,7 @@ import rrlane.leasing.entity.Vehicle;
 @Builder
 public class LeasingContract {
     @Id
-    @Column(name = "contract_id")
+    @Column(name = "lcontract_id")
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;

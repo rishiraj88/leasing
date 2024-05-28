@@ -28,10 +28,11 @@ export class CustomerService {
   save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")
      const data = {
-       "firstName": customer.name,
+       "name": customer.name,
        "birthDate": customer.birthDate
      };
      console.log("date: "+data.birthDate)
+     console.log("name: "+data.name)
      axios
        .post(this.url, data, {
          headers: {

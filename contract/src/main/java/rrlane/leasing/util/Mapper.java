@@ -35,7 +35,7 @@ public class Mapper {
         Vehicle entity = new Vehicle();
         entity.setBrand(dto.getBrand());
         entity.setModel(dto.getModel());
-        entity.setModelYear(dto.getYear());
+        entity.setModelYear(dto.getMyear());
         entity.setVin(dto.getVin());
         entity.setPrice(dto.getPrice());
         return entity;
@@ -45,7 +45,7 @@ public class Mapper {
         VehicleDTO dto = new VehicleDTO();
         dto.setBrand(entity.getBrand());
         dto.setModel(entity.getModel());
-        dto.setYear(entity.getModelYear());
+        dto.setMyear(entity.getModelYear());
         dto.setVin(entity.getVin());
         dto.setPrice(entity.getPrice());
         return dto;
