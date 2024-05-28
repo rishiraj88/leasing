@@ -30,11 +30,15 @@ export class VehicleService {
      const data = {
        "brand": vehicle.brand,
        "model": vehicle.model,
-       "year": vehicle.year,
+       "myear": vehicle.year,
        "vin": vehicle.vin,
        "price": vehicle.price
      };
-     console.log("year: "+data.year)
+     console.log("brand: "+data.brand)
+     console.log("model: "+data.model)
+     console.log("year: "+data.myear)
+     console.log("vin: "+data.vin)
+     console.log("price: "+data.price)
      axios
        .post(this.url, data, {
          headers: {

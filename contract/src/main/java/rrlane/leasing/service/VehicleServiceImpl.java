@@ -24,14 +24,14 @@ public class VehicleServiceImpl implements VehicleService {
         System.out.println("Saving/Updating vehicle details...");
         String response = "";
         Vehicle vehicle = null;
-        vehicle = vehicleRepository.findByBrandAndModelAndModelYear(vehicleDTO.getBrand(), vehicleDTO.getModel(), vehicleDTO.getYear()).get(0);
+        vehicle = vehicleRepository.findByBrandAndModelAndModelYear(vehicleDTO.getBrand(), vehicleDTO.getModel(), vehicleDTO.getMyear()).get(0);
         if (null != vehicle) {
             vehicle.setVin(vehicleDTO.getVin());
             vehicleRepository.save(vehicle);
             System.out.println(Constants.VEHICLE_UPDATED);
             return Constants.VEHICLE_UPDATED;
         }
-        vehicle = Vehicle.builder().brand(vehicleDTO.getBrand()).model(vehicleDTO.getModel()).modelYear(vehicleDTO.getYear()).vin(vehicleDTO.getVin()).price(vehicleDTO.getPrice()).build();
+        vehicle = Vehicle.builder().brand(vehicleDTO.getBrand()).model(vehicleDTO.getModel()).modelYear(vehicleDTO.getMyear()).vin(vehicleDTO.getVin()).price(vehicleDTO.getPrice()).build();
         vehicleRepository.save(vehicle);
         System.out.println(Constants.VEHICLE_ADDED);
         return Constants.VEHICLE_ADDED;
@@ -53,7 +53,7 @@ public class VehicleServiceImpl implements VehicleService {
             foundVehicles = vehicleRepository.findByModel(vehicleDTO.getModel());
         }
         if (null == foundVehicles) {
-            foundVehicles = vehicleRepository.findByModelYear(vehicleDTO.getYear());
+            foundVehicles = vehicleRepository.findByModelYear(vehicleDTO.getMyear());
         }
         if (null == foundVehicles) {
             foundVehicles = vehicleRepository.findByVin(vehicleDTO.getVin());
