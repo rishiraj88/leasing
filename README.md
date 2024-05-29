@@ -1,9 +1,23 @@
 # Leasing Application for All Mobility Groups
 
-End-User Utility to take vehicles on lease, respect such leasing contracts and returning the leased vehicles to the providers. For use by customers (vehicle users)
+End-User Utility App for the following classes of users:
+- lessee, called `customer` in the project for easier reference, and
+- lessor, called `provider`.
+
+The app is designed in the form of two modules:
+- backend modules, in the directory `contract`, and
+- frontend modules, in the directory `leasingclient`.
+
+Using this app, Lessees can perform these actions about vehicles and leasing contracts:
+- take vehicles on lease,
+- respect such leasing contracts, and
+- return the leased vehicles to the providers.
+
+The usage scenarios for lessors are not available in the current version of the app as it has been planned to essentially be a User Self-Help Portal. 
+However, the app may be easily extended to add lessor and administrator use cases.
 
 ## Technologies Used to Build the Application
-- Angular
+- Angular 15 / 18
 - Java 17
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
@@ -11,6 +25,7 @@ End-User Utility to take vehicles on lease, respect such leasing contracts and r
 - Hibernate 6.4.4 for ORM
 - Docker
 - Gradle
+- Maven
 - Flyway for database migration
 - lombok for boilerplate code generation
 
@@ -35,8 +50,6 @@ End-User Utility to take vehicles on lease, respect such leasing contracts and r
 - Customer, with properties: name, birthdate
 - Vehicle, with properties: brand, model, year of manufacture, VIN, price
 - Lease Contract, with essential properties: lease contract number, monthly rate (for billing)
-
-### Screens/Pages/Views for End Users
 
 #### Viewing Contract Summary [under development]
 The following details are shown at summary level:
@@ -107,7 +120,7 @@ Due to some constraints, I have built the MVP. For enhancing and fostering the s
 
 ## Notes for Developers
 
-### The backend of the app was packaged and published with the following commands:
+### The backend of the app has been packaged and published with the following commands:
 
 - In your file explorer, go to `leasing/contract` directory:
 <pre>cd leasing/contract</pre>
@@ -121,7 +134,7 @@ Due to some constraints, I have built the MVP. For enhancing and fostering the s
 - Push the Docker image for publishing with:
 <pre>docker push i50729/contract:latest</pre>
 
-### Development on unified Docker image is underway:
+### The Frontend of the app can be started as follows:
 
 - Build the Docker container network by running:
 <pre>`docker-compose build</pre>
@@ -133,6 +146,11 @@ Due to some constraints, I have built the MVP. For enhancing and fostering the s
 - Build and run the Angular-based frontend with these commands:
 <pre>npm install</pre>
 <pre>ng serve</pre>
+
+## Current Status of Functionalities
+1. Only creating and updating customer data is possible. Listing or deleting customer data is not provided for security purpose as the app is to be used by customers.
+2. Only creating and updateing vehicle data is possible for secure use by customers.
+3. Policy contracts can be listed and viewed by respective customers for the vehicles leased to them.
 
 ## For Feedback, Queries, Collaboration
 - LinkedIn Profile: https://www.linkedin.com/in/rishirajopenminds
