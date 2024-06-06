@@ -1,4 +1,4 @@
-# Leasing Application for All Mobility Groups
+# Leasing Application for All Mobility Groups [UI Revamp: WIP]
 
 End-User Utility App for the following classes of users:
 - lessee, called `customer` in the project for easier reference, and
