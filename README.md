@@ -1,4 +1,4 @@
-# Leasing Application for All Mobility Groups [UI Revamp: WIP]
+# Leasing Application for All Mobility Groups
 
 End-User Utility App for the following classes of users:
 - lessee, called `customer` in the project for easier reference, and
@@ -17,7 +17,7 @@ The usage scenarios for lessors are not available in the current version of the 
 However, the app may be easily extended to add lessor and administrator use cases.
 
 ## Technologies Used to Build the Application
-- Angular 15 / 18
+- Angular 15 / 18 (Frontend development with Angular 18 is actively underway on 'develop' branch.)
 - Java 17
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
