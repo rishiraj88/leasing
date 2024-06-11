@@ -4,8 +4,8 @@ import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.contract.dto.LeasingContractDTO;
 import rrlane.leasing.contract.dto.VehicleDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.entity.Customer;
-import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.core.entity.Customer;
+import rrlane.leasing.core.entity.Vehicle;
 
 public class Mapper {
     public static CustomerDTO entityToDto(Customer entity) {

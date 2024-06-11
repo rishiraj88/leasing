@@ -11,8 +11,8 @@ import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-import rrlane.leasing.entity.Customer;
-import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.core.entity.Customer;
+import rrlane.leasing.core.entity.Vehicle;
 
 @Entity
 @Table(name = "lcontract")

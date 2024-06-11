@@ -2,15 +2,15 @@ package rrlane.leasing.contract.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import rrlane.leasing.common.Constants;
 import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.contract.dto.LeasingContractDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
 import rrlane.leasing.contract.repo.LeasingContractRepository;
-import rrlane.leasing.entity.Customer;
-import rrlane.leasing.entity.Vehicle;
-import rrlane.leasing.service.CustomerService;
-import rrlane.leasing.service.VehicleService;
+import rrlane.leasing.core.Constants;
+import rrlane.leasing.core.entity.Customer;
+import rrlane.leasing.core.entity.Vehicle;
+import rrlane.leasing.core.service.CustomerService;
+import rrlane.leasing.core.service.VehicleService;
 import rrlane.leasing.util.Mapper;
 
 import java.util.Arrays;
