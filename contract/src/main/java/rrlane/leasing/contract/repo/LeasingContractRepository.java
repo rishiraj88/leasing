@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.entity.Customer;
-import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.core.entity.Customer;
+import rrlane.leasing.core.entity.Vehicle;
 
 import java.util.List;
 

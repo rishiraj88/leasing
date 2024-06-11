@@ -3,7 +3,7 @@ package rrlane.leasing.contract.service;
 import rrlane.leasing.contract.dto.CustomerDTO;
 import rrlane.leasing.contract.dto.LeasingContractDTO;
 import rrlane.leasing.contract.entity.LeasingContract;
-import rrlane.leasing.entity.Vehicle;
+import rrlane.leasing.core.entity.Vehicle;
 
 import java.util.List;
 

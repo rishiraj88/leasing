@@ -1,4 +1,4 @@
-package rrlane.leasing.common;
+package rrlane.leasing.core;
 
 public interface Constants {
     // messages for customer records

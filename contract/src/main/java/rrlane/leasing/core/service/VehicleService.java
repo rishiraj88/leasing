@@ -1,8 +1,7 @@
-package rrlane.leasing.service;
+package rrlane.leasing.core.service;
 
 import rrlane.leasing.contract.dto.VehicleDTO;
-import rrlane.leasing.entity.Vehicle;
-
+import rrlane.leasing.core.entity.Vehicle;
 import java.util.List;
 
 public interface VehicleService {

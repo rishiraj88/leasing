@@ -1,0 +1,39 @@
+rishi@ssgamer MINGW64 ~/mygithubprojs/leasing/leasingclient (develop)
+$ ng version
+Node.js version v21.7.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/previous-releases/.
+
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+
+
+Angular CLI: 18.0.1
+Node: 21.7.0 (Unsupported)
+Package Manager: npm 10.5.0
+OS: win32 x64
+
+Angular: 15.1.1
+... animations, common, compiler, core, forms, platform-browser
+... platform-browser-dynamic, router
+
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1800.1 (cli-only)
+@angular-devkit/build-angular   <error>
+@angular-devkit/core            18.0.1 (cli-only)
+@angular-devkit/schematics      18.0.1 (cli-only)
+@angular/cli                    18.0.1 (cli-only)
+@angular/compiler-cli           <error>
+@schematics/angular             18.0.1 (cli-only)
+rxjs                            7.5.7
+typescript                      4.8.4
+zone.js                         0.12.0
+
+Warning: The current version of Node (21.7.0) is not supported by Angular.
+
+rishi@ssgamer MINGW64 ~/mygithubprojs/leasing/leasingclient (develop)
+$

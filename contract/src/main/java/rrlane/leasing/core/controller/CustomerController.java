@@ -1,4 +1,4 @@
-package rrlane.leasing.common.controller;
+package rrlane.leasing.core.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rrlane.leasing.contract.dto.CustomerDTO;
-import rrlane.leasing.service.CustomerService;
+import rrlane.leasing.core.service.CustomerService;
 
 /**
  * Note for readers:

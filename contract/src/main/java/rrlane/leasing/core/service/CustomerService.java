@@ -1,4 +1,4 @@
-package rrlane.leasing.service;
+package rrlane.leasing.core.service;
 
 import rrlane.leasing.contract.dto.CustomerDTO;
 

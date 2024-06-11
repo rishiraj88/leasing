@@ -1,11 +1,11 @@
-package rrlane.leasing.service;
+package rrlane.leasing.core.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rrlane.leasing.common.Constants;
 import rrlane.leasing.contract.dto.CustomerDTO;
-import rrlane.leasing.entity.Customer;
-import rrlane.leasing.repo.CustomerRepository;
+import rrlane.leasing.core.Constants;
+import rrlane.leasing.core.entity.Customer;
+import rrlane.leasing.core.repo.CustomerRepository;
 
 import java.time.LocalDate;
 import java.util.List;

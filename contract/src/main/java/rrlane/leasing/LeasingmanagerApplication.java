@@ -3,7 +3,6 @@ package rrlane.leasing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.flyway.FlywayDataSource;
-import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
@@ -15,6 +14,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @FlywayDataSource
 public class LeasingmanagerApplication {
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(LeasingmanagerApplication.class, args);
+        SpringApplication.run(LeasingmanagerApplication.class, args);
     }
 }
