@@ -30,7 +30,8 @@ However, the app may be easily extended to add lessor and administrator use case
 - lombok for boilerplate code generation
 - ELK stack (ELK Stack: Elasticsearch, Kibana, Logstash) for log monitoring and analysis
 
-## Screenshots
+## Screenshots [Newer screenshots to be published soon]
+The following are the older screenshots:
 ### Contract Manager
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
 

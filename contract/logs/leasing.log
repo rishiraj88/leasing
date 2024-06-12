@@ -1,0 +1,35 @@
+2024-06-12T14:15:56.065+02:00  INFO 13060 --- [main] r.leasing.LeasingmanagerApplication      : Starting LeasingmanagerApplication using Java 17.0.8.1 with PID 13060 (C:\Users\rishi\mygithubprojs\leasing\contract\build\classes\java\main started by rishi in C:\Users\rishi\mygithubprojs\leasing\contract)
+2024-06-12T14:15:56.072+02:00  INFO 13060 --- [main] r.leasing.LeasingmanagerApplication      : The following 1 profile is active: "dev"
+2024-06-12T14:15:56.654+02:00  INFO 13060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-12T14:15:56.712+02:00  INFO 13060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 3 JPA repository interfaces.
+2024-06-12T14:15:57.573+02:00  INFO 13060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-12T14:15:57.590+02:00  INFO 13060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-12T14:15:57.591+02:00  INFO 13060 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-12T14:15:57.669+02:00  INFO 13060 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-12T14:15:57.670+02:00  INFO 13060 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1535 ms
+2024-06-12T14:15:57.793+02:00  INFO 13060 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-12T14:15:58.163+02:00  INFO 13060 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@604d28c6
+2024-06-12T14:15:58.165+02:00  INFO 13060 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-12T14:15:58.268+02:00  INFO 13060 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2024-06-12T14:15:58.269+02:00  INFO 13060 --- [main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-06-12T14:15:58.269+02:00  INFO 13060 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2024-06-12T14:15:58.332+02:00  INFO 13060 --- [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://localhost:3306/leasedb (MySQL 8.0)
+2024-06-12T14:15:58.407+02:00  INFO 13060 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.034s)
+2024-06-12T14:15:58.433+02:00  INFO 13060 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `leasedb`: 001
+2024-06-12T14:15:58.437+02:00  INFO 13060 --- [main] o.f.core.internal.command.DbMigrate      : Schema `leasedb` is up to date. No migration necessary.
+2024-06-12T14:15:58.550+02:00  INFO 13060 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-12T14:15:58.659+02:00  INFO 13060 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-12T14:15:58.704+02:00  INFO 13060 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-12T14:15:59.000+02:00  INFO 13060 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-12T14:15:59.094+02:00  WARN 13060 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-12T14:15:59.397+02:00  WARN 13060 --- [main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2024-06-12T14:15:59.943+02:00  INFO 13060 --- [main] o.h.m.i.EntityInstantiatorPojoStandard   : HHH000182: No default (no-argument) constructor for class: rrlane.leasing.contract.entity.LeasingContract (class must be instantiated by Interceptor)
+2024-06-12T14:16:00.221+02:00  INFO 13060 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-12T14:16:00.223+02:00  INFO 13060 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-12T14:16:00.516+02:00  INFO 13060 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-12T14:16:00.947+02:00  WARN 13060 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-12T14:16:01.450+02:00  INFO 13060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-12T14:16:01.461+02:00  INFO 13060 --- [main] r.leasing.LeasingmanagerApplication      : Started LeasingmanagerApplication in 5.893 seconds (process running for 6.473)
+2024-06-12T14:16:06.207+02:00  INFO 13060 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-12T14:16:06.300+02:00  INFO 13060 --- [http-nio-8080-exec-2] r.l.core.controller.CustomerController   : Searching for customer details on server...
+2024-06-12T14:16:06.396+02:00  INFO 13060 --- [http-nio-8080-exec-2] r.l.core.controller.CustomerController   : Found the customer details with name: dddsd
