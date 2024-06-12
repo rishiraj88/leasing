@@ -24,10 +24,11 @@ However, the app may be easily extended to add lessor and administrator use case
 - JPA 3.1.0 (Jakarta Persistence API)
 - Hibernate 6.4.4 for ORM
 - Docker
-- Gradle
-- Maven
+- Gradle with Maven
 - Flyway for database migration
+- SLF4j for logging
 - lombok for boilerplate code generation
+- ELK stack (ELK Stack: Elasticsearch, Kibana, Logstash) for log monitoring and analysis
 
 ## Screenshots
 ### Contract Manager
