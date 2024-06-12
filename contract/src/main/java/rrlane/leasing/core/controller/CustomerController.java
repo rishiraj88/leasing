@@ -1,5 +1,7 @@
 package rrlane.leasing.core.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,29 +22,37 @@ import rrlane.leasing.core.service.CustomerService;
 @RequestMapping(value = "/customer")
 public class CustomerController {
     private CustomerService customerService;
-
+    private Logger logs;
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
+        logs = LoggerFactory.getLogger(CustomerController.class);
     }
 
     // to create a customer with POST and also to edit a customer with PUT
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO) {
+        logs.info("Sending customer details to server...");
         HttpStatus responseStatus = HttpStatus.OK;
         String responseFromService = customerService.saveCustomer(customerDTO);
-        if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
+        if (responseFromService.contains("created")) {
+            responseStatus = HttpStatus.CREATED;
+        }
+        logs.info(responseFromService);
         return new ResponseEntity<>(customerDTO, responseStatus);
     }
 
     // to retrieve the details of a customer with matching inputs (search criteria)
     @GetMapping("/")
     public ResponseEntity<CustomerDTO> viewCustomer(@RequestBody CustomerDTO customerDTO) {
+        logs.info("Searching for customer details on server...");
         CustomerDTO retrievedCustomerDTO = customerService.searchForCustomer(customerDTO);
         if (null == retrievedCustomerDTO) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            logs.error("Customer details could not be found on server.");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+
         }
-        System.out.println("Found the customer: " + retrievedCustomerDTO);
+        logs.info("Found the customer details with name: " + retrievedCustomerDTO.getName());
         return new ResponseEntity<>(retrievedCustomerDTO, HttpStatus.OK);
     }
 }
