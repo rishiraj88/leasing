@@ -20,8 +20,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/contract")
 public class LeasingContractController {
-    Logger logs;
-    private LeasingContractService leasingContractService;
+    final Logger logs;
+    private final LeasingContractService leasingContractService;
 
     public LeasingContractController(LeasingContractService leasingContractService) {
         this.leasingContractService = leasingContractService;
