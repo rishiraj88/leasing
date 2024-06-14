@@ -1,33 +1,26 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CustomerDTO } from './dto/CustomerDTO';
+import { CustomerDTO } from '../customer/dto/CustomerDTO';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-customer',
+  selector: 'app-customer-form',
   standalone: true,
-  imports: [],
-  templateUrl: './customer.component.html',
-  styleUrl: './customer.component.css'
+  imports: [FormsModule],
+  templateUrl: './customer-form.component.html',
+  styleUrl: './customer-form.component.css'
 })
-export class CustomerComponent {
-  private customerDTO?: CustomerDTO
-  private url = 'http://localhost:8080/customer/'
-
-  constructor(private customerService: CustomerService) { }
-
-  save(customer: CustomerDTO) {
-    this.customerDTO = this.customerService.save(customer)
-  }
-
+export class CustomerFormComponent {
   //default values added for quick review post app installation
   name: string = 'Alex'
-  birthDate: Date = new Date("11.11.2005"); //11 Nov 2005
+  birthDate: Date = new Date("12.12.2010"); //12 Dec 2010
 
   saveEditLabel: string = 'Save'
 
   @Output()
   customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
 
-  prepareCustomerDTO() {
+
+  save() {
     console.log(this.name)
     console.log(this.birthDate)
     let customerDTO = new CustomerDTO(this.name, this.birthDate)
@@ -36,5 +29,10 @@ export class CustomerComponent {
     this.saveEditLabel= 'Edit'
   }
 
+  clear() {
+    this.name = ''
+    this.birthDate = new Date();
+    this.saveEditLabel = 'Save'
+  }
 
 }
