@@ -17,7 +17,7 @@ The usage scenarios for lessors are not available in the current version of the 
 However, the app may be easily extended to add lessor and administrator use cases.
 
 ## Technologies Used to Build the Application
-- Angular 15 / 18 (Frontend development with Angular 18 is actively underway on 'develop' branch.)
+- Angular 18 (Frontend development with Angular 18 is actively underway on 'develop' branch.)
 - Java 17
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
@@ -36,7 +36,7 @@ The following are the older screenshots:
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
 
 ### Customer Manager
-![Customer manager to add, update and view customer details](./assets/customer-manager.png)
+![Customer manager to add, update and view customer details](./assets/20240614/customer-form.png)
 
 ### Vehicle Manager
 ![Vehicle manager to add, update and view vehicle details](./assets/vehicle-manager.png)
