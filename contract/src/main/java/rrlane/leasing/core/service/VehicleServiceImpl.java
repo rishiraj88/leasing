@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class VehicleServiceImpl implements VehicleService {
-    private VehicleRepository vehicleRepository;
+    private final VehicleRepository vehicleRepository;
 
     public VehicleServiceImpl(VehicleRepository vehicleRepository) {
         this.vehicleRepository = vehicleRepository;

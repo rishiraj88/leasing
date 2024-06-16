@@ -12,11 +12,11 @@ public interface VehicleRepository extends JpaRepository<Vehicle, String> {
 
     public List<Vehicle> findByBrandAndModelAndModelYearAndVin(String brand, String model, String year, String vin);// planned for use
 
-    List<Vehicle> findByBrand(String brand);
+    public List<Vehicle> findByBrand(String brand);
 
-    List<Vehicle> findByModel(String modelName);
+    public List<Vehicle> findByModel(String modelName);
 
-    List<Vehicle> findByModelYear(String modelYear);
+    public List<Vehicle> findByModelYear(String modelYear);
 
-    List<Vehicle> findByVin(String vin);
+    public List<Vehicle> findByVin(String vin);
 }

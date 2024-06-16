@@ -12,5 +12,5 @@ public interface Constants {
     // messages for lease contract records
     String LEASING_CONTRACT_UPDATED = "Leasing contract updated successfully.";
     String LEASING_CONTRACT_ADDED = "Leasing contract created successfully.";
-    String LEASING_CONTRACT_FOUND = "Leasing contract details retrieved successfully."; //planned for use soon
+    //String LEASING_CONTRACT_FOUND = "Leasing contract details retrieved successfully."; //planned for use soon
 }

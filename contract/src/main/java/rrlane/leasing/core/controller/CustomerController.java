@@ -21,8 +21,8 @@ import rrlane.leasing.core.service.CustomerService;
 @RestController
 @RequestMapping(value = "/customer")
 public class CustomerController {
-    private CustomerService customerService;
-    private Logger logs;
+    private final CustomerService customerService;
+    private final Logger logs;
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
         logs = LoggerFactory.getLogger(CustomerController.class);
