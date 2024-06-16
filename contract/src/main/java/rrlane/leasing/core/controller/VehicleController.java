@@ -18,8 +18,8 @@ import java.text.ParseException;
 @RestController
 @RequestMapping("/vehicle")
 public class VehicleController {
-    private VehicleService vehicleService;
-    Logger logs = null;
+    private final VehicleService vehicleService;
+    private final Logger logs = null;
 
     public VehicleController(VehicleService vehicleService) {
         this.vehicleService = vehicleService;

@@ -18,7 +18,7 @@ import java.util.List;
 
 @Service
 public class LeasingContractServiceImpl implements LeasingContractService {
-    private LeasingContractRepository leasingContractRepository;
+    private final LeasingContractRepository leasingContractRepository;
     @Autowired
     private CustomerService customerService;
     @Autowired
