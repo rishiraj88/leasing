@@ -6,7 +6,7 @@ End-User Utility App for the following classes of users:
 
 The app is designed in the form of two modules:
 - backend modules, in the directory `contract`, and
-- frontend modules, in the directory `leasingclient`.
+- frontend modules, in the directory `clientng`. (unstable and under development currently)
 
 Using this app, Lessees can perform these actions about vehicles and leasing contracts:
 - take vehicles on lease,
