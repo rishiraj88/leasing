@@ -1,12 +1,11 @@
-# Leasing Application for All Mobility Groups
-
-End-User Utility App for the following classes of users:
+# Leasing Application for All Mobility Groups [B2C, B2B]
+This project is a utility app for the following classes of end-users:
 - lessee, called `customer` in the project for easier reference, and
 - lessor, called `provider`.
 
 The app is designed in the form of two modules:
 - backend modules, in the directory `contract`, and
-- frontend modules, in the directory `clientng`. (unstable and under development currently)
+- frontend modules, in the directory `clientng`. (under development currently)
 
 Using this app, Lessees can perform these actions about vehicles and leasing contracts:
 - take vehicles on lease,
@@ -17,18 +16,21 @@ The usage scenarios for lessors are not available in the current version of the 
 However, the app may be easily extended to add lessor and administrator use cases.
 
 ## Technologies Used to Build the Application
-- Angular 18 (Frontend development with Angular 18 is actively underway on 'develop' branch.)
-- Java 17
+- Angular 18 (Frontend aap with Angular 18 is being developed on 'develop' branch.)
+- Java 17 / 21
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
 - JPA 3.1.0 (Jakarta Persistence API)
 - Hibernate 6.4.4 for ORM
-- Docker
+- Docker with docker-compose
 - Gradle with Maven
 - Flyway for database migration
 - SLF4j for logging
 - lombok for boilerplate code generation
 - ELK stack (ELK Stack: Elasticsearch, Kibana, Logstash) for log monitoring and analysis
+
+## Open task with high priority
+- to implement and use Docker secrets for enhanced security (in docker compose yml)
 
 ## Screenshots [Newer screenshots to be published soon]
 The following are the older screenshots:
