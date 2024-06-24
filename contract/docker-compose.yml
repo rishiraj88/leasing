@@ -56,3 +56,5 @@ networks:
     name: appnet
   dbnet:
     name: dbnet
+
+# to implement and use Docker secrets for enhanced security
