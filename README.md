@@ -1,4 +1,6 @@
 # Leasing Application for All Mobility Groups [B2C, B2B]
+## Note: Tech upgrade of the app is underway. WIP code is available in repos for quick review by peers and feedback.
+
 This project is a utility app for the following classes of end-users:
 - lessee, called `customer` in the project for easier reference, and
 - lessor, called `provider`.
@@ -16,7 +18,7 @@ The usage scenarios for lessors are not available in the current version of the 
 However, the app may be easily extended to add lessor and administrator use cases.
 
 ## Technologies Used to Build the Application
-- Angular 18 (Frontend aap with Angular 18 is being developed on 'develop' branch.)
+- Angular 18 (Frontend app with Angular 18 is being developed on 'develop' branch.)
 - Java 17 / 21
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
