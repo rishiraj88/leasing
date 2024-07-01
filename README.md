@@ -18,8 +18,9 @@ The usage scenarios for lessors are not available in the current version of the 
 However, the app may be easily extended to add lessor and administrator use cases.
 
 ## Technologies Used to Build the Application
-- Angular 18 (Frontend app with Angular 18 is being developed on 'develop' branch.)
-- Java 17 / 21
+- React 18 (Frontend app with React 18, TypeScript and Vite/Bun is being developed activels on 'develop' branch.)
+- Angular 18 (Frontend app with Angular 18 will be developed after the React client has been readied.)
+- Java 17 (working well with container runtime)/ Java 21 (experiencing runtime issues)
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
 - JPA 3.1.0 (Jakarta Persistence API)
@@ -34,7 +35,7 @@ However, the app may be easily extended to add lessor and administrator use case
 ## Open task with high priority
 - to implement and use Docker secrets for enhanced security (in docker compose yml)
 
-## Screenshots [Newer screenshots to be published soon]
+## Screenshots [Newer screenshots to be published to cater to React-based UI]
 The following are the older screenshots:
 ### Contract Manager
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
