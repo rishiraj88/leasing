@@ -8,6 +8,9 @@ This project is a utility app for the following classes of end-users:
 The app is designed in the form of two modules:
 - backend modules, in the directory `contract`, and
 - frontend modules, in the directory `clientng`. (under development currently)
+- to provide more than one frontend.
+
+
 
 Using this app, Lessees can perform these actions about vehicles and leasing contracts:
 - take vehicles on lease,
