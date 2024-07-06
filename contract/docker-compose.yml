@@ -22,26 +22,19 @@ services:
   db:
     image: mysql:8.0.31
     #container_name: database-server
-    #restart: on-failure
     ports:
       - 3306:3306
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_DATABASE: leasedb
-#      MYSQL_USER: user1
-#      MYSQL_PASSWORD: password1
-      MYSQL_ROOT_PASSWORD: password
+    env_file:
+      - ./mysql/env_vars
     volumes:
-      # volume at relative directory location
-      #- ./mysql/data:/var/lib/mysql
-      # named volume
       - db_contract:/var/lib/mysql
     networks:
       - dbnet
 
   adminer:
     image: adminer
-    # restart: always
     ports:
       - 80:8080
     networks:
