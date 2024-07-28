@@ -25,7 +25,6 @@ services:
     ports:
       - 3306:3306
     command: --default-authentication-plugin=mysql_native_password
-    environment:
     env_file:
       - ./mysql/env_vars
     volumes:
