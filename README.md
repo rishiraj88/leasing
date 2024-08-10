@@ -10,8 +10,6 @@ The app is designed in the form of two modules:
 - frontend modules, in the directory `clientng`. (under development currently)
 - to provide more than one frontend.
 
-
-
 Using this app, Lessees can perform these actions about vehicles and leasing contracts:
 - take vehicles on lease,
 - respect such leasing contracts, and
@@ -37,6 +35,8 @@ However, the app may be easily extended to add lessor and administrator use case
 
 ## Open task with high priority
 - to implement and use Docker secrets for enhanced security (in docker compose yml)
+- OR
+- to orchestrate the containers in Kubernetes clusters.
 
 ## Screenshots [Newer screenshots to be published to cater to React-based UI]
 The following are the older screenshots:
