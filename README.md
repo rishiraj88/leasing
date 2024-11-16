@@ -1,5 +1,5 @@
 # Leasing Application for All Mobility Groups [B2C, B2B]
-## Note: Tech upgrade of the app is underway. WIP code is available in repos for quick review and feedback.
+## Note: Tech upgrade of the app is underway. The code here is available in repos for quick review and feedback.
 
 This project is a utility app for the following classes of end-users:
 - lessee, called `customer` in the project for easier reference, and
