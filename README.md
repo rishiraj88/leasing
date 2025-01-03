@@ -1,5 +1,5 @@
-# Leasing Application for Vehicles [B2C, B2B Compatible]
-## Note: Tech upgrade of the app is underway. The code here is available in repos for quick review and feedback.
+# Online Vehicle Leasing [B2C, B2B Compatible]
+## Note: The code here is available in repos for quick review and feedback. Continuous improvement is our culture.
 
 This project is a utility app for the following classes of end-users:
 - lessee, called `customer` in the project for easier reference, and
