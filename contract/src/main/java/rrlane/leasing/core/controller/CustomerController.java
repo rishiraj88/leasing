@@ -1,8 +1,6 @@
 package rrlane.leasing.core.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,7 +24,6 @@ public class CustomerController {
     private final CustomerService customerService;
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
-        log = LoggerFactory.getLogger(CustomerController.class);
     }
 
     // to create a customer with POST and also to edit a customer with PUT
