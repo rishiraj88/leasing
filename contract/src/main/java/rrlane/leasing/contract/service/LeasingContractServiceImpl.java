@@ -1,5 +1,6 @@
 package rrlane.leasing.contract.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rrlane.leasing.contract.dto.CustomerDTO;
@@ -17,16 +18,13 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class LeasingContractServiceImpl implements LeasingContractService {
     private final LeasingContractRepository leasingContractRepository;
     @Autowired
     private CustomerService customerService;
     @Autowired
     private VehicleService vehicleService;
-
-    public LeasingContractServiceImpl(LeasingContractRepository leasingContractRepository) {
-        this.leasingContractRepository = leasingContractRepository;
-    }
 
     @Override
     public String saveLeasingContract(LeasingContractDTO contractDTO) {

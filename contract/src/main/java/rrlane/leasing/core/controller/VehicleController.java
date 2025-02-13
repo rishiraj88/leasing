@@ -1,5 +1,6 @@
 package rrlane.leasing.core.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,17 +16,14 @@ import rrlane.leasing.core.service.VehicleService;
 import java.text.ParseException;
 
 @Slf4j
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/vehicle")
 public class VehicleController {
     private final VehicleService vehicleService;
 
-    public VehicleController(VehicleService vehicleService) {
-        this.vehicleService = vehicleService;
-    }
-
     // to create a vehicle with POST and also to edit vehicle details with PUT
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PATCH})
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<VehicleDTO> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
         log.info("Sending vehicle details to server...");
@@ -37,7 +35,7 @@ public class VehicleController {
     }
 
     // to retrieve the details of a vehicle with matching search criteria in specific order
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<VehicleDTO> viewVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
         log.info("Searching for vehicle details on server...");
         VehicleDTO retrievedVehicleDTO = vehicleService.searchForVehicle(vehicleDTO);

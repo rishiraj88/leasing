@@ -1,7 +1,7 @@
 package rrlane.leasing.contract.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,40 +17,36 @@ import rrlane.leasing.util.Mapper;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
+@Slf4j
 @RequestMapping("/contract")
 public class LeasingContractController {
-    private final Logger logs;
     private final LeasingContractService leasingContractService;
 
-    public LeasingContractController(LeasingContractService leasingContractService) {
-        this.leasingContractService = leasingContractService;
-        logs = LoggerFactory.getLogger(LeasingContractController.class);
-    }
-
-    // to create a vehicle leasing contract with POST and also to edit contract details with PATCH
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PATCH})
+    // to create a vehicle leasing contract with POST and also to edit contract details with PATCH data
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<LeasingContractDTO> updateContract(@RequestBody LeasingContractDTO contractDTO) {
-        logs.info("Sending contract details to server...");
+        log.info("Sending contract details to server...");
         HttpStatus responseStatus = HttpStatus.OK;
         String responseFromService = leasingContractService.saveLeasingContract(contractDTO);
         if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
-        logs.info(responseFromService);
+        log.info(responseFromService);
         return new ResponseEntity<>(contractDTO, responseStatus);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
     public ResponseEntity<List<LeasingContractDTO>> viewContract() {
-        logs.info("Searching for policy contract on server...");
+        log.info("Searching for policy contract on server...");
         List<LeasingContract> leasingContracts = leasingContractService.view();
         if (null == leasingContracts || 0 == leasingContracts.size()) {
-            logs.error("Policy contract could not be found on server.");
+            log.error("Policy contract could not be found on server.");
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
         List<LeasingContractDTO> leasingContractDTOs = leasingContracts.stream().map(Mapper::entityToDto).toList();
-        logs.info("Found the contract details successfully in your name: " + leasingContractDTOs.get(0).getCustomerName());
+        log.info("Found the contract details successfully in your name: " + leasingContractDTOs.get(0).getCustomerName());
         return new ResponseEntity<>(leasingContractDTOs, HttpStatus.OK);
     }
 }
