@@ -33,13 +33,13 @@ However, the app may be easily extended to add lessor and administrator use case
 - lombok for boilerplate code generation
 - ELK stack (ELK Stack: Elasticsearch, Kibana, Logstash) for log monitoring and analysis
 
-## Open task with high priority
-- to implement and use Docker secrets for enhanced security (in docker compose yml)
-- OR
-- to orchestrate the containers in Kubernetes clusters.
+## This February is lucky to see these developments 
+- to foster the frontend app with Angular
+- to develop and deliver a parallel frontend with React 19.
+- to implement and use Docker secrets or environment variables for enhanced security (in docker compose yml) to orchestrate the containers in Kubernetes clusters.
 
 ## Screenshots [Newer screenshots to be published to cater to React-based UI]
-The following are the older screenshots:
+The following are the older screenshots, but dare not undermine them. They have captured and do depict the capabilities of this unique application:
 ### Contract Manager
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
 
