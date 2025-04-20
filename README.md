@@ -21,7 +21,7 @@ However, the app may be easily extended to add lessor and administrator use case
 ## Technologies Used to Build the Application
 - React 18 (Frontend app with React 18, TypeScript and Vite/Bun is being developed activels on 'develop' branch.)
 - Angular 18 (Frontend app with Angular 18 will be developed after the React client has been readied.)
-- Java 17 (working well with container runtime)/ Java 21 (experiencing runtime issues)
+- Java 21
 - Spring Boot 3.2.5
 - MySQL 8.0.31 (containerized)
 - JPA 3.1.0 (Jakarta Persistence API)

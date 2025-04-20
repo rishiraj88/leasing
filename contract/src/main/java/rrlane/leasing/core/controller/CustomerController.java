@@ -1,5 +1,6 @@
 package rrlane.leasing.core.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,22 +20,20 @@ import rrlane.leasing.core.service.CustomerService;
  */
 @RestController
 @Slf4j
-@RequestMapping(value = "/customer")
+@RequiredArgsConstructor
+@RequestMapping(value = "/api/v1/customers")
 public class CustomerController {
     private final CustomerService customerService;
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
-    // to create a customer with POST and also to edit a customer with PUT
+    // to create a customer with POST and also to edit a customer with PATCH
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody CustomerDTO customerDTO) {
-        log.info("Sending customer details to server...");
-        HttpStatus responseStatus = HttpStatus.OK;
+    public ResponseEntity<CustomerDTO> uploadCustomer(@RequestBody CustomerDTO customerDTO) {
+        log.info("Uploading customer details to server...");
+        HttpStatus responseStatus = HttpStatus.OK; // for update
         String responseFromService = customerService.saveCustomer(customerDTO);
         if (responseFromService.contains("created")) {
-            responseStatus = HttpStatus.CREATED;
+            responseStatus = HttpStatus.CREATED; // for new customer record creation
         }
         log.info(responseFromService);
         return new ResponseEntity<>(customerDTO, responseStatus);
@@ -42,14 +41,14 @@ public class CustomerController {
 
     // to retrieve the details of a customer with matching inputs (search criteria)
     @GetMapping()
-    public ResponseEntity<CustomerDTO> viewCustomer(@RequestBody CustomerDTO customerDTO) {
+    public ResponseEntity<CustomerDTO> getCustomer(@RequestBody CustomerDTO customerDTO) {
         log.info("Searching for customer details on server...");
         CustomerDTO retrievedCustomerDTO = customerService.searchForCustomer(customerDTO);
         if (null == retrievedCustomerDTO) {
             log.error("Customer details could not be found on server.");
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
-        log.info("Found the customer details with name: " + retrievedCustomerDTO.getName());
+        log.info("Found the customer details with name (as per records): " + retrievedCustomerDTO.getName());
         return new ResponseEntity<>(retrievedCustomerDTO, HttpStatus.OK);
     }
 }

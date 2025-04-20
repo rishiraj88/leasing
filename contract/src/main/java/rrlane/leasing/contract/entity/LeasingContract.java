@@ -3,6 +3,7 @@ package rrlane.leasing.contract.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -10,9 +11,10 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 import rrlane.leasing.core.entity.Customer;
 import rrlane.leasing.core.entity.Vehicle;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "lcontract")
@@ -21,9 +23,8 @@ import rrlane.leasing.core.entity.Vehicle;
 public class LeasingContract {
     @Id
     @Column(name = "lcontract_id")
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     @Column(name = "lcnum")
     private Integer contractNumber; //prop: source of truth is here
     @Column(name = "mrate")

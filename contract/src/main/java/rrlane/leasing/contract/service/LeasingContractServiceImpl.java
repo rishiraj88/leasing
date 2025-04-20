@@ -1,6 +1,7 @@
 package rrlane.leasing.contract.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rrlane.leasing.contract.dto.CustomerDTO;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LeasingContractServiceImpl implements LeasingContractService {
     private final LeasingContractRepository leasingContractRepository;
     @Autowired
@@ -28,36 +30,41 @@ public class LeasingContractServiceImpl implements LeasingContractService {
 
     @Override
     public String saveLeasingContract(LeasingContractDTO contractDTO) {
-        if (null != contractDTO && -1 == contractDTO.getMonthlyRate()) {
+        if (null != contractDTO) {
+            throw new IllegalArgumentException("Contract details are missing. Please attach contract object.");
+        }
+        if (-1 == contractDTO.getMonthlyRate()) {
             throw new IllegalArgumentException("Negative monthly rates are bad.");
         }
         if (null == contractDTO.getCustomerName() || contractDTO.getCustomerName().equals("")) {
             throw new IllegalArgumentException("Customer name must be entered.");
         }
         ///
-        System.out.println("Saving/Updating the details of leasing contract...");
+        log.info("Saving the details of the lease contract...");
         String response = "";
         LeasingContract contract = null;
         contract = leasingContractRepository.findByContractNumber(contractDTO.getContractNumber()).get(0);
+
         if (null != contract) {
             contract.setMonthlyRate(contractDTO.getMonthlyRate());
             contract.setCustomer(Mapper.dtoToEntity(contractDTO.getCustomerDto()));
             contract.setVehicle(Mapper.dtoToEntity(contractDTO.getVehicleDto()));
             leasingContractRepository.save(contract);
-            System.out.println(Constants.LEASING_CONTRACT_UPDATED);
+            log.info(Constants.LEASING_CONTRACT_UPDATED);
             return Constants.LEASING_CONTRACT_UPDATED;
         }
+
         contract = leasingContractRepository.findByCustomer(Mapper.dtoToEntity(contractDTO.getCustomerDto())).get(0);
         if (null != contract) {
             contract.setMonthlyRate(contractDTO.getMonthlyRate());
             contract.setVehicle(Mapper.dtoToEntity(contractDTO.getVehicleDto()));
             leasingContractRepository.save(contract);
-            System.out.println(Constants.LEASING_CONTRACT_UPDATED);
+            log.info(Constants.LEASING_CONTRACT_UPDATED);
             return Constants.LEASING_CONTRACT_UPDATED;
         }
         contract = LeasingContract.builder().contractNumber(contractDTO.getContractNumber()).customer(Mapper.dtoToEntity(contractDTO.getCustomerDto())).vehicle(Mapper.dtoToEntity(contractDTO.getVehicleDto())).build();
         leasingContractRepository.save(contract);
-        System.out.println(Constants.LEASING_CONTRACT_ADDED);
+        log.info(Constants.LEASING_CONTRACT_ADDED);
         return Constants.LEASING_CONTRACT_ADDED;
     }
 

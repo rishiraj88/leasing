@@ -20,25 +20,25 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @Slf4j
-@RequestMapping("/contract")
+@RequestMapping("/api/v1/contracts")
 public class LeasingContractController {
     private final LeasingContractService leasingContractService;
 
-    // to create a vehicle leasing contract with POST and also to edit contract details with PATCH data
+    // to create a vehicle-leasing contract with POST and also to edit contract details with PATCH data
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PATCH})
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<LeasingContractDTO> updateContract(@RequestBody LeasingContractDTO contractDTO) {
-        log.info("Sending contract details to server...");
-        HttpStatus responseStatus = HttpStatus.OK;
+    public ResponseEntity<LeasingContractDTO> uploadContract(@RequestBody LeasingContractDTO contractDTO) {
+        log.info("Uploading contract details to server...");
+        HttpStatus responseStatus = HttpStatus.OK; // for patch (update)
         String responseFromService = leasingContractService.saveLeasingContract(contractDTO);
-        if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED;
+        if (responseFromService.contains("created")) responseStatus = HttpStatus.CREATED; // for new creation
         log.info(responseFromService);
         return new ResponseEntity<>(contractDTO, responseStatus);
     }
 
     @GetMapping()
     @CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
-    public ResponseEntity<List<LeasingContractDTO>> viewContract() {
+    public ResponseEntity<List<LeasingContractDTO>> viewContracts() {
         log.info("Searching for policy contract on server...");
         List<LeasingContract> leasingContracts = leasingContractService.view();
         if (null == leasingContracts || 0 == leasingContracts.size()) {
