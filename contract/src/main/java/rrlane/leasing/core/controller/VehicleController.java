@@ -18,7 +18,7 @@ import java.text.ParseException;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/vehicle")
+@RequestMapping("/api/v1/vehicles")
 public class VehicleController {
     private final VehicleService vehicleService;
 

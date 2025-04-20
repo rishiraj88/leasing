@@ -1,5 +1,6 @@
 package rrlane.leasing.core.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rrlane.leasing.contract.dto.CustomerDTO;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;
 
@@ -21,7 +23,8 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     @Transactional
     public String saveCustomer(CustomerDTO customerDTO) {
-        System.out.println("Saving/Updating customer details...");
+        log.info("Uploading customer details to server...");
+
         String response = "";
         Customer customer = null;
         List<Customer> foundCustomers = customerRepository.findByName(customerDTO.getName());
@@ -32,6 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
             System.out.println(Constants.CUSTOMER_UPDATED);
             return Constants.CUSTOMER_UPDATED;
         }
+
         foundCustomers = customerRepository.findByBirthDate(customerDTO.getBirthDate());
         if (!foundCustomers.isEmpty()) {
             customer = foundCustomers.get(0);
@@ -40,6 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
             System.out.println(Constants.CUSTOMER_UPDATED);
             return Constants.CUSTOMER_UPDATED;
         }
+
         customer = Customer.builder().name(customerDTO.getName()).birthDate(customerDTO.getBirthDate()).build();
         customerRepository.save(customer);
         System.out.println(Constants.CUSTOMER_ADDED);
@@ -47,11 +52,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     public CustomerDTO searchForCustomer(CustomerDTO customerDTO) {
-        return getCustomerByNameAndBirthdate(customerDTO.getName(), customerDTO.getBirthDate());
+        return getCustomerByNameAndBirthDate(customerDTO.getName(), customerDTO.getBirthDate());
     }
 
-    private CustomerDTO getCustomerByNameAndBirthdate(String name, LocalDate bdate) {
-        System.out.println("Retrieving customer details by name and optionally by birth date...");
+    private CustomerDTO getCustomerByNameAndBirthDate(String name, LocalDate bdate) {
+        log.info("Retrieving customer details by name and optionally by birth date...");
         List<Customer> foundCustomers = null;
         if (null == bdate) {
             foundCustomers = customerRepository.findByName(name);
@@ -59,12 +64,12 @@ public class CustomerServiceImpl implements CustomerService {
             foundCustomers = customerRepository.findByNameAndBirthDate(name, bdate);
         }
         if (null != foundCustomers && 0 < foundCustomers.size()) {
-            Customer foundCustomer = null;
-            foundCustomer = foundCustomers.get(0);
-            System.out.println(Constants.CUSTOMER_FOUND);
+            Customer foundCustomer = foundCustomers.get(0);
+            log.info(Constants.CUSTOMER_FOUND);
             CustomerDTO foundCustomerDTO = CustomerDTO.builder().name(foundCustomer.getName()).birthDate(foundCustomer.getBirthDate()).build();
             return foundCustomerDTO;
         }
+        log.info("Customer details not available on server.");
         return null;
     }
 

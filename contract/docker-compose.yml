@@ -1,52 +1,34 @@
-version: "3.5"
 # comments are to be preserved for easy spinning of configs
 services:
   contract:
     #image: i50729/contract:latest
     build: .
-#    restart: always
     ports:
-      - 8080:8080
-    #links:
-     # - db:db
+      - "8080:8080"
     depends_on:
-      - db
-#    environment:
+      - leasedb
+    #environment:
     # to use if planned to implement cloud-config and service discovery
-#      - shopping-service.configserverurl=http://A.B.C.D:8888
-#      - shopping-service.eureka.url=http://A.B.C.D:4444/eureka
-    networks:
-      - appnet
-      - dbnet
+    #  - contract-service.configserverurl=http://A.B.C.D:8888
+    #  - contract-service.eureka.url=http://A.B.C.D:4444/eureka
 
-  db:
-    image: mysql:8.0.31
-    #container_name: database-server
+  leasedb:
+    image: mysql:8.3.0
+    container_name: leasedb
     ports:
-      - 3306:3306
+      - "3306:3306"
     command: --default-authentication-plugin=mysql_native_password
-    env_file:
-      - ./mysql/env_vars
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      #env_file:
+      # - ./mysql/env_vars
     volumes:
-      - db_contract:/var/lib/mysql
-    networks:
-      - dbnet
+      - ./mysql:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   adminer:
     image: adminer
     ports:
-      - 80:8080
-    networks:
-      - appnet
-      - dbnet
-
-volumes:
-  db_contract:
-
-networks:
-  appnet:
-    name: appnet
-  dbnet:
-    name: dbnet
-
-# to implement and use Docker secrets for enhanced security
+      - "80:8080"
+    depends_on:
+      - leasedb

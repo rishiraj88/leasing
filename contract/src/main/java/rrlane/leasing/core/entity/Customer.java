@@ -41,7 +41,7 @@ public class Customer {
     private LocalDate birthDate; //prop: source of truth is here
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
-    private Set<LeasingContract> leasingContracts = new HashSet<>(); // one-to-many
+    private final Set<LeasingContract> leasingContracts = new HashSet<>(); // one-to-many
 
     @Override
     public String toString() {
