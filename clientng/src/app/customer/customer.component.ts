@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CustomerDTO } from './dto/CustomerDTO';
 import { CustomerService } from '../customer.service';
 
@@ -10,8 +10,10 @@ import { CustomerService } from '../customer.service';
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent {
+  @Input()
   private customerDTO?: CustomerDTO
-  private url = 'http://localhost:8080/customer/'
+  
+  private url = 'http://localhost:8080/api/v1/customers/'
 
   constructor(private customerService: CustomerService) { }
 

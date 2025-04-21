@@ -10,7 +10,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './customer-form.component.css'
 })
 export class CustomerFormComponent {
-  //default values added for quick review post app installation
+  //default values added 
+  //for quick review 
+  //post app installation
   name: string = 'Alex'
   birthDate: Date = new Date("12.12.2010"); //12 Dec 2010
 
@@ -18,7 +20,6 @@ export class CustomerFormComponent {
 
   @Output()
   customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
-
 
   save() {
     console.log(this.name)
