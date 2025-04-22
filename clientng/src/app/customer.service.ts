@@ -10,13 +10,13 @@ export class CustomerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private url = 'http://localhost:8080/customer/'
+  private url = 'http://localhost:8080/api/v1/customers/'
 
-  save(customer: CustomerDTO): CustomerDTO {
+  save(customer: CustomerDTO| undefined): CustomerDTO {
     console.log("in service save")
      const data = {
-       "name": customer.name,
-       "birthDate": customer.birthDate
+       "name": customer==undefined? "default name": customer.name,
+       "birthDate": customer==undefined? new Date():  customer.birthDate
      };
      console.log("date: "+data.birthDate)
      console.log("name: "+data.name)
@@ -34,6 +34,6 @@ export class CustomerService {
          console.log("Error occured while saving customer details.")
          console.log(`Error is: ${err}`)
        });
-       return customer
+       return customer==undefined? new CustomerDTO("default names",new Date()) : customer
    }
 }

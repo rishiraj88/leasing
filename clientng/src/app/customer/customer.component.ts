@@ -17,8 +17,10 @@ export class CustomerComponent {
 
   constructor(private customerService: CustomerService) { }
 
-  save(customer: CustomerDTO) {
-    this.customerDTO = this.customerService.save(customer)
+  save(name:string, birthDate:Date) {
+    //customer: CustomerDTO = {name, birthDate}
+
+    this.customerDTO = this.customerService.save(this.customerDTO)
   }
 
   //default values added for quick review post app installation
