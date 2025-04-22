@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CustomerDTO } from './dto/CustomerDTO';
 import { CustomerService } from '../customer.service';
+import { CustomerFormComponent } from '../customer-form/customer-form.component';
 
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [],
+  imports: [CustomerFormComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'
 })
