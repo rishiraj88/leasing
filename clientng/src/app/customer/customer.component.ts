@@ -1,22 +1,27 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CustomerDTO } from './dto/CustomerDTO';
 import { CustomerService } from '../customer.service';
+import { CustomerFormComponent } from '../customer-form/customer-form.component';
 
 @Component({
   selector: 'app-customer',
   standalone: true,
-  imports: [],
+  imports: [CustomerFormComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent {
+  @Input()
   private customerDTO?: CustomerDTO
-  private url = 'http://localhost:8080/customer/'
+  
+  private url = 'http://localhost:8080/api/v1/customers/'
 
   constructor(private customerService: CustomerService) { }
 
-  save(customer: CustomerDTO) {
-    this.customerDTO = this.customerService.save(customer)
+  save(name:string, birthDate:Date) {
+    //customer: CustomerDTO = {name, birthDate}
+
+    this.customerDTO = this.customerService.save(this.customerDTO)
   }
 
   //default values added for quick review post app installation

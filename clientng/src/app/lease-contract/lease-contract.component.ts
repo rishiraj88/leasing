@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './lease-contract.component.css'
 })
 export class LeaseContractComponent {
-
+//"/api/v1/contracts"
 }
