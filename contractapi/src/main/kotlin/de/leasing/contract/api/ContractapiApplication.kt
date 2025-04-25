@@ -1,4 +1,4 @@
-package de.leasing.contractapi
+package de.leasing.contract.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
