@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CustomerDTO } from './customer/dto/CustomerDTO';
 import axios from 'axios';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class CustomerService {
 
   private url = 'http://localhost:8080/api/v1/customers/'
 
-  save(customer: CustomerDTO| undefined): CustomerDTO {
+  save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")
      const data = {
        "name": customer==undefined? "default name": customer.name,

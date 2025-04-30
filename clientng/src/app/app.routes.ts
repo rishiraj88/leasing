@@ -3,7 +3,6 @@ import { HomeComponent } from './home/home.component';
 import { CustomerComponent } from './customer/customer.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { LeaseContractComponent } from './lease-contract/lease-contract.component';
-import { AppComponent } from './app.component';
 
 export const routes: Routes = [
     {'path':'home','title':'Home | RRLane',component:HomeComponent},
