@@ -7,7 +7,7 @@ RUN gradle bootJar
 
 # Deploy
 FROM amazoncorretto:21-alpine3.21 AS deploy
-WORKDIR /contractapi
+WORKDIR /app
 RUN mkdir target
 
 LABEL maintainer="Rishi Raj"
@@ -15,6 +15,7 @@ LABEL version="1.0.1-SNAPSHOT"
 LABEL description="Dockerfile for Vehicle Leasing Portal :: API :: with Kotlin 1.9.25 (JDK 21 API level)"
 
 COPY --from=build /app/build/libs/contractapi-1.0.1-SNAPSHOT.jar /app/target/
+
 EXPOSE 8080
 CMD [ "java", "-jar", "target/contractapi-1.0.1-SNAPSHOT.jar" ]
 

@@ -8,8 +8,10 @@ import lombok.extern.slf4j.Slf4j
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.util.UriComponentsBuilder
 
@@ -30,5 +32,16 @@ class LeasingContractController(private val leasingContractService: LeasingContr
         val location = uriBuilder.path("/api/v2/contracts/{id}")
             .buildAndExpand(newLeasingContract.id).toUri()
         return ResponseEntity.created(location).body(newLeasingContract)
+    }
+
+    @GetMapping
+    fun viewAllContracts(
+        @RequestParam(defaultValue = "0") page: Int,
+        @RequestParam(defaultValue = "20") size: Int,
+        @RequestParam(required = false) sortBy: String?
+    ) : ResponseEntity<Iterable<LeasingContractResp>>{
+        log.info("Fetching the list of all the contracts available on server...")
+        return  if (null == sortBy) ResponseEntity.ok(leasingContractService.listAllLeasingContracts(page, size))
+        else ResponseEntity.ok( leasingContractService.listAllLeasingContracts(sortBy))
     }
 }
