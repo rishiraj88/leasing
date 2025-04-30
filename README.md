@@ -1,45 +1,51 @@
 # Online Vehicle Leasing [B2C, B2B]
-## Note: The code here is available in repos for quick review and feedback. Continuous improvement is endorsed.
+## Note: The code here is available in repos for quick review and feedback. Continuous development is going on.
 
-This project is a utility app for the following classes of end-users:
-- lessee, called `customer` in the project for easier reference, and
-- lessor, called `provider`.
+This project is a commerce-targetting app for the following classes of end-users:
+- lessee, referred to as `customer` in the project, and
+- lessor, referred to as `provider`.
 
-The app is designed in the form of two modules:
-- backend modules, in the directory `contract`, and
-- frontend modules, in the directory `clientng`. (under development currently)
-- to provide more than one frontend.
+The app is designed with two modules contained in it:
+- backend, in the directory `contractapi`, and
+- frontend, in the directory `clientng`. (under active development)
 
-Using this app, Lessees can perform these actions about vehicles and leasing contracts:
+
+One more implementation (ReactJS-NextJS) of frontend is also to be presented in future.
+
+
+Using this app, Lessees can perform these actions in the context of vehicles and leasing contracts:
 - take vehicles on lease,
-- respect such leasing contracts, and
-- return the leased vehicles to the providers.
+- abide by and fulfill such leasing contracts, and
+- return the leased vehicles to respective providers.
 
-The usage scenarios for lessors are not available in the current version of the app as it has been planned to essentially be a User Self-Help Portal. 
-However, the app may be easily extended to add lessor and administrator use cases.
+_User Self-Help Portal:_ The usage scenarios for lessors are not ready in the current version of the app as the app is more focused towards customer usage. 
+However, the app may be easily extended to add lessor use cases and administrator scenarios.
 
-## Technologies Used to Build the Application
-- React 18 (Frontend app with React 18, TypeScript and Vite/Bun is being developed activels on 'develop' branch.)
-- Angular 18 (Frontend app with Angular 18 will be developed after the React client has been readied.)
-- Java 21
-- Spring Boot 3.2.5
-- MySQL 8.0.31 (containerized)
-- JPA 3.1.0 (Jakarta Persistence API)
-- Hibernate 6.4.4 for ORM
-- Docker with docker-compose
-- Gradle with Maven
+## Technologies Used to Build the versatile Utility
+- Angular 18 (Frontend Web UI with Angular 18)
+- Kotlin 1.9 (Java 21 API level)
+- Spring Boot 3
+- MySQL (containerized)
+- JPA (Jakarta Persistence API)
+- Hibernate for JPA/ORM
+- Docker with multi-stage docker-compose and Dockerfile
+- Gradle (Kotlin DSL)
 - Flyway for database migration
-- SLF4j for logging
-- lombok for boilerplate code generation
-- ELK stack (ELK Stack: Elasticsearch, Kibana, Logstash) for log monitoring and analysis
+- SLF4J for logging
+- ELK stack (ELK: Elasticsearch, Kibana, Logstash) for log monitoring and analysis (to be added soon)
+- React 18 (Frontend app with React 18, TypeScript and Vite/Bun planned for future)
 
-## This February is lucky to see these developments 
-- to foster the frontend app with Angular
-- to develop and deliver a parallel frontend with React 19.
-- to implement and use Docker secrets or environment variables for enhanced security (in docker compose yml) to orchestrate the containers in Kubernetes clusters.
+## This Spring brings good luck with these developments
+- the stable and charming frontend app with Angular
+- to use parameters for secrets with Docker Compose and enhance the platform security
+- to orchestrate the containers in Kubernetes clusters (next up!)
 
-## Screenshots [Newer screenshots to be published to cater to React-based UI]
-The following are the older screenshots, but dare not undermine them. They have captured and do depict the capabilities of this unique application:
+## Screenshots
+### Developer Experience (Containers running smooth and stable)
+![Lease Contract containers](./assets/contractKt/contract-api-containers-running-20250430.png)
+
+
+The following are the older screenshots, but please undermine them not. They have captured and do depict the capabilities of this versatile application:
 ### Contract Manager
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
 
