@@ -9,7 +9,7 @@ export class CustomerService {
 
   //constructor(private httpClient: HttpClient) { }
 
-  private url = 'http://localhost:8080/api/v1/customers/'
+  private url = 'http://localhost:8080/api/v2/contracts'
 
   save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")
