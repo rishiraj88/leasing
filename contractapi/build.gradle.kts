@@ -4,10 +4,11 @@ plugins {
 	id("org.springframework.boot") version "3.4.5"
 	id("io.spring.dependency-management") version "1.1.7"
 	kotlin("plugin.jpa") version "1.9.25"
+	application
 }
 
-group = "rrlane.leasing"
-version = "0.0.1-SNAPSHOT"
+group = "de.leasing.contract"
+version = "1.0.1-SNAPSHOT"
 
 java {
 	toolchain {
@@ -57,4 +58,8 @@ allOpen {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+application {
+	mainClass.set("de.leasing.contract.api.ContractapiApplication")
 }

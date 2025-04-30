@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 data class LeasingContractReq (
     val contractNumber: String,
     val monthlyRate: Double,
-    val vehicleDetails: String,
+    val vehicleIN: String,
     val customerName: String,
     val customerDto: CustomerDTO? = null,
     val vehicleDto: VehicleDTO? = null,

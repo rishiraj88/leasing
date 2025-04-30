@@ -5,5 +5,4 @@ import de.leasing.contract.api.dto.LeasingContractResp
 
 interface LeasingContractService {
     fun saveLeasingContract(contractReq: LeasingContractReq ): LeasingContractResp
-
 }
