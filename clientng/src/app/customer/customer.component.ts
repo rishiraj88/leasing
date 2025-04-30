@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CustomerDTO } from './dto/CustomerDTO';
 import { CustomerService } from '../customer.service';
 import { CustomerFormComponent } from '../customer-form/customer-form.component';
@@ -12,35 +12,23 @@ import { CustomerFormComponent } from '../customer-form/customer-form.component'
 })
 export class CustomerComponent {
   @Input()
-  private customerDTO?: CustomerDTO
-  
-  private url = 'http://localhost:8080/api/v1/customers/'
+  public customerDTO?: CustomerDTO
+  private url = 'http://localhost:8080/api/v2/contracts'
 
   constructor(private customerService: CustomerService) { }
 
-  save(name:string, birthDate:Date) {
-    //customer: CustomerDTO = {name, birthDate}
-
-    this.customerDTO = this.customerService.save(this.customerDTO)
-  }
-
-  //default values added for quick review post app installation
+  //default values added
+  // for quick review
+  // post app installation
   name: string = 'Alex'
-  birthDate: Date = new Date("11.11.2005"); //11 Nov 2005
+  birthDate: Date = new Date("9.11.2005"); //09 Nov 2005
 
   saveEditLabel: string = 'Save'
 
-  @Output()
-  customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
-
-  prepareCustomerDTO() {
-    console.log(this.name)
-    console.log(this.birthDate)
-    let customerDTO = new CustomerDTO(this.name, this.birthDate)
-    this.customerDtoEvent.emit(customerDTO)
-    console.log(customerDTO)
-    this.saveEditLabel= 'Edit'
+  save($eventDTO: CustomerDTO) {
+    console.log("customerpage:: customerDtoEvent: ")
+    console.log($eventDTO)
+    if ($eventDTO)
+      this.customerDTO = this.customerService.save($eventDTO)
   }
-
-
 }

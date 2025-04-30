@@ -10,27 +10,29 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './customer-form.component.css'
 })
 export class CustomerFormComponent {
-  //default values added 
-  //for quick review 
-  //post app installation
-  name: string = 'Alex'
-  birthDate: Date = new Date("12.12.2010"); //12 Dec 2010
 
-  saveEditLabel: string = 'Save'
+  public customerDTO: CustomerDTO = new CustomerDTO("null",new Date())
+  public saveEditLabel: string = 'Save'
+
+  //default values added
+  // for quick review
+  // post app installation
+  name: string = 'Alex'
+  birthDate: Date = new Date("03.02.2010"); //Tue Mar 02 2010
 
   @Output()
   customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
 
-  save() {
-    console.log(this.name)
-    console.log(this.birthDate)
-    let customerDTO = new CustomerDTO(this.name, this.birthDate)
-    this.customerDtoEvent.emit(customerDTO)
-    console.log(customerDTO)
+  public save() {
+    console.log("form:: name: "+this.customerDTO.name)
+    console.log("form:: dob: "+this.customerDTO.birthDate)
+    this.customerDTO = new CustomerDTO(this.name, this.birthDate)
+    console.log("form:: dto: "+this.customerDTO)
     this.saveEditLabel= 'Edit'
+    this.customerDtoEvent.emit(this.customerDTO)
   }
 
-  clear() {
+  public clear() {
     this.name = ''
     this.birthDate = new Date();
     this.saveEditLabel = 'Save'

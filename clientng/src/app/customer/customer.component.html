@@ -3,6 +3,7 @@
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">View, verify and update your own
         details with this easy-to-use form.</h1>
+      <div>{{customerDTO}}</div>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Your relation with us is always priceless. Now you are on
         your own page to udpate and verify your personal data.</p>
       <br>
@@ -13,6 +14,6 @@
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">If no record is found by customer name, then date of birth
         will be used to search for record and the name in the record will be updated.</p>
     </div>
-    <app-customer-form/>
+    <app-customer-form (customerDtoEvent)="save($event)" />
   </div>
 </section>
