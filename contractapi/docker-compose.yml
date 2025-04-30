@@ -19,7 +19,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./leasedb:/var/lib/mysql
-      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
 
   adminer:
     image: adminer
