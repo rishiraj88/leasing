@@ -6,10 +6,10 @@ import java.util.UUID
 data class LeasingContractResp (
     //id for database integrity
     val id: UUID,
-    //contractNumber may be rotated
+    //contractNumber for business use, may be rotated
     val contractNumber: String,
     val monthlyRate: Double,
-    val vehicleDetails: String,
+    val vehicleIN: String,
     val customerName: String,
     val customerDto: CustomerDTO? = null,
     val vehicleDto: VehicleDTO? = null,

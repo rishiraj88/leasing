@@ -1,0 +1,29 @@
+# comments are to be preserved for easy spinning of configs
+services:
+  contractapi:
+    #image: i50729/contractapi:latest
+    build: .
+    container_name: contractapi
+    ports:
+      - "8080:8080"
+    depends_on:
+      - leasedb
+
+  leasedb:
+    image: mysql:8.3.0
+    container_name: leasedb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_USERNAME: ${DB_USER}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./leasedb:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  adminer:
+    image: adminer
+    ports:
+      - "80:8080"
+    depends_on:
+      - leasedb
