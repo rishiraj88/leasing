@@ -45,20 +45,20 @@ However, the app may be easily extended to add lessor use cases and administrato
 ![Lease Contract containers](./assets/contractKt/contract-api-containers-running-20250430.png)
 
 
-The following are the older screenshots, but please undermine them not. They have captured and do depict the capabilities of this versatile application:
+The following screenshots depict the capabilities of this versatile application:
 ### Contract Manager
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
 
 ### Customer Manager
-![Customer manager to add, update and view customer details](./assets/20240614/customer-form.png)
+![Customer manager to add, update and view customer details](./clientng/public/customer-view.png)
 
 ### Vehicle Manager
-![Vehicle manager to add, update and view vehicle details](./assets/vehicle-manager.png)
+![Vehicle manager to add, update and view vehicle details](./clientng/public/vehicle-view.png)
 
 ### Home View
-- ![Top of home view (home page)](./assets/home-top.png)
+- ![Top of home view (home page)](./clientng/public/home-view-1.png)
 
-- ![Bottom of home view (home page)](./assets/home-bottom.png)
+- ![Bottom of home view (home page)](./clientng/public/home-view-2.png)
 
 ## Business Scenario and Use Cases
 
