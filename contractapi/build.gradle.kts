@@ -7,7 +7,7 @@ plugins {
 	application
 }
 
-group = "de.leasing.contract"
+group = "de.leasing.contract.api"
 version = "1.0.1-SNAPSHOT"
 
 java {

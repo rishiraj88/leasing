@@ -1,5 +1,7 @@
 package de.leasing.contract.api.entity
 
+import de.leasing.contract.api.dto.CustomerReq
+import de.leasing.contract.api.dto.CustomerResp
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -16,4 +18,11 @@ data class Customer(val name: String, val birthDate: LocalDate) {
     @GeneratedValue(strategy = GenerationType.UUID)
     lateinit var id: UUID
 
+
+    fun toResp() = CustomerResp(id,name,birthDate)
+
+    companion object {
+        fun fromReq(req: CustomerReq): Customer =
+            Customer(req.name, req.birthDate)
+    }
 }

@@ -1,5 +1,6 @@
 package de.leasing.contract.api.dto
 
-import java.time.LocalDateTime
+import java.time.LocalDate
+import java.util.UUID
 
-data class CustomerDTO(val name:String,val birthDate:LocalDateTime)
+data class CustomerDTO(val id: UUID, val name:String, val birthDate: LocalDate)
