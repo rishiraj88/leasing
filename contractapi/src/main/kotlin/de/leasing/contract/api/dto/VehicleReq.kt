@@ -1,9 +1,6 @@
 package de.leasing.contract.api.dto
 
-import java.util.UUID
-
-data class VehicleDTO(
-    val id: UUID,
+data class VehicleReq(
     val brand: String, val model: String, val makeYear: String? = null, val vin: String,
     val price: Double? = null
 )

@@ -1,7 +1,6 @@
 # comments are to be preserved for easy spinning of configs
 services:
   contractapi:
-    #image: i50729/contractapi:latest
     build: .
     container_name: contractapi
     ports:
@@ -19,7 +18,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./leasedb:/var/lib/mysql
-      - ./docker/mysql-init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   adminer:
     image: adminer
