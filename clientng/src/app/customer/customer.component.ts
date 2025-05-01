@@ -13,15 +13,14 @@ import { CustomerFormComponent } from '../customer-form/customer-form.component'
 export class CustomerComponent {
   @Input()
   public customerDTO?: CustomerDTO
-  private url = 'http://localhost:8080/api/v2/contracts'
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private _customerService: CustomerService) { }
 
   //default values added
   // for quick review
   // post app installation
   name: string = 'Alex'
-  birthDate: Date = new Date("9.11.2005"); //09 Nov 2005
+  birthDate: Date = new Date("11.11.2005");
 
   saveEditLabel: string = 'Save'
 
@@ -29,6 +28,6 @@ export class CustomerComponent {
     console.log("customerpage:: customerDtoEvent: ")
     console.log($eventDTO)
     if ($eventDTO)
-      this.customerDTO = this.customerService.save($eventDTO)
+      this.customerDTO = this._customerService.save($eventDTO)
   }
 }
