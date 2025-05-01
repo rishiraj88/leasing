@@ -18,7 +18,7 @@ export class CustomerFormComponent {
   // for quick review
   // post app installation
   name: string = 'Alex'
-  birthDate: Date = new Date("03.02.2010"); //Tue Mar 02 2010
+  birthDate: Date = new Date("03.03.2010");
 
   @Output()
   customerDtoEvent: EventEmitter<CustomerDTO> = new EventEmitter<CustomerDTO>();
@@ -37,5 +37,4 @@ export class CustomerFormComponent {
     this.birthDate = new Date();
     this.saveEditLabel = 'Save'
   }
-
 }

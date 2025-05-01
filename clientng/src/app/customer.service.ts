@@ -9,7 +9,7 @@ export class CustomerService {
 
   //constructor(private httpClient: HttpClient) { }
 
-  private url = 'http://localhost:8080/api/v2/contracts'
+  private customer_endpoint = 'http://localhost:8080/api/v2/customers'
 
   save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")
@@ -20,7 +20,7 @@ export class CustomerService {
      console.log("date: "+data.birthDate)
      console.log("name: "+data.name)
      axios
-       .post(this.url, data, {
+       .post(this.customer_endpoint, data, {
          headers: {
            Accept: "application/json",
            "Content-Type": "application/json;charset=UTF-8",
