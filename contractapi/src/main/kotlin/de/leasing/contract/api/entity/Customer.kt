@@ -4,25 +4,24 @@ import de.leasing.contract.api.entity.dto.CustomerReq
 import de.leasing.contract.api.entity.dto.CustomerResp
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import jakarta.persistence.Temporal
+import jakarta.persistence.TemporalType
+import org.hibernate.annotations.UuidGenerator
 import java.time.LocalDate
-import java.util.UUID
 
 @Entity
 @Table(name = "customers")
 data class Customer(
     @Column(name = "name", length = 17)
     val name: String,
-    @Column(name = "birth_date")
+    @Column(name = "birth_date") @Temporal(TemporalType.DATE)
     val birthDate: LocalDate) {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    lateinit var id: UUID
-
+    @UuidGenerator
+    lateinit var id: String
 
     fun toResp() = CustomerResp(id,name,birthDate)
 
@@ -30,4 +29,6 @@ data class Customer(
         fun fromReq(req: CustomerReq): Customer =
             Customer(req.name, req.birthDate)
     }
+
+
 }

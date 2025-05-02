@@ -3,7 +3,6 @@ package de.leasing.contract.api.controller
 import de.leasing.contract.api.commons.Constants
 import de.leasing.contract.api.entity.dto.CustomerReq
 import de.leasing.contract.api.entity.dto.CustomerResp
-import de.leasing.contract.api.entity.dto.LeasingContractResp
 import de.leasing.contract.api.service.CustomerService
 import lombok.extern.slf4j.Slf4j
 import org.slf4j.Logger
@@ -40,9 +39,9 @@ class CustomerController(private val customerService: CustomerService) {
 
     @GetMapping("{id}")
     fun viewCustomerById(
-        @PathVariable() id: UUID
+        @PathVariable id: UUID
     ) : ResponseEntity<CustomerResp>{
-        log.info("Fetching the contract record with the input ID...")
+        log.info("Fetching the customer record with the input ID...")
         return ResponseEntity.ok(customerService.getCustomerById(id))
     }
 

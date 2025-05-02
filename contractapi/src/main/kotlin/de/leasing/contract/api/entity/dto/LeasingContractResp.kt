@@ -1,11 +1,10 @@
 package de.leasing.contract.api.entity.dto
 
 import java.time.LocalDateTime
-import java.util.UUID
 
 data class LeasingContractResp (
     //id for database integrity
-    val id: UUID,
+    val id: String,
     //contractNumber for business use, may be rotated
     val contractNumber: String,
     val monthlyRate: Double,

@@ -32,4 +32,3 @@ INDEX(vin,customer_name),
 FOREIGN KEY(vin) REFERENCES vehicles(vin),
 FOREIGN KEY(customer_name) REFERENCES customers(name)
 );
--- TODO to alter leasecontracts at later stages of development

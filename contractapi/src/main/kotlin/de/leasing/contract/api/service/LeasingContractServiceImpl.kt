@@ -1,8 +1,8 @@
 package de.leasing.contract.api.service
 
+import de.leasing.contract.api.entity.LeasingContract
 import de.leasing.contract.api.entity.dto.LeasingContractReq
 import de.leasing.contract.api.entity.dto.LeasingContractResp
-import de.leasing.contract.api.entity.LeasingContract
 import de.leasing.contract.api.exception.ResourceNotFoundException
 import de.leasing.contract.api.repo.LeasingContractRepository
 import org.slf4j.Logger
@@ -11,7 +11,6 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class LeasingContractServiceImpl(private val leasingContractRepository: LeasingContractRepository) :
@@ -41,7 +40,7 @@ class LeasingContractServiceImpl(private val leasingContractRepository: LeasingC
         return sortedLeasingContractResps
     }
 
-    override fun getLeasingContractById(id: UUID): LeasingContractResp {
-        return leasingContractRepository.getById(id).toResp()
+    override fun getLeasingContractById(id: String): LeasingContractResp {
+        return leasingContractRepository.getReferenceById(id).toResp()
     }
 }
