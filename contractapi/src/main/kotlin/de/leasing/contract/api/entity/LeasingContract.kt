@@ -30,10 +30,11 @@ data class LeasingContract(
     )
 
     companion object {
-        fun fromReq(req: LeasingContractReq): LeasingContract =
-            LeasingContract(
-                req.contractNumber, req.monthlyRate, req.vehicleIN, req.customerName
+        fun fromReq(req: LeasingContractReq): LeasingContract {
+            return LeasingContract(
+                req.contractNumber, req.monthlyRate, req.vehicleIN, req.customerName,req.leaseStartsAt,req.leaseExpiresAt
             )
+        }
     }
 
 }

@@ -63,15 +63,24 @@ The following screenshots depict the capabilities of this versatile application:
 - ![Bottom of home view (home page)](./clientng/public/home-view-2.png)
 
 
-### Vehicle API
+### Vehicle API (invoked directly with Dev Tools)
 ![adding vehicle record](./assets/contractKt/create-vehicle-20250502.png)
 
-### Customer API
+### Customer API (invoked directly with Dev Tools)
 ![adding customer record](./assets/contractKt/create-user-20250502.png)
 
-### Lease Contract API
+### Lease Contract API (invoked directly with Dev Tools)
 ![adding contract record](./assets/contractKt/create-contract-20250502.png)
 
+
+### Vehicle API (invoked with Lease Contract Web App)
+![adding vehicle record](./assets/contractKt/vehicle-from-web-ui-saved-in-db.png)
+
+### Customer API (invoked with Lease Contract Web App)
+![adding customer record](./assets/contractKt/customer-from-web-ui-saved-in-db.png)
+
+### Lease Contract API (invoked with Lease Contract Web App)
+![adding contract record](./assets/contractKt/create-contract-20250502.png)
 
 ## Business Scenario and Use Cases
 
