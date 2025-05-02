@@ -16,10 +16,11 @@ LABEL description="Dockerfile for Vehicle Leasing Portal :: API :: with Kotlin 1
 WORKDIR /app
 RUN mkdir target
 
-COPY --from=build /app/build/libs/contractapi-1.0.1-SNAPSHOT-plain.jar /app/target/
+#COPY --from=build /app/build/libs/contractapi-1.0.1-SNAPSHOT-plain.jar /app/target/
+COPY --from=build /app/build/libs/app-1.0.1-SNAPSHOT.jar /app/target/
 
 EXPOSE 8080
-CMD [ "java", "-jar", "target/contractapi-1.0.1-SNAPSHOT.jar" ]
+CMD [ "java", "-jar", "target/app-1.0.1-SNAPSHOT.jar" ]
 
 VOLUME ./mysql:/var/lib/mysql
 VOLUME ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql

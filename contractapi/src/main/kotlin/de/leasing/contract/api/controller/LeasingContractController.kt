@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.util.UriComponentsBuilder
-import java.util.UUID
 
 @RestController @RequestMapping("/api/v2/contracts/")
 @Slf4j
@@ -39,7 +38,7 @@ class LeasingContractController(private val leasingContractService: LeasingContr
 
     @GetMapping("{id}")
     fun viewContractById(
-        @PathVariable() id: UUID
+        @PathVariable() id: String
     ) : ResponseEntity<LeasingContractResp>{
         log.info("Fetching the contract record with the input ID...")
         return ResponseEntity.ok(leasingContractService.getLeasingContractById(id))

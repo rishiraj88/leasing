@@ -8,20 +8,20 @@ import axios from 'axios';
 export class VehicleService {
 
   constructor() { }
-  private vehicle_endpoint = 'http://localhost:8080/api/v2/vehicles'
+  private vehicle_endpoint = 'http://localhost:8080/api/v2/vehicles/'
 
   save(vehicle: VehicleDTO): VehicleDTO {
     console.log("in service save")
      const data = {
        "brand": vehicle.brand,
        "model": vehicle.model,
-       "myear": vehicle.year,
+       "makeYear": vehicle.makeYear,
        "vin": vehicle.vin,
        "price": vehicle.price
      };
      console.log("brand: "+data.brand)
      console.log("model: "+data.model)
-     console.log("make year: "+data.myear)
+     console.log("make year: "+data.makeYear)
      console.log("vin: "+data.vin)
      console.log("price: "+data.price)
      axios

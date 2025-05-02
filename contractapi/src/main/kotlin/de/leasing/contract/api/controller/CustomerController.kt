@@ -16,10 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.util.UriComponentsBuilder
-import java.util.UUID
 
 @RestController @RequestMapping("/api/v2/customers/")
 @Slf4j
+//@CrossOrigin(origins = ["http://localhost:4200/"], maxAge = 3600)
+/*
+@CrossOrigin(allowedHeaders = ["Orgin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+    methods = [RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT,RequestMethod.DELETE]
+)*/
+
 class CustomerController(private val customerService: CustomerService) {
     private val log: Logger = LoggerFactory.getLogger(CustomerController::class.java)
 
@@ -39,7 +44,7 @@ class CustomerController(private val customerService: CustomerService) {
 
     @GetMapping("{id}")
     fun viewCustomerById(
-        @PathVariable id: UUID
+        @PathVariable id: String
     ) : ResponseEntity<CustomerResp>{
         log.info("Fetching the customer record with the input ID...")
         return ResponseEntity.ok(customerService.getCustomerById(id))

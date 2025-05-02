@@ -19,7 +19,7 @@ class VehicleServiceImpl(private val vehicleRepository: VehicleRepository) :
     private val log: Logger = LoggerFactory.getLogger(VehicleServiceImpl::class.java)
 
     override fun saveVehicleRecord(vehicleReq: VehicleReq): VehicleResp {
-        log.info("Saving the details of vehicle...")
+        log.info("saving the details of vehicle...")
         return vehicleRepository.save(Vehicle.fromReq(vehicleReq)).toResp()
     }
 

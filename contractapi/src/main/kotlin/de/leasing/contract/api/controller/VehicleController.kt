@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.util.UriComponentsBuilder
-import java.util.UUID
 
 @RestController @RequestMapping("/api/v2/vehicles/")
 @Slf4j
@@ -39,7 +38,7 @@ class VehicleController(private val vehicleService: VehicleService) {
 
     @GetMapping("{id}")
     fun viewVehicleById(
-        @PathVariable id: UUID
+        @PathVariable id: String
     ) : ResponseEntity<VehicleResp>{
         log.info("Fetching the vehicle record with the input ID...")
         return ResponseEntity.ok(vehicleService.getVehicleById(id))
