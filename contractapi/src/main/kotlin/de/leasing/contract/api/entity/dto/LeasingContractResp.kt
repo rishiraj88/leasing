@@ -1,4 +1,4 @@
-package de.leasing.contract.api.dto
+package de.leasing.contract.api.entity.dto
 
 import java.time.LocalDateTime
 import java.util.UUID
@@ -11,8 +11,6 @@ data class LeasingContractResp (
     val monthlyRate: Double,
     val vehicleIN: String,
     val customerName: String,
-    val customerDto: CustomerDTO? = null,
-    val vehicleDto: VehicleDTO? = null,
     val leaseStartsAt: LocalDateTime? = null,
     val leaseExpiresAt: LocalDateTime? = null
 )

@@ -1,4 +1,4 @@
-package de.leasing.contract.api.dto
+package de.leasing.contract.api.entity.dto
 
 import java.time.LocalDate
 import java.util.UUID

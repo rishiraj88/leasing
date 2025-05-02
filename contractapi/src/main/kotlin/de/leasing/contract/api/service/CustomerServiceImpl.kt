@@ -1,7 +1,8 @@
 package de.leasing.contract.api.service
 
-import de.leasing.contract.api.dto.CustomerReq
-import de.leasing.contract.api.dto.CustomerResp
+import de.leasing.contract.api.entity.dto.CustomerReq
+import de.leasing.contract.api.entity.dto.CustomerResp
+import de.leasing.contract.api.entity.dto.LeasingContractResp
 import de.leasing.contract.api.entity.Customer
 import de.leasing.contract.api.exception.ResourceNotFoundException
 import de.leasing.contract.api.repo.CustomerRepository
@@ -11,6 +12,7 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class CustomerServiceImpl(private val customerRepository: CustomerRepository) :
@@ -40,4 +42,9 @@ class CustomerServiceImpl(private val customerRepository: CustomerRepository) :
         if (sortedCustomerResps.isEmpty()) throw ResourceNotFoundException("No customer records available to sort and present.")
         return sortedCustomerResps
     }
+
+    override fun getCustomerById(id: UUID): CustomerResp {
+        return customerRepository.getById(id).toResp()
+    }
+
 }

@@ -1,7 +1,8 @@
 package de.leasing.contract.api.entity
 
-import de.leasing.contract.api.dto.CustomerReq
-import de.leasing.contract.api.dto.CustomerResp
+import de.leasing.contract.api.entity.dto.CustomerReq
+import de.leasing.contract.api.entity.dto.CustomerResp
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -12,7 +13,11 @@ import java.util.UUID
 
 @Entity
 @Table(name = "customers")
-data class Customer(val name: String, val birthDate: LocalDate) {
+data class Customer(
+    @Column(name = "name", length = 17)
+    val name: String,
+    @Column(name = "birth_date")
+    val birthDate: LocalDate) {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

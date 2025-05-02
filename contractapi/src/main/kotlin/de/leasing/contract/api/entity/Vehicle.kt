@@ -11,7 +11,15 @@ import java.util.UUID
 @Entity
 @Table(name = "vehicles")
 data class Vehicle(
-    val brand: String, val model: String, @Column(name = "make_year") val makeYear: String? = null, val vin: String,
+    @Column(name = "brand", length = 12)
+    val brand: String,
+    @Column(name = "model", length = 12)
+    val model: String,
+    @Column(name = "make_year")
+    val makeYear: String? = null,
+    @Column(name = "vin", length = 12)
+    val vin: String,
+    @Column(name = "price", length = 12)
     val price: Double? = null
 ) {
     @Id
