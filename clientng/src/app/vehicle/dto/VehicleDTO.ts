@@ -1,6 +1,6 @@
 export class VehicleDTO {
   
-  constructor(private _brand: string,private _model: string,private _year: string,private _vin: string,private _price: number) {}
+  constructor(private _brand: string,private _model: string,private _makeYear: string,private _vin: string,private _price: number) {}
 
   public get brand(): string {
     return this._brand
@@ -10,8 +10,8 @@ export class VehicleDTO {
     return this._model
   }
   
-  public get year(): string {
-    return this._year
+  public get makeYear(): string {
+    return this._makeYear
   }
   
   public get vin(): string {

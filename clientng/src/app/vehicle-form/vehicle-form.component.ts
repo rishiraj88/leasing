@@ -19,7 +19,7 @@ export class VehicleFormComponent {
   // post app installation
   brand: string = 'brand'
   model: string = "model"
-  year: string = '1880'
+  makeYear: string = '1880'
   vin: string = "VIN"
   price: number = 1.11
 
@@ -30,10 +30,10 @@ export class VehicleFormComponent {
     public save() {
       console.log("form:: brand: "+this.vehicleDTO.brand)
       console.log("form:: model: "+this.vehicleDTO.model)
-      console.log("form:: myear: "+this.vehicleDTO.year)
+      console.log("form:: myear: "+this.vehicleDTO.makeYear)
       console.log("form:: vin: "+this.vehicleDTO.vin)
       console.log("form:: price: "+this.vehicleDTO.price)
-      this.vehicleDTO = new VehicleDTO(this.brand, this.model,this.year, this.vin,this.price)
+      this.vehicleDTO = new VehicleDTO(this.brand, this.model,this.makeYear, this.vin,this.price)
       console.log("form:: dto: "+this.vehicleDTO)
       this.saveEditLabel= 'Edit'
       this.vehicleDtoEvent.emit(this.vehicleDTO)
@@ -41,7 +41,7 @@ export class VehicleFormComponent {
   public clear() {
     this.brand = ''
     this.model = ''
-    this.year = ''
+    this.makeYear = ''
     this.vin = ''
     this.price = 0;
     this.saveEditLabel = 'Save'

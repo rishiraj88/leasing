@@ -1,8 +1,8 @@
 package de.leasing.contract.api.service
 
-import de.leasing.contract.api.dto.LeasingContractReq
-import de.leasing.contract.api.dto.LeasingContractResp
 import de.leasing.contract.api.entity.LeasingContract
+import de.leasing.contract.api.entity.dto.LeasingContractReq
+import de.leasing.contract.api.entity.dto.LeasingContractResp
 import de.leasing.contract.api.exception.ResourceNotFoundException
 import de.leasing.contract.api.repo.LeasingContractRepository
 import org.slf4j.Logger
@@ -38,5 +38,9 @@ class LeasingContractServiceImpl(private val leasingContractRepository: LeasingC
         ).map { it.toResp() }
         if (sortedLeasingContractResps.isEmpty()) throw ResourceNotFoundException("No leasing contracts available to sort and present.")
         return sortedLeasingContractResps
+    }
+
+    override fun getLeasingContractById(id: String): LeasingContractResp {
+        return leasingContractRepository.getReferenceById(id).toResp()
     }
 }

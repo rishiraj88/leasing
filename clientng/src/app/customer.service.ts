@@ -9,7 +9,7 @@ export class CustomerService {
 
   //constructor(private httpClient: HttpClient) { }
 
-  private customer_endpoint = 'http://localhost:8080/api/v2/customers'
+  private customer_endpoint = 'http://localhost:8080/api/v2/customers/'
 
   save(customer: CustomerDTO): CustomerDTO {
     console.log("in service save")

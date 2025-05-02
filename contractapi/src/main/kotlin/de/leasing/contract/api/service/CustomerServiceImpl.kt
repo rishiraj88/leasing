@@ -1,8 +1,8 @@
 package de.leasing.contract.api.service
 
-import de.leasing.contract.api.dto.CustomerReq
-import de.leasing.contract.api.dto.CustomerResp
 import de.leasing.contract.api.entity.Customer
+import de.leasing.contract.api.entity.dto.CustomerReq
+import de.leasing.contract.api.entity.dto.CustomerResp
 import de.leasing.contract.api.exception.ResourceNotFoundException
 import de.leasing.contract.api.repo.CustomerRepository
 import org.slf4j.Logger
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service
 @Service
 class CustomerServiceImpl(private val customerRepository: CustomerRepository) :
     CustomerService {
-
     private val log: Logger = LoggerFactory.getLogger(CustomerServiceImpl::class.java)
 
     override fun saveCustomerRecord(customerReq: CustomerReq): CustomerResp {
@@ -40,4 +39,9 @@ class CustomerServiceImpl(private val customerRepository: CustomerRepository) :
         if (sortedCustomerResps.isEmpty()) throw ResourceNotFoundException("No customer records available to sort and present.")
         return sortedCustomerResps
     }
+
+    override fun getCustomerById(id: String): CustomerResp {
+        return customerRepository.getById(id).toResp()
+    }
+
 }

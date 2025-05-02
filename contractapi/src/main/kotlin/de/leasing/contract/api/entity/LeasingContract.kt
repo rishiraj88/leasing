@@ -1,44 +1,40 @@
 package de.leasing.contract.api.entity
 
-import de.leasing.contract.api.dto.CustomerDTO
-import de.leasing.contract.api.dto.LeasingContractReq
-import de.leasing.contract.api.dto.LeasingContractResp
-import de.leasing.contract.api.dto.VehicleDTO
+import de.leasing.contract.api.entity.dto.LeasingContractReq
+import de.leasing.contract.api.entity.dto.LeasingContractResp
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import jakarta.persistence.Temporal
+import jakarta.persistence.TemporalType
+import org.hibernate.annotations.UuidGenerator
 import java.time.LocalDateTime
-import java.util.UUID
 
 @Entity
 @Table(name = "leasecontracts")
 data class LeasingContract(
-    @Column(name = "lcnum") val contractNumber: String,
+    @Column(name = "lcnum", length = 12) val contractNumber: String,
     @Column(name = "monthly_rate") val monthlyRate: Double,
-    @Column(name = "vin") val vehicleIN: String,
-    @Column(name = "customer_name") val customerName: String,
-    val customerDto: CustomerDTO? = null,
-    val vehicleDto: VehicleDTO? = null,
-    val leaseStartsAt: LocalDateTime? = null,
-    val leaseExpiresAt: LocalDateTime? = null
+    @Column(name = "vin", length = 12) val vehicleIN: String,
+    @Column(name = "customer_name", length = 17) val customerName: String,
+    @Column(name = "starts_at") @Temporal(TemporalType.TIMESTAMP) val leaseStartsAt: LocalDateTime? = null,
+    @Column(name = "expires_at") @Temporal(TemporalType.TIMESTAMP) val leaseExpiresAt: LocalDateTime? = null
 ) {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    lateinit var id: UUID
+    @UuidGenerator
+    lateinit var id: String
 
     fun toResp() = LeasingContractResp(
-        id, contractNumber, monthlyRate, vehicleIN, customerName, customerDto,
-        vehicleDto
+        id, contractNumber, monthlyRate, vehicleIN, customerName,leaseStartsAt,leaseExpiresAt
     )
 
     companion object {
-        fun fromReq(req: LeasingContractReq): LeasingContract =
-            LeasingContract(
-                req.contractNumber, req.monthlyRate, req.vehicleIN, req.customerName, req.customerDto,
-                req.vehicleDto
+        fun fromReq(req: LeasingContractReq): LeasingContract {
+            return LeasingContract(
+                req.contractNumber, req.monthlyRate, req.vehicleIN, req.customerName,req.leaseStartsAt,req.leaseExpiresAt
             )
+        }
     }
+
 }

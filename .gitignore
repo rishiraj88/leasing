@@ -1,2 +1,5 @@
 desktop.ini
 tmp/
+contractapi/lease/
+contractapi/leasedbl/
+contractapi/leasedb/

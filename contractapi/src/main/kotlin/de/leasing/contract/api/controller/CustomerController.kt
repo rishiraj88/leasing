@@ -1,22 +1,30 @@
 package de.leasing.contract.api.controller
 
 import de.leasing.contract.api.commons.Constants
-import de.leasing.contract.api.dto.CustomerReq
-import de.leasing.contract.api.dto.CustomerResp
+import de.leasing.contract.api.entity.dto.CustomerReq
+import de.leasing.contract.api.entity.dto.CustomerResp
 import de.leasing.contract.api.service.CustomerService
 import lombok.extern.slf4j.Slf4j
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.util.UriComponentsBuilder
 
-@RestController("/api/v2/customers")
+@RestController @RequestMapping("/api/v2/customers/")
 @Slf4j
+//@CrossOrigin(origins = ["http://localhost:4200/"], maxAge = 3600)
+/*
+@CrossOrigin(allowedHeaders = ["Orgin", "X-Requested-With", "Content-Type", "Accept", "Authorization"],
+    methods = [RequestMethod.POST, RequestMethod.GET, RequestMethod.PUT,RequestMethod.DELETE]
+)*/
+
 class CustomerController(private val customerService: CustomerService) {
     private val log: Logger = LoggerFactory.getLogger(CustomerController::class.java)
 
@@ -32,6 +40,14 @@ class CustomerController(private val customerService: CustomerService) {
         val location = uriBuilder.path("/api/v2/customers/{id}")
             .buildAndExpand(newCustomerRecord.id).toUri()
         return ResponseEntity.created(location).body(newCustomerRecord)
+    }
+
+    @GetMapping("{id}")
+    fun viewCustomerById(
+        @PathVariable id: String
+    ) : ResponseEntity<CustomerResp>{
+        log.info("Fetching the customer record with the input ID...")
+        return ResponseEntity.ok(customerService.getCustomerById(id))
     }
 
     @GetMapping
