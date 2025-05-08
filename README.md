@@ -9,6 +9,10 @@ The app is designed with two modules contained in it:
 - backend, in the directory `contractapi`, and
 - frontend, in the directory `clientng`. (under active development)
 
+## Main project directories
+- _clientng:_ Angular implementation of frontend, just enough to invoke API with a lightweight Web interface
+- _contractapi:_ Backend API implementation
+
 
 One more implementation (ReactJS-NextJS) of frontend is also to be presented in future.
 
