@@ -17,7 +17,12 @@ data class Customer(
     @Column(name = "name", length = 17)
     val name: String,
     @Column(name = "birth_date") @Temporal(TemporalType.DATE)
-    val birthDate: LocalDate) {
+    val birthDate: LocalDate
+/*
+, onetomany(mappedBy="customer")
+List<Contract> contracts
+ */
+) {
 
     @Id
     @UuidGenerator

@@ -20,6 +20,15 @@ data class LeasingContract(
     @Column(name = "customer_name", length = 17) val customerName: String,
     @Column(name = "starts_at") @Temporal(TemporalType.TIMESTAMP) val leaseStartsAt: LocalDateTime? = null,
     @Column(name = "expires_at") @Temporal(TemporalType.TIMESTAMP) val leaseExpiresAt: LocalDateTime? = null
+    /* TODO
+, manytoone(mappedBy="customer")
+Customer customer
+ */
+
+    /* TODO
+    onetoone
+    vehicle vehicle
+     */
 ) {
     @Id
     @UuidGenerator
