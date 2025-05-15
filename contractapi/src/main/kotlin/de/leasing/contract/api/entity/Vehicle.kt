@@ -21,6 +21,10 @@ data class Vehicle(
     val vin: String,
     @Column(name = "price", length = 12)
     val price: Double? = null
+/*TODO onetoone
+contract contracr
+ */
+
 ) {
     @Id
     @UuidGenerator
