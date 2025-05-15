@@ -1,4 +1,10 @@
 # Online Vehicle Leasing [B2C, B2B]
+
+Main directories with source code (Main project modules):
+- _contractapi:_ backend API, newer implementation, in Kotlin, cleaner approach 
+- _contract:_ backend API, older implementation in Java, smaller codebase size for carbon footprint
+- _clientng:_ frontend app, Web UI implementation in Angular/TypeScript
+
 ## Note: The code here is available in repos for quick review and feedback. Continuous development is going on.
 
 This project is a commerce-targetting app for the following classes of end-users:

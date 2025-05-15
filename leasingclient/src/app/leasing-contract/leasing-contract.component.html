@@ -1,9 +1,0 @@
-<div class="mt-1 ">
-  <p class="lead mx-4">Add or Edit Leasing Contract</p>
-</div>
-<div>
-  <app-leasing-contract-form [contractNumber]="nextContractNumberSuggestion()" (leasingContractDtoEvent)="save($event)"></app-leasing-contract-form>
-</div>
-<div>
-  <app-leasing-contract-list (load)="0" (leasingContractDtoEvent)="0"></app-leasing-contract-list>
-</div>
