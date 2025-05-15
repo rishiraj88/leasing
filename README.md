@@ -110,13 +110,13 @@ Indicative illustration is below:
 |146349         |Angel Angle     |Neo X4 (2024)      |--        |453,00                     |40321,00                    |  
 |------------------------------------------------------------------------------------------------------------------------|  
 
-#### Customer Entry Form [under development]
+#### Customer Entry Form
 It is a form with fields to enter customer name and birthdate, along with "Update" and "Cancel" buttons.
 
-#### Vehicle Entry Form [under development]
+#### Vehicle Entry Form
 It is a form with fields to enter all five properties (detail points) of vehicle to add or update, with "Update" and "Cancel" buttons.
 
-#### Lease Contract Entry Form [under development]
+#### Lease Contract Entry Form
 A form to enter contract number, monthly rate of contract, related customer name and related vehicle details. Customer name and vehicle details may be picked out of database in order to select existing data about customer and vehicle, respectively.
 
 ## Preconditions to Run the Application
@@ -133,29 +133,28 @@ The application can be set up and started in two distinct methods.
 - Using your favorite Terminal app for shell, clone the files (source code and configuration) from GitHub repository:
 <pre>git clone https://github.com/rishiraj88/leasing.git</pre>
 
-- In your file explorer, go to `leasing/contract` directory:
-<pre>cd leasing/contract</pre>
+- In your file explorer, go to `leasing/contractapi` directory:
+<pre>cd leasing/contractapi</pre>
 
 - Build the project locally with  gradle wrapper:
 <pre>./gradlew build</pre>
 
 ### 2. Pulling the pre-built Docker image
 - Run this command in Terminal app to pull and start the latest contract image published on Docker Hub for project backend:
-<pre>docker run i50729/contract</pre>
+<pre>docker run i50729/contractapi</pre>
 
-In its current stage of development, the backend app runs well with locally available mysql container and the accompanying frontent `leasingclient`.
+In its current stage of development, the backend app runs well with locally available mysql container and the accompanying frontent `clientng`.
 
-One important point to note here: All three (mysql, backend and frontend) must be in a common(=single,shared) network in order to work together. For non-tech-savvy users, it is not an easy feat. Currently work on this is going on.
 
 ## How to Start the Application
 
 - Now you may use the application by visiting this URL:
 <pre>http://localhost:4200/home</pre>
 
-- Freely navigate to and use the sections `Customers`, `Vehicles` and `Leasing Contracts` under `Manage` menu.
+- Freely navigate to and use the sections `Customers`, `Vehicles` and `Leasing Contracts`.
 
-## Reason of Chosen Solution
-The chosen solution corresponds to the use the modern technologies available so as to model complex dynamic systems easily. Hence it enables the businesses to work on heavy-cash businesses more conveniently.
+## Reason of Chosen Solution Style and Technologies
+The chosen solution corresponds to the use of the modern technologies available so as to model complex dynamic systems easily. Hence it enables the businesses to work on cash-heavy businesses more conveniently.
 
 ## General Notes
 Due to some constraints, I have built the MVP. For enhancing and fostering the solution, tech discussions on relevant parameters and methods are always cited and welcome.
@@ -165,37 +164,36 @@ Due to some constraints, I have built the MVP. For enhancing and fostering the s
 ### The backend of the app has been packaged and published with the following commands:
 
 - In your file explorer, go to `leasing/contract` directory:
-<pre>cd leasing/contract</pre>
+<pre>cd contractapi</pre>
 
 - Build the project locally with  gradle wrapper:
 <pre>./gradlew build</pre>
 
 - Build Docker image with:
-<pre>docker build -t i50729/contract:latest .</pre>
+<pre>docker build -t i50729/contractapi:latest .</pre>
 
 - Push the Docker image for publishing with:
-<pre>docker push i50729/contract:latest</pre>
+<pre>docker push i50729/contractapi:latest</pre>
 
 ### The Frontend of the app can be started as follows:
 
-- Build the Docker container network by running:
-<pre>`docker-compose build</pre>
-<pre>docker-compose up -d</pre>
+- download as ZIP the following directory to your workspace:
+<pre>clientng</pre>
 
-- Go to `leasingclient` directory under `leasing`.
-<pre>cd leasingclient</pre>
+- Extract and go to `clientng` directory:
+<pre>cd clientng</pre>
 
-- Build and run the Angular-based frontend with these commands:
+- Build and run the Angular-based frontend with thie commands:
 <pre>npm install</pre>
 <pre>ng serve</pre>
 
 ## Current Status of Functionalities
-1. Only creating and updating customer data is possible. Listing or deleting customer data is not provided for security purpose as the app is to be used by customers.
-2. Only creating and updateing vehicle data is possible for secure use by customers.
+1. Only creating and updating customer data is possible. Listing or deleting customer data is not provided for security purpose as the app is to be used by vehicle customers.
+2. Only adding and modifying vehicle data is possible for secure use by customers.
 3. Policy contracts can be listed and viewed by respective customers for the vehicles leased to them.
 
-## For Feedback, Queries, Collaboration
-- LinkedIn Profile: https://www.linkedin.com/in/rishirajopenminds
-- Contact Card: https://bio.link/rishiraj49de
-- X: https://twitter.com/RishiRajDevOps
-- Other Repositories: https://github.com/rishiraj88?tab=repositories
+## For Feedback, Queries, Collaboration and More
+- LinkedIn Messaging: https://linkedin.com/in/rishirajopenminds
+- Open Contact Card: https://bio.link/rishiraj49de
+- Microblogging and quick notes on X: https://x.com/RishiRajDevOps
+- Other Repositories of Shared Interests: https://github.com/rishiraj88?tab=repositories
