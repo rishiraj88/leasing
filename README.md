@@ -55,8 +55,6 @@ However, the app may be easily extended to add lessor use cases and administrato
 ![Lease Contract containers](./assets/contractKt/contract-api-containers-running-20250430.png)
 
 
-
-
 The following screenshots depict the capabilities of this versatile application:
 ### Contract Manager
 ![Contract manager to access vehicle lease contract](./assets/contract-manager.png)
@@ -197,6 +195,7 @@ Due to some constraints, I have built the MVP. For enhancing and fostering the s
 1. Only creating and updating customer data is possible. Listing or deleting customer data is not provided for security purpose as the app is to be used by vehicle customers.
 2. Only adding and modifying vehicle data is possible for secure use by customers.
 3. Policy contracts can be listed and viewed by respective customers for the vehicles leased to them.
+4. Experimentation on Containers and Packaging are underway on `develop` branch.
 
 ## For Feedback, Queries, Collaboration and More
 - LinkedIn Messaging: https://linkedin.com/in/rishirajopenminds
