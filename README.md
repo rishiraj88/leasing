@@ -1,4 +1,4 @@
-# Online Vehicle Leasing [B2C, B2B]
+# Vehicle Leasing and Contract File [B2C, B2B]
 
 Main directories with source code (Main project modules):
 - _contractapi:_ backend API, newer implementation, in Kotlin, cleaner approach 
