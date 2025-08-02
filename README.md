@@ -45,7 +45,7 @@ However, the app may be easily extended to add lessor use cases and administrato
 - ELK stack (ELK: Elasticsearch, Kibana, Logstash) for log monitoring and analysis (to be added soon)
 - React 18 (Frontend app with React 18, TypeScript and Vite/Bun planned for future)
 
-## This Spring brings good luck with these developments
+## The Spring 2025 has brought good luck with these developments
 - the stable and charming frontend app with Angular
 - to use parameters for secrets with Docker Compose and enhance the platform security
 - to orchestrate the containers in Kubernetes clusters (next up!)
