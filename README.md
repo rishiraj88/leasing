@@ -2,8 +2,8 @@
 
 Main directories with source code (Main project modules):
 - _contractapi:_ backend API, newer implementation, in Kotlin, cleaner approach 
-- _contract:_ backend API, older implementation in Java, smaller codebase size for carbon footprint
-- _clientng:_ frontend app, Web UI implementation in Angular/TypeScript
+- _contract:_ backend API, older implementation in Java, smaller codebase size for reduced carbon footprint
+- _clientng:_ frontend app, Web UI implementation in Angular 18 / TypeScript
 
 ## Note: The code here is available in repos for quick review and feedback. Continuous development is going on.
 
