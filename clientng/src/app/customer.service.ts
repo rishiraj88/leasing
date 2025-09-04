@@ -7,12 +7,12 @@ import axios from 'axios';
 })
 export class CustomerService {
 
-  //constructor(private httpClient: HttpClient) { }
+  private customers: CustomerDTO[] = []
 
   private customer_endpoint = 'http://localhost:8080/api/v2/customers/'
 
   save(customer: CustomerDTO): CustomerDTO {
-    console.log("in service save")
+    console.log("in customer.service#save")
      const data = {
        "name": customer==undefined? "default name": customer.name,
        "birthDate": customer==undefined? new Date():  customer.birthDate
@@ -29,6 +29,7 @@ export class CustomerService {
        })
        .then(({ data }) => {
          console.log("Request to save customer details has been fulfilled.")
+         this.customers.push(customer)
        }).catch(({ err }) => {
          console.log("Error occured while saving customer details.")
          console.log(`Error is: ${err}`)

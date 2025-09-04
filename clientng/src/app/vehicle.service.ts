@@ -7,11 +7,13 @@ import axios from 'axios';
 })
 export class VehicleService {
 
+  vehicles: VehicleDTO[] =[]
+
   constructor() { }
   private vehicle_endpoint = 'http://localhost:8080/api/v2/vehicles/'
 
   save(vehicle: VehicleDTO): VehicleDTO {
-    console.log("in service save")
+    console.log("in vehicle.service#save")
      const data = {
        "brand": vehicle.brand,
        "model": vehicle.model,
@@ -34,6 +36,7 @@ export class VehicleService {
        })
        .then(({ data }) => {
          console.log("Request to save vehicle details has been completed.")
+         this.vehicles.push(vehicle)
        }).catch(({ err }) => {
          console.log("Error occured while saving vehicle details.")
          console.log(`Error is: ${err}`)

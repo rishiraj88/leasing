@@ -7,11 +7,13 @@ import axios from 'axios';
 })
 export class ContractService {
 
+  private contracts: ContractDTO[] = []
+
   constructor() { }
   private contract_endpoint = 'http://localhost:8080/api/v2/contracts/'
 
   save(contract: ContractDTO): ContractDTO {
-    console.log("in service save")
+    console.log("in contract.service#save")
     //const startsAt = contract.leaseStartsAt.getFullYear()+"-"+contract.leaseStartsAt.getMonth()+"-"+contract.leaseStartsAt.getDate()
     //const expiresAt = contract.leaseExpiresAt.getFullYear()+"-"+contract.leaseExpiresAt.getMonth()+"-"+contract.leaseExpiresAt.getDate()
      
@@ -41,6 +43,7 @@ export class ContractService {
        })
        .then(({ data }) => {
          console.log("Request to save contract details has been fulfilled.")
+         this.contracts.push(contract)
        }).catch(({ err }) => {
          console.log("Error occured while saving contract details.")
          console.log(`Error is: ${err}`)
