@@ -1,9 +1,9 @@
-# Online Vehicle Leasing [B2C, B2B]
+# Vehicle Leasing and Contract File [B2C, B2B]
 
 Main directories with source code (Main project modules):
 - _contractapi:_ backend API, newer implementation, in Kotlin, cleaner approach 
-- _contract:_ backend API, older implementation in Java, smaller codebase size for carbon footprint
-- _clientng:_ frontend app, Web UI implementation in Angular/TypeScript
+- _contract:_ backend API, older implementation in Java, smaller codebase size for reduced carbon footprint
+- _clientng:_ frontend app, Web UI implementation in Angular 18 / TypeScript
 
 ## Note: The code here is available in repos for quick review and feedback. Continuous development is going on.
 
@@ -45,7 +45,7 @@ However, the app may be easily extended to add lessor use cases and administrato
 - ELK stack (ELK: Elasticsearch, Kibana, Logstash) for log monitoring and analysis (to be added soon)
 - React 18 (Frontend app with React 18, TypeScript and Vite/Bun planned for future)
 
-## This Spring brings good luck with these developments
+## The Spring 2025 has brought good luck with these developments
 - the stable and charming frontend app with Angular
 - to use parameters for secrets with Docker Compose and enhance the platform security
 - to orchestrate the containers in Kubernetes clusters (next up!)
@@ -53,8 +53,6 @@ However, the app may be easily extended to add lessor use cases and administrato
 ## Screenshots
 ### Developer Experience (Containers running smooth and stable)
 ![Lease Contract containers](./assets/contractKt/contract-api-containers-running-20250430.png)
-
-
 
 
 The following screenshots depict the capabilities of this versatile application:
@@ -197,6 +195,7 @@ Due to some constraints, I have built the MVP. For enhancing and fostering the s
 1. Only creating and updating customer data is possible. Listing or deleting customer data is not provided for security purpose as the app is to be used by vehicle customers.
 2. Only adding and modifying vehicle data is possible for secure use by customers.
 3. Policy contracts can be listed and viewed by respective customers for the vehicles leased to them.
+4. Experimentation on Containers and Packaging are underway on `develop` branch.
 
 ## For Feedback, Queries, Collaboration and More
 - LinkedIn Messaging: https://linkedin.com/in/rishirajopenminds
