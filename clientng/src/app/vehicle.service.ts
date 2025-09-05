@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { VehicleDTO } from './vehicle/dto/VehicleDTO';
 import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,17 @@ export class VehicleService {
 
   vehicles: VehicleDTO[] =[]
 
-  constructor() { }
-  private vehicle_endpoint = 'http://localhost:8080/api/v2/vehicles/'
+  private endpoint = 'http://localhost:8080/api/v2/vehicles/'
+
+  constructor(private httpClient: HttpClient) {}
+
+  getVehicles(): Observable<VehicleDTO[]> {
+    return this.httpClient.get<VehicleDTO[]>(`${this.endpoint}`)
+  }
+
+  addVehicle(vehicle: VehicleDTO): Observable<VehicleDTO>{
+    return this.httpClient.post<VehicleDTO>(`${this.endpoint}`,vehicle)
+    }
 
   save(vehicle: VehicleDTO): VehicleDTO {
     console.log("in vehicle.service#save")
@@ -27,7 +38,7 @@ export class VehicleService {
      console.log("vin: "+data.vin)
      console.log("price: "+data.price)
      axios
-       .post(this.vehicle_endpoint, data, {
+       .post(this.endpoint, data, {
          headers: {
            Accept: "application/json",
            "Content-Type": "application/json;charset=UTF-8",
