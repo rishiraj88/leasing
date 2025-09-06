@@ -17,8 +17,7 @@ export class CustomerComponent {
   constructor(private _customerService: CustomerService) { }
 
   //default values added
-  // for quick review
-  // post app installation
+  // for quick review -- post app installation
   name: string = 'Alex'
   birthDate: Date = new Date("11.11.2005");
 
