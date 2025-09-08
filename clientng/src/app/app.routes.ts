@@ -8,7 +8,7 @@ export const routes: Routes = [
     {'path':'home','title':'Home | RRLane',component:HomeComponent},
     {'path':'customer','title':'Customer | RRLane',component:CustomerComponent},
     {'path':'vehicle','title':'Vehicle | RRLane',component:VehicleComponent},
-    {'path':'contract','title':'Vehicle | RRLane',component:LeaseContractComponent},
+    {'path':'contract','title':'contract | RRLane',component:LeaseContractComponent},
     {'path':'',redirectTo:'/home',pathMatch:'full'},
     {'path':'**','title':'Home | RRLane',component:HomeComponent},
 
